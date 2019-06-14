@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 
 const Header = () => (
-  <div>
+  <div style={{backgroundColor: "black" }}>
     <UL>
       <StyledLink href="/">
         <Li><A>Home</A></Li>
