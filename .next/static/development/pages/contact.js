@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/projects.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/contact.js"],{
 
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js":
 /*!***********************************************************************!*\
@@ -5394,21 +5394,21 @@ exports.formatWithValidation = formatWithValidation;
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fprojects&absolutePagePath=%2FUsers%2Fdimakononenko%2FDesktop%2Fbarva%2Fpages%2Fprojects.js!./":
-/*!*************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fprojects&absolutePagePath=%2FUsers%2Fdimakononenko%2FDesktop%2Fbarva%2Fpages%2Fprojects.js ***!
-  \*************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcontact&absolutePagePath=%2FUsers%2Fdimakononenko%2FDesktop%2Fbarva%2Fpages%2Fcontact.js!./":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcontact&absolutePagePath=%2FUsers%2Fdimakononenko%2FDesktop%2Fbarva%2Fpages%2Fcontact.js ***!
+  \***********************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/projects", function() {
-      var page = __webpack_require__(/*! ./pages/projects.js */ "./pages/projects.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/contact", function() {
+      var page = __webpack_require__(/*! ./pages/contact.js */ "./pages/contact.js")
       if(true) {
-        module.hot.accept(/*! ./pages/projects.js */ "./pages/projects.js", function() {
-          if(!next.router.components["/projects"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/projects.js */ "./pages/projects.js")
-          next.router.update("/projects", updatedPage.default || updatedPage)
+        module.hot.accept(/*! ./pages/contact.js */ "./pages/contact.js", function() {
+          if(!next.router.components["/contact"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/contact.js */ "./pages/contact.js")
+          next.router.update("/contact", updatedPage.default || updatedPage)
         })
       }
       return { page: page.default || page }
@@ -9653,37 +9653,39 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/projects.js":
-/*!***************************!*\
-  !*** ./pages/projects.js ***!
-  \***************************/
+/***/ "./pages/contact.js":
+/*!**************************!*\
+  !*** ./pages/contact.js ***!
+  \**************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return About; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _src_components_MyLayout_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/components/MyLayout.js */ "./src/components/MyLayout.js");
-var _jsxFileName = "/Users/dimakononenko/Desktop/barva/pages/projects.js";
+var _jsxFileName = "/Users/dimakononenko/Desktop/barva/pages/contact.js";
 
 
-function About() {
+
+var Contact = function Contact() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_MyLayout_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 4
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 5
     },
     __self: this
-  }, "This is the projects page"));
-}
+  }, "contact us!"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Contact);
 
 /***/ }),
 
@@ -9815,14 +9817,14 @@ var Layout = function Layout(props) {
 
 /***/ }),
 
-/***/ 2:
-/*!*****************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fprojects&absolutePagePath=%2FUsers%2Fdimakononenko%2FDesktop%2Fbarva%2Fpages%2Fprojects.js ***!
-  \*****************************************************************************************************************************************/
+/***/ 3:
+/*!***************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fcontact&absolutePagePath=%2FUsers%2Fdimakononenko%2FDesktop%2Fbarva%2Fpages%2Fcontact.js ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fprojects&absolutePagePath=%2FUsers%2Fdimakononenko%2FDesktop%2Fbarva%2Fpages%2Fprojects.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fprojects&absolutePagePath=%2FUsers%2Fdimakononenko%2FDesktop%2Fbarva%2Fpages%2Fprojects.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fcontact&absolutePagePath=%2FUsers%2Fdimakononenko%2FDesktop%2Fbarva%2Fpages%2Fcontact.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fcontact&absolutePagePath=%2FUsers%2Fdimakononenko%2FDesktop%2Fbarva%2Fpages%2Fcontact.js!./");
 
 
 /***/ }),
@@ -9838,5 +9840,5 @@ module.exports = dll_1aef2d0bbc0d334d831c;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
-//# sourceMappingURL=projects.js.map
+},[[3,"static/runtime/webpack.js"]]]);
+//# sourceMappingURL=contact.js.map
