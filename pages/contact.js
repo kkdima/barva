@@ -1,4 +1,4 @@
-import Layout from '../components/MyLayout.js';
+import Layout from '../src/components/MyLayout.js';
 
 const Contact = () => (
     <Layout>
