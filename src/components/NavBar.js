@@ -106,8 +106,9 @@ const Li = styled.li`
 	text-align: left;
 	line-height: 45px;
 
-	/* :hover {
-    animation: activeAnim 1s cubic-bezier(.35,.25,0,1.28);
+	li:hover {
+    scale: 0.6;
+    /* animation: activeAnim 1s cubic-bezier(.35,.25,0,1.28);
     animation-fill-mode:forwards;
     @keyframes activeAnim {
       from {
@@ -117,8 +118,8 @@ const Li = styled.li`
         scale: 0.9;
         color: red;
       }
-    }
-  } */
+    } */
+  }
 `;
 
 const A = styled.a`

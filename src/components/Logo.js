@@ -26,19 +26,19 @@ const LogoWrapper = styled.div`
 	border-radius: 6px;
 	margin: 40px 40px;
 
-	animation: gifs 15s infinite running;
+	animation: gifs infinite;
 	animation-fill-mode: forwards;
 	@keyframes gifs {
 		0% {
 			background: url("../../static/images/tumblr_nkpufdntMX1s4fz4bo1_500.gif")
-				center;
+				center contain no-repeat;
 		}
 		33% {
-			background: url("../../static/images/tumblr_ps7mlaKo671tjki5do1_500.gif")
+			background: url("../../static/images/tumblr_ork9tud06F1ws7znjo1_500.gif")
 				center;
 		}
 		100% {
-			background: url("../../static/images/tumblrork9tud06F1ws7znjo1500.gif")
+			background: url("../../static/images/tumblr_ps7mlaKo671tjki5do1_500.gif")
 				center;
 		}
 	}
