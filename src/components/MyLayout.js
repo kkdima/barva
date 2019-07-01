@@ -1,5 +1,6 @@
 import NavBar from './NavBar';
 import MenuButton from './MenuButton';
+import Logo from './Logo';
 import GlobalStyle from '../theme/GlobalStyle';
 import styled from 'styled-components';
 
@@ -7,6 +8,7 @@ import styled from 'styled-components';
 const Layout = props => (
   <Wrapper>
     <GlobalStyle />
+    <Logo />
     <MenuButton/>
     <NavBar />
     {props.children}
@@ -15,7 +17,7 @@ const Layout = props => (
 
 export default Layout;
 
-// global styles:
 const Wrapper = styled.div`
+
 `
 
