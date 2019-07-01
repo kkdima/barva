@@ -1,7 +1,5 @@
 import Layout from '../src/components/MyLayout.js';
 import Link from 'next/link';
-import styled from 'styled-components';
-import GlobalStyle from '../src/theme/GlobalStyle.js';
 
 
 function getPosts() {

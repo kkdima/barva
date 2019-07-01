@@ -23,6 +23,7 @@ export const GlobalStyle = createGlobalStyle `
   body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Chivo', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -35,9 +36,7 @@ export const GlobalStyle = createGlobalStyle `
     cursor: pointer;
     outline: none;
   }
-  h1 {
-    color: pink;
-  }
+  
 `;
 
 export default GlobalStyle;

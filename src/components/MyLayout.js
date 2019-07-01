@@ -1,12 +1,21 @@
-import Header from './Header';
+import NavBar from './NavBar';
+import MenuButton from './MenuButton';
 import GlobalStyle from '../theme/GlobalStyle';
+import styled from 'styled-components';
+
 
 const Layout = props => (
-  <div>
+  <Wrapper>
     <GlobalStyle />
-    <Header />
+    <MenuButton/>
+    <NavBar />
     {props.children}
-  </div>
+  </Wrapper>
 );
 
 export default Layout;
+
+// global styles:
+const Wrapper = styled.div`
+`
+
