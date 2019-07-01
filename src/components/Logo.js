@@ -17,9 +17,11 @@ const Logo = () => (
 export default Logo;
 
 const LogoWrapper = styled.div`
-    position: relative;
+    position: fixed;
+    margin: 0;
+    padding: 0;
     z-index: 1;
-	max-width: 68px;
+	width: 68px;
 	max-height: 68px;
 	border-radius: 6px;
 	margin: 40px 40px;
@@ -48,6 +50,7 @@ const LogoWrapper = styled.div`
         max-height: 68px;
         padding-top: 5px;
         padding-left: 4px;
+        margin: 0;
 	}
 
 	div p {
@@ -60,10 +63,11 @@ const LogoWrapper = styled.div`
 
     #at {
         color: white;
-        font-size: 21px;
+        font-size: 20px;
         position: relative;
         left: 63px;
-        bottom: 49px;
+        bottom: 26px;
         user-select: none;
+        margin: 0;
     }
 `;
