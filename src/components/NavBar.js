@@ -96,7 +96,7 @@ const UL = styled.ul`
 `
 
 const Li = styled.li`
-  /* opacity: 0; */
+  opacity: 0;
   list-style: none;
   color: pink;
   text-align: left;
