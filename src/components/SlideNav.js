@@ -54,23 +54,15 @@ class Menu extends Component {
 	}
 }
 
-// const NO_SLIDE = 0, SLIDE_OUT = 1, SLIDE_IN = 2;
-
 class SlideNav extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { menuTriggered: false };
-		// this.state = {
-		// 	menuTriggerd: NO_SLIDE, //Initial state
-		// }
 	}
 
 	toggleMenu = () => {
 		this.setState({ menuTriggered: !this.state.menuTriggered });
 	};
-	// toggleMenu() {
-    //     this.setState(state => ({ open: state.menuTriggerd % 2 + 1 }));
-    // }
 
 	render() {
 		const { menuTriggered } = this.state;
@@ -91,9 +83,7 @@ class SlideNav extends Component {
 				{menuTriggered ? (
 					<Menu
 						menuTriggered={this.state.menuTriggered}
-					>
-						{/* {this.props.children} */}
-					</Menu>
+					/>
 				) : (
 					<div />
 				)}
@@ -103,12 +93,6 @@ class SlideNav extends Component {
 }
 
 export default SlideNav;
-
-// const stateToAnimation = {
-//     NO_SLIDE: 'none',
-//     SLIDE_OUT: slideInContent + ' forwards',
-//     SLIDE_IN: slideOutContent,
-// }
 
 const StyledLink = styled(Link)``;
 
@@ -185,7 +169,6 @@ const Span = styled.span`
 //END OF MENU/CLOSE BUTTON STYLES;
 //END OF MENU/CLOSE BUTTON STYLES;
 
-const menuOpen = bgAnimationOpen, menuClose = bgAnimationClose;
 
 const Background = styled.div`
 	position: absolute;
@@ -194,6 +177,7 @@ const Background = styled.div`
 	box-sizing: border-box;
 	height: 100vh;
 	width: 100vw;
+	visibility: hidden;
 
 	@keyframes bgAnimationOpen {
 		from {
