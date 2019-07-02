@@ -21,7 +21,7 @@ class Menu extends Component {
 		return (
 			<div>
 				<ThemeProvider theme={theme}>
-					<Background>{console.log(menuTriggered)}</Background>
+					<Background/>
 				</ThemeProvider>
 
 				<UL className="menuOpens">
@@ -81,11 +81,9 @@ class SlideNav extends Component {
 					</MenuTextWrapper>
 				</LogoAndMenuButton>
 				{menuTriggered ? (
-					<Menu
-						menuTriggered={this.state.menuTriggered}
-					/>
+					<Menu/>
 				) : (
-					<div />
+					<div></div>
 				)}
 			</MenuWrapper>
 		);
@@ -177,7 +175,6 @@ const Background = styled.div`
 	box-sizing: border-box;
 	height: 100vh;
 	width: 100vw;
-	visibility: hidden;
 
 	@keyframes bgAnimationOpen {
 		from {
