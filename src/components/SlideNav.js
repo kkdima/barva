@@ -1,58 +1,76 @@
 import Link from "next/link";
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import Logo from "./Logo";
 
 import { menuAnimationOpen } from "../styles/KeyFrames";
 import { menuToClose } from "../styles/KeyFrames";
 import { closeToMenu } from "../styles/KeyFrames";
 import { MenuToCloseBackwards } from "../styles/KeyFrames";
-import { bganimation } from "../styles/KeyFrames";
-import { menuAnimationClose } from "../styles/KeyFrames";
+import { bgAnimationOpen } from "../styles/KeyFrames";
+import { bgAnimationClose } from "../styles/KeyFrames";
 
-const Menu = () => (
-	<div>
-		<Background/>
 
-		<UL 
-			className="menuOpens"
-		>
-			<StyledLink href="/">
-				<Li>
-					<A>Home</A>
-				</Li>
-			</StyledLink>
+class Menu extends Component {
+	constructor(props) {
+		super(props);
+	}
 
-			<StyledLink href="/projects">
-				<Li>
-					<A>Projects</A>
-				</Li>
-			</StyledLink>
+	render() {
+		const { menuTriggered } = this.props;
+		return (
+			<div>
+				<ThemeProvider theme={theme}>
+					<Background>{console.log(menuTriggered)}</Background>
+				</ThemeProvider>
 
-			<StyledLink href="/about">
-				<Li>
-					<A>About</A>
-				</Li>
-			</StyledLink>
+				<UL className="menuOpens">
+					<StyledLink href="/">
+						<Li>
+							<A>Home</A>
+						</Li>
+					</StyledLink>
 
-			<StyledLink href="/contact">
-				<Li>
-					<A>Contact</A>
-				</Li>
-			</StyledLink>
-		</UL>
-	</div>
-);
+					<StyledLink href="/projects">
+						<Li>
+							<A>Projects</A>
+						</Li>
+					</StyledLink>
+
+					<StyledLink href="/about">
+						<Li>
+							<A>About</A>
+						</Li>
+					</StyledLink>
+
+					<StyledLink href="/contact">
+						<Li>
+							<A>Contact</A>
+						</Li>
+					</StyledLink>
+				</UL>
+			</div>
+		);
+	}
+}
+
+// const NO_SLIDE = 0, SLIDE_OUT = 1, SLIDE_IN = 2;
 
 class SlideNav extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { menuTriggered: false };
+		// this.state = {
+		// 	menuTriggerd: NO_SLIDE, //Initial state
+		// }
 	}
 
 	toggleMenu = () => {
 		this.setState({ menuTriggered: !this.state.menuTriggered });
 	};
+	// toggleMenu() {
+    //     this.setState(state => ({ open: state.menuTriggerd % 2 + 1 }));
+    // }
 
 	render() {
 		const { menuTriggered } = this.state;
@@ -61,26 +79,23 @@ class SlideNav extends Component {
 				<LogoAndMenuButton>
 					<Logo />
 					<MenuTextWrapper>
-						<Input
-							type="checkbox"
-							onClick={this.toggleMenu}
-						/>
-						<Span
-							className="text-Menu"
-						>
+						<Input type="checkbox" onClick={this.toggleMenu} />
+						<Span className="text-Menu">
 							<p>Menu</p>
 						</Span>
-						<Span
-							className="text-Close"
-						>
+						<Span className="text-Close">
 							<p>Close</p>
 						</Span>
 					</MenuTextWrapper>
 				</LogoAndMenuButton>
-				{ menuTriggered ? (
-					<Menu />
+				{menuTriggered ? (
+					<Menu
+						menuTriggered={this.state.menuTriggered}
+					>
+						{/* {this.props.children} */}
+					</Menu>
 				) : (
-					<div></div>
+					<div />
 				)}
 			</MenuWrapper>
 		);
@@ -88,6 +103,12 @@ class SlideNav extends Component {
 }
 
 export default SlideNav;
+
+// const stateToAnimation = {
+//     NO_SLIDE: 'none',
+//     SLIDE_OUT: slideInContent + ' forwards',
+//     SLIDE_IN: slideOutContent,
+// }
 
 const StyledLink = styled(Link)``;
 
@@ -164,6 +185,8 @@ const Span = styled.span`
 //END OF MENU/CLOSE BUTTON STYLES;
 //END OF MENU/CLOSE BUTTON STYLES;
 
+const menuOpen = bgAnimationOpen, menuClose = bgAnimationClose;
+
 const Background = styled.div`
 	position: absolute;
 	top: 0;
@@ -172,9 +195,39 @@ const Background = styled.div`
 	height: 100vh;
 	width: 100vw;
 
-	animation: ${bganimation} 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+	@keyframes bgAnimationOpen {
+		from {
+			transform: translateY(-900px);
+		}
+		to {
+			visibility: block;
+		}
+	}
+
+	@keyframes bgAnimationClose {
+		from {
+			transform: translateY(900px);
+		}
+		to {
+			visibility: block;
+		}
+	}
+
+	animation: ${bgAnimationOpen} 0.8s
+		cubic-bezier(0.215, 0.61, 0.355, 1);
 	animation-fill-mode: forwards;
 `;
+
+Background.defaultProps = {
+	theme: {
+		open: "bgAnimationOpen"
+	}
+};
+
+const theme = {
+	close: "bgAnimationClose",
+	open: "bgAnimationOpen"
+};
 
 // UL NAVIGATION STYLES:
 // UL NAVIGATION STYLES:

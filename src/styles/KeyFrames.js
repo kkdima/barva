@@ -45,7 +45,16 @@ export const MenuToCloseBackwards = keyframes`
     }
 `
 
-export const bganimation = keyframes`
+export const bgAnimationOpen = keyframes`
+    from {
+        transform: translateY(-900px);
+    }
+    to {
+        visibility: block;
+    }
+`
+
+export const bgAnimationClose = keyframes`
     from {
         transform: translateY(-900px);
     }
@@ -55,12 +64,11 @@ export const bganimation = keyframes`
 `
 
 
-export const menuAnimationClose = keyframes`
-    0% {
-        transform: translateY(-50px);
-    }
-    100% {
-        /* opacity: 0; */
-        color: red;
-    }
-`
+// export const bgAnimationClose = keyframes`
+//     0% {
+//         transform: translateY(-900px);        
+//     }
+//     100% {
+//         opacity: 0;
+//     }
+// `
