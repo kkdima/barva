@@ -17,7 +17,6 @@ const Logo = () => (
 export default Logo;
 
 const LogoWrapper = styled.div`
-    position: fixed;
     margin: 0;
     padding: 0;
     z-index: 1;
@@ -26,19 +25,19 @@ const LogoWrapper = styled.div`
 	border-radius: 6px;
 	margin: 40px 40px;
 
-	animation: gifs infinite;
+	animation: gifs 60s infinite running;
 	animation-fill-mode: forwards;
 	@keyframes gifs {
 		0% {
-			background: url("../../static/images/tumblr_nkpufdntMX1s4fz4bo1_500.gif")
+			background: url("../../static/images/bg-animation.gif")
 				center contain no-repeat;
 		}
 		33% {
-			background: url("../../static/images/tumblr_ork9tud06F1ws7znjo1_500.gif")
+			background: url("../../static/images/bg-animation.gif")
 				center;
 		}
 		100% {
-			background: url("../../static/images/tumblr_ps7mlaKo671tjki5do1_500.gif")
+			background: url("../../static/images/bg-animation.gif")            
 				center;
 		}
 	}
