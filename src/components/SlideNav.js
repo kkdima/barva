@@ -1,87 +1,87 @@
 import Link from "next/link";
 import React, { Component } from "react";
 import styled from "styled-components";
-import Logo from './Logo';
+import Logo from "./Logo";
+
+import { menuAnimationOpen } from "../styles/KeyFrames";
+import { menuToClose } from "../styles/KeyFrames";
+import { closeToMenu } from "../styles/KeyFrames";
+import { MenuToCloseBackwards } from "../styles/KeyFrames";
+import { bganimation } from "../styles/KeyFrames";
+import { menuAnimationClose } from "../styles/KeyFrames";
+
+const Menu = () => (
+	<div>
+		<Background/>
+
+		<UL 
+			className="menuOpens"
+		>
+			<StyledLink href="/">
+				<Li>
+					<A>Home</A>
+				</Li>
+			</StyledLink>
+
+			<StyledLink href="/projects">
+				<Li>
+					<A>Projects</A>
+				</Li>
+			</StyledLink>
+
+			<StyledLink href="/about">
+				<Li>
+					<A>About</A>
+				</Li>
+			</StyledLink>
+
+			<StyledLink href="/contact">
+				<Li>
+					<A>Contact</A>
+				</Li>
+			</StyledLink>
+		</UL>
+	</div>
+);
 
 class SlideNav extends Component {
 	constructor(props) {
 		super(props);
-		this.background = React.createRef();
-		this.checkbox = React.createRef();
-		this.menuNavigation = React.createRef();
+		this.state = { menuTriggered: false };
 	}
 
-	openSlideMenu() {
-		const backgroundNode = this.background.current;
-		const checkbox = this.checkbox.current;
-		const menuNavigation = this.menuNavigation.current;
-		if (checkbox.checked === true) {
-			backgroundNode.style.display = "block";
-			menuNavigation.style.display = "block";
-		} else {
-			backgroundNode.style.display = "none";
-			menuNavigation.style.display = "none";
-		}
-	}
-
-	componentDidMount() {
-		this.openSlideMenu();
-	}
+	toggleMenu = () => {
+		this.setState({ menuTriggered: !this.state.menuTriggered });
+	};
 
 	render() {
+		const { menuTriggered } = this.state;
 		return (
 			<MenuWrapper className="menu">
-
 				<LogoAndMenuButton>
 					<Logo />
 					<MenuTextWrapper>
 						<Input
 							type="checkbox"
-							ref={this.checkbox}
-							onClick={this.openSlideMenu.bind(this)}
+							onClick={this.toggleMenu}
 						/>
-						<Span className="text-Menu">
+						<Span
+							className="text-Menu"
+						>
 							<p>Menu</p>
 						</Span>
-						<Span className="text-Close">
+						<Span
+							className="text-Close"
+						>
 							<p>Close</p>
 						</Span>
 					</MenuTextWrapper>
 				</LogoAndMenuButton>
-
-				<Background 
-					id="background"
-					ref={this.background}
-				/>
-
-				<UL 
-					ref={this.menuNavigation}
-				>
-					<StyledLink href="/">
-						<Li>
-							<A>Home</A>
-						</Li>
-					</StyledLink>
-
-					<StyledLink href="/projects">
-						<Li>
-							<A>Projects</A>
-						</Li>
-					</StyledLink>
-
-					<StyledLink href="/about">
-						<Li>
-							<A>About</A>
-						</Li>
-					</StyledLink>
-
-					<StyledLink href="/contact">
-						<Li>
-							<A>Contact</A>
-						</Li>
-					</StyledLink>
-				</UL>
-
+				{ menuTriggered ? (
+					<Menu />
+				) : (
+					<div></div>
+				)}
 			</MenuWrapper>
 		);
 	}
@@ -90,7 +90,6 @@ class SlideNav extends Component {
 export default SlideNav;
 
 const StyledLink = styled(Link)``;
-
 
 const MenuWrapper = styled.div`
 	width: 100vw;
@@ -122,51 +121,21 @@ const MenuTextWrapper = styled.div`
 
 	/* Menu to Close text animation 1st span  */
 	input[type="checkbox"]:checked ~ .text-Menu {
-		animation: menuToClose 300ms ease-in-out;
+		animation: ${menuToClose} 300ms ease-in-out;
 		animation-fill-mode: forwards;
-		@keyframes menuToClose {
-			from {
-				opacity: 1;
-			}
-			to {
-				opacity: 0;
-				transform: translateY(-27px);
-			}
-		}
 	}
 
 	/* Menu to Close text animation 2nd span  */
 	input[type="checkbox"]:checked ~ .text-Close {
 		color: #fff;
-		animation: closeToMenu 300ms ease-in-out;
+		animation: ${closeToMenu} 300ms ease-in-out;
 		animation-fill-mode: forwards;
-		@keyframes closeToMenu {
-			from {
-				opacity: 0;
-			}
-			to {
-				opacity: 1;
-				transform: translateY(-33px);
-			}
-		}
 	}
 
 	/* Close to Menu text animation 2nd span  */
 	input[type="checkbox"]:not(:checked) ~ .text-Menu {
-		animation: MenuToCloseBackwards 300ms ease-in-out;
+		animation: ${MenuToCloseBackwards} 300ms ease-in-out;
 		animation-fill-mode: forwards;
-		@keyframes MenuToCloseBackwards {
-			0% {
-				transform: translateY(-20px);
-				opacity: 0;
-			}
-			40% {
-				opacity: 0;
-			}
-			100% {
-				opacity: 1;
-			}
-		}
 	}
 `;
 
@@ -195,7 +164,6 @@ const Span = styled.span`
 //END OF MENU/CLOSE BUTTON STYLES;
 //END OF MENU/CLOSE BUTTON STYLES;
 
-
 const Background = styled.div`
 	position: absolute;
 	top: 0;
@@ -203,56 +171,37 @@ const Background = styled.div`
 	box-sizing: border-box;
 	height: 100vh;
 	width: 100vw;
-	display: none;
 
-	animation: bganimation 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+	animation: ${bganimation} 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 	animation-fill-mode: forwards;
-	@keyframes bganimation {
-		from {
-			transform: translateY(-900px);
-		}
-		to {
-			visibility: block;
-		}
-	}
 `;
-
 
 // UL NAVIGATION STYLES:
 // UL NAVIGATION STYLES:
 // UL NAVIGATION STYLES:
 const UL = styled.ul`
+	position: absolute;
+	top: 140px;
 	font-size: 32px;
 	font-weight: bold;
 	max-width: 200px;
 	margin: 0px 0px 0px 40px;
 	padding: 0px;
-	display: none;
-
-	@keyframes menuAnimation {
-		0% {
-			transform: translateY(50px);
-		}
-		100% {
-			opacity: 1;
-			color: pink;
-		}
-	}
 
 	li:nth-of-type(1) {
-		animation: menuAnimation 0.8s 0.5s cubic-bezier(0.35, 0.25, 0, 1.28);
+		animation: ${menuAnimationOpen} 0.8s 0.5s cubic-bezier(0.35, 0.25, 0, 1.28);
 		animation-fill-mode: forwards;
 	}
 	li:nth-of-type(2) {
-		animation: menuAnimation 0.8s 0.6s cubic-bezier(0.35, 0.25, 0, 1.22);
+		animation: ${menuAnimationOpen} 0.8s 0.6s cubic-bezier(0.35, 0.25, 0, 1.22);
 		animation-fill-mode: forwards;
 	}
 	li:nth-of-type(3) {
-		animation: menuAnimation 0.8s 0.7s cubic-bezier(0.35, 0.25, 0, 1.15);
+		animation: ${menuAnimationOpen} 0.8s 0.7s cubic-bezier(0.35, 0.25, 0, 1.15);
 		animation-fill-mode: forwards;
 	}
 	li:nth-of-type(4) {
-		animation: menuAnimation 0.8s 0.8s cubic-bezier(0.35, 0.25, 0, 1.1);
+		animation: ${menuAnimationOpen} 0.8s 0.8s cubic-bezier(0.35, 0.25, 0, 1.1);
 		animation-fill-mode: forwards;
 	}
 `;
@@ -264,18 +213,9 @@ const Li = styled.li`
 	text-align: left;
 	line-height: 45px;
 
-	li:hover {
-		scale: 0.6;
-		animation: activeAnim 1s cubic-bezier(0.35, 0.25, 0, 1.28);
-		animation-fill-mode: forwards;
-		@keyframes activeAnim {
-			from {
-			}
-			to {
-				scale: 0.9;
-				color: red;
-			}
-		}
+	transition: transform 400ms ease-in;
+	&:hover {
+		transform: scale(1.1);
 	}
 `;
 
