@@ -15,4 +15,7 @@ export default Layout;
 const Wrapper = styled.div`
 	padding: 0;
 	margin: 0;
+	display: flex;
+	flex-direction: column;
+	background-color: #FAFAFF;
 `;

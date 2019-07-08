@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { device } from "../theme/GlobalStyle";
 
 const Logo = () => (
 	<LogoWrapper>
@@ -21,12 +22,12 @@ const LogoWrapper = styled.div`
     padding: 0;
     z-index: 1;
 	width: 68px;
-	max-height: 68px;
+	height: 68px;
 	border-radius: 6px;
-	margin: 40px 40px;
+	border: 2px solid white;
 
-	animation: gifs 60s infinite running;
-	animation-fill-mode: forwards;
+	animation: gifs -3s infinite running forwards;
+	-webkit-animation: gifs -3s infinite running forwards;
 	@keyframes gifs {
 		0% {
 			background: url("../../static/images/bg-animation.gif")
@@ -69,4 +70,14 @@ const LogoWrapper = styled.div`
         user-select: none;
         margin: 0;
     }
+
+	@media ${device.mobile} {
+		margin-left: 25px;
+		margin-top: 25px;
+	}
+	@media ${device.tablet} {
+		margin: 40px 40px;
+	}
+	@media ${device.laptop} {
+	}
 `;

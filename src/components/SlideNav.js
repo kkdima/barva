@@ -1,15 +1,66 @@
 import Link from "next/link";
 import React, { Component } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider, css } from "styled-components";
 import Logo from "./Logo";
 
-import { menuAnimationOpen } from "../styles/KeyFrames";
-import { menuToClose } from "../styles/KeyFrames";
-import { closeToMenu } from "../styles/KeyFrames";
-import { MenuToCloseBackwards } from "../styles/KeyFrames";
-import { bgAnimationOpen } from "../styles/KeyFrames";
-import { bgAnimationClose } from "../styles/KeyFrames";
+import { menuAnimationOpen } from "../theme/KeyFrames";
+import { menuToClose } from "../theme/KeyFrames";
+import { closeToMenu } from "../theme/KeyFrames";
+import { MenuToCloseBackwards } from "../theme/KeyFrames";
+import { bgAnimationOpen } from "../theme/KeyFrames";
+import { bgAnimationClose } from "../theme/KeyFrames";
 
+
+
+class SlideNav extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { 
+			showMenu: false,
+			animateMenu: false,
+		};
+	}
+
+	toggleMenu = () => {
+		const current = this.state.showMenu
+		this.setState({ 
+			showMenu: true,
+			animateMenu: true
+		});
+		return setTimeout(this.setState({
+			showMenu: !current,
+			animateMenu: false
+		}), 800 );
+	};
+
+	render() {
+		const { showMenu } = this.state;
+		const { animateMenu } = this.state;
+
+		return (
+			<MenuWrapper className="menu">
+					<LogoAndMenuButton>
+						<Logo />
+						<MenuTextWrapper>
+							<Input type="checkbox" onClick={this.toggleMenu} />
+							<Span className="text-Menu">
+								<p>Menu</p>
+							</Span>
+							<Span className="text-Close">
+								<p>Close</p>
+							</Span>
+						</MenuTextWrapper>
+					</LogoAndMenuButton>
+					<ThemeProvider theme={themeOpen}>
+						{showMenu ? <Menu 
+							animateMenu={this.state.animateMenu}
+							// showMenu={this.state.showMenu}
+						/> : null }
+					</ThemeProvider>
+				</MenuWrapper>
+		);
+	}
+}
 
 class Menu extends Component {
 	constructor(props) {
@@ -17,13 +68,17 @@ class Menu extends Component {
 	}
 
 	render() {
-		const { menuTriggered } = this.props;
+		// const { showMenu } = this.props;
+		const { animateMenu } = this.props;
+
 		return (
 			<div>
-				<ThemeProvider theme={theme}>
-					<Background/>
-				</ThemeProvider>
-
+				<Background 
+					// showMenu={showMenu}
+					animateMenu={animateMenu}
+				/>
+				{/* {console.log(showMenu)} */}
+				
 				<UL className="menuOpens">
 					<StyledLink href="/">
 						<Li>
@@ -54,42 +109,6 @@ class Menu extends Component {
 	}
 }
 
-class SlideNav extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { menuTriggered: false };
-	}
-
-	toggleMenu = () => {
-		this.setState({ menuTriggered: !this.state.menuTriggered });
-	};
-
-	render() {
-		const { menuTriggered } = this.state;
-		return (
-			<MenuWrapper className="menu">
-				<LogoAndMenuButton>
-					<Logo />
-					<MenuTextWrapper>
-						<Input type="checkbox" onClick={this.toggleMenu} />
-						<Span className="text-Menu">
-							<p>Menu</p>
-						</Span>
-						<Span className="text-Close">
-							<p>Close</p>
-						</Span>
-					</MenuTextWrapper>
-				</LogoAndMenuButton>
-				{menuTriggered ? (
-					<Menu/>
-				) : (
-					<div></div>
-				)}
-			</MenuWrapper>
-		);
-	}
-}
-
 export default SlideNav;
 
 const StyledLink = styled(Link)``;
@@ -98,7 +117,7 @@ const MenuWrapper = styled.div`
 	width: 100vw;
 	box-sizing: border-box;
 	padding-left: 40;
-	background: grey;
+	z-index: 4;
 `;
 
 const LogoAndMenuButton = styled.div`
@@ -120,7 +139,7 @@ const MenuTextWrapper = styled.div`
 	height: 26px;
 	padding: 0;
 	z-index: 1;
-	margin: 40px 40px;
+	margin: 40px 40px 0 0;
 
 	/* Menu to Close text animation 1st span  */
 	input[type="checkbox"]:checked ~ .text-Menu {
@@ -167,7 +186,6 @@ const Span = styled.span`
 //END OF MENU/CLOSE BUTTON STYLES;
 //END OF MENU/CLOSE BUTTON STYLES;
 
-
 const Background = styled.div`
 	position: absolute;
 	top: 0;
@@ -193,21 +211,35 @@ const Background = styled.div`
 			visibility: block;
 		}
 	}
+	
+	animation: bgAnimationOpen 0.8s
+		cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+	animation-direction: ${props => !props.animateMenu ? 'normal' : 'reverse'};
 
-	animation: ${bgAnimationOpen} 0.8s
-		cubic-bezier(0.215, 0.61, 0.355, 1);
-	animation-fill-mode: forwards;
+	/* ${props.animateMenu &&  css`
+		animation: bgAnimationOpen 0.8s
+		cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+		animation-direction: normal;`
+	};
+
+	${!props.animateMenu &&  css`
+		animation: bgAnimationOpen 0.8s
+		cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+		animation-direction: reverse;`
+	}; */
 `;
 
 Background.defaultProps = {
 	theme: {
-		open: "bgAnimationOpen"
+		mian: "bgAnimationOpen"
 	}
 };
 
-const theme = {
-	close: "bgAnimationClose",
-	open: "bgAnimationOpen"
+const themeOpen = {
+	main: "bgAnimationOpen",
+};
+const themeClose = {
+	main: "bgAnimationClose",
 };
 
 // UL NAVIGATION STYLES:
