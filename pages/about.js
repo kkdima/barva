@@ -1,4 +1,4 @@
-import Layout from '../src/components/MyLayout.js';
+import Layout from '../src/components/Layout.js';
 
 const About = () => (
     <Layout>
