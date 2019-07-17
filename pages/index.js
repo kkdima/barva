@@ -4,6 +4,9 @@ import Layout from "../src/components/Layout.js";
 import Link from "next/link";
 import React, { Component } from "react";
 import Skill from "../src/components/Skill";
+import Carousel from "../src/components/Carousel";
+
+import { textAnimationUp } from "../src/theme/KeyFrames";
 
 function getSkills() {
 	return [
@@ -18,13 +21,13 @@ function getSkills() {
 			id: 2,
 			title: "Branding and identity",
 			text:
-				"Leave it to us to realize your project into an intuitive, functional, and neatiful design - one that understands the needs of your clients."
+				"You want to add aesthetics to your business idea? We can help you set a 360ᵒ branding identity and copywriting tone of voice."
 		},
 		{
 			id: 3,
 			title: "Cinematography level video production",
 			text:
-				"Leave it to us to realize your project into an intuitive, functional, and neatiful design -one that understands the needs of your clients."
+				"In the era of digital consumption your business should leave a strong impression. Video format is the best way to translate the vibe of your products directly to the consumer’s mind."
 		}
 	];
 }
@@ -69,6 +72,10 @@ class Blog extends Component {
 							<Skill id={skill.id} title={skill.title} text={skill.text} />
 						))}
 					</SkillsWrapper>
+
+					<H2bold>Our Projects</H2bold>
+
+					<Carousel />
 				</Wrapper>
 			</Layout>
 		);
@@ -90,7 +97,28 @@ const H1 = styled.h1`
 		bottom: 50px;
 		left: 29px;
 
+		animation: ${textAnimationUp} 1s ease;
+		animation-fill-mode: forwards;
+
+
+
 		/* border: solid pink 1px; */
+	}
+	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
+	}
+`;
+
+const H2bold = styled.h2`
+	@media ${device.mobile} {
+		font-family: Noah;
+		font-size: 30px;
+		text-align: center;
+		color: #0E0E0E;
+		font-weight: 600;
+		margin: -28px 0 86px 0;
+		margin-top: 40px;
 	}
 	@media ${device.tablet} {
 	}
@@ -100,7 +128,7 @@ const H1 = styled.h1`
 
 const H2 = styled.h2`
 	@media ${device.mobile} {
-		font-family: Noah;
+		font-family: Noah-Regular;
 		font-size: 16px;
 		text-align: center;
 		color: #6a6a6a;
@@ -113,17 +141,24 @@ const H2 = styled.h2`
 	}
 `;
 
+
+
 const SkillsWrapper = styled.div`
 	@media ${device.mobile} {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
+		margin: auto;
+		.serviceBlock:nth-child(2) {
+			flex-direction: row-reverse;
+		}
 	}
 	@media ${device.tablet} {
 	}
 	@media ${device.laptop} {
 	}
 `;
+
 const Wrapper = styled.div`
 	@media ${device.mobile} {
 		padding: 0;

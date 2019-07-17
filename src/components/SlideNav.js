@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { Component } from "react";
 import styled, { ThemeProvider, css } from "styled-components";
 import Logo from "./Logo";
+import { device } from "../theme/GlobalStyle";
 
 import { menuAnimationOpen } from "../theme/KeyFrames";
 import { menuToClose } from "../theme/KeyFrames";
@@ -132,14 +133,22 @@ const LogoAndMenuButton = styled.div`
 // MENU/CLOSE BUTTON STYLES:
 // MENU/CLOSE BUTTON STYLES:
 const MenuTextWrapper = styled.div`
-	background: none;
-	border: none;
-	overflow: hidden;
-	width: 65px;
-	height: 26px;
-	padding: 0;
-	z-index: 1;
-	margin: 40px 40px 0 0;
+	@media ${device.mobile} {
+		background: none;
+		border: none;
+		overflow: hidden;
+		width: 65px;
+		height: 26px;
+		padding: 0;
+		z-index: 1;
+		margin-right: 25px;
+		margin-top: 25px;
+	}
+	@media ${device.tablet} {
+		margin: 40px 40px 0 0;
+	}
+	@media ${device.laptop} {
+	}
 
 	/* Menu to Close text animation 1st span  */
 	input[type="checkbox"]:checked ~ .text-Menu {
@@ -162,24 +171,36 @@ const MenuTextWrapper = styled.div`
 `;
 
 const Input = styled.input`
-	position: absolute;
-	width: 65px;
-	height: 26px;
-	z-index: 2;
-	cursor: pointer;
-	margin: 0;
-	opacity: 0;
+	@media ${device.mobile} {
+		position: absolute;
+		width: 65px;
+		height: 26px;
+		z-index: 2;
+		cursor: pointer;
+		margin: 0;
+		opacity: 0;
+	}
+	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
+	}
 `;
 
 const Span = styled.span`
-	justify-content: center;
-	display: flex;
-	color: black;
-	padding-bottom: 10px;
-	z-index: -1;
-	p {
-		font-size: 1.2rem;
-		margin: 0;
+	@media ${device.mobile} {
+		justify-content: center;
+		display: flex;
+		color: black;
+		padding-bottom: 10px;
+		z-index: -1;
+		p {
+			font-size: 1.2rem;
+			margin: 0;
+		}
+	}
+	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
 	}
 `;
 //END OF MENU/CLOSE BUTTON STYLES;
@@ -187,12 +208,18 @@ const Span = styled.span`
 //END OF MENU/CLOSE BUTTON STYLES;
 
 const Background = styled.div`
-	position: absolute;
-	top: 0;
-	background-color: #222222;
-	box-sizing: border-box;
-	height: 100vh;
-	width: 100vw;
+	@media ${device.mobile} {
+		position: absolute;
+		top: 0;
+		background-color: #222222;
+		box-sizing: border-box;
+		height: 100vh;
+		width: 100vw;
+	}
+	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
+	}
 
 	@keyframes bgAnimationOpen {
 		from {
@@ -246,13 +273,19 @@ const themeClose = {
 // UL NAVIGATION STYLES:
 // UL NAVIGATION STYLES:
 const UL = styled.ul`
-	position: absolute;
-	top: 140px;
-	font-size: 32px;
-	font-weight: bold;
-	max-width: 200px;
-	margin: 0px 0px 0px 40px;
-	padding: 0px;
+	@media ${device.mobile} {
+		position: absolute;
+		top: 140px;
+		font-size: 32px;
+		font-weight: bold;
+		max-width: 200px;
+		margin: 0px 0px 0px 40px;
+		padding: 0px;
+	}
+	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
+	}
 
 	li:nth-of-type(1) {
 		animation: ${menuAnimationOpen} 0.8s 0.5s cubic-bezier(0.35, 0.25, 0, 1.28);
@@ -273,15 +306,21 @@ const UL = styled.ul`
 `;
 
 const Li = styled.li`
-	opacity: 0;
-	list-style: none;
-	color: pink;
-	text-align: left;
-	line-height: 45px;
+	@media ${device.mobile} {
+		opacity: 0;
+		list-style: none;
+		color: pink;
+		text-align: left;
+		line-height: 45px;
 
-	transition: transform 400ms ease-in;
-	&:hover {
-		transform: scale(1.1);
+		transition: transform 400ms ease-in;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
 	}
 `;
 

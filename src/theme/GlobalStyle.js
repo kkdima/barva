@@ -34,6 +34,14 @@ export const GlobalStyle = createGlobalStyle `
     font-family: 'Chivo', sans-serif;
     src: url('https://fonts.googleapis.com/css?family=Chivo');
   }
+  @font-face {
+    font-family: 'Noah-Regular';
+    src: url('../../static/fonts/Noah-Regular.otf');
+  }
+  @font-face {
+    font-family: 'Noah-Bold';
+    src: url('../../static/fonts/Noah-Bold.otf');
+  }
   button, a {
     cursor: pointer;
     outline: none;

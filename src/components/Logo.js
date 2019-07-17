@@ -28,6 +28,7 @@ const LogoWrapper = styled.div`
 
 	animation: gifs -3s infinite running forwards;
 	-webkit-animation: gifs -3s infinite running forwards;
+	
 	@keyframes gifs {
 		0% {
 			background: url("../../static/images/bg-animation.gif")

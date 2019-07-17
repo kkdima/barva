@@ -1,5 +1,16 @@
 import styled, { keyframes } from "styled-components";
 
+
+export const textAnimationUp = keyframes`
+    0%{
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`
+
 export const menuAnimationOpen = keyframes`
     0% {
         transform: translateY(50px);
