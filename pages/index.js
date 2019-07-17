@@ -5,6 +5,8 @@ import Link from "next/link";
 import React, { Component } from "react";
 import Skill from "../src/components/Skill";
 import Carousel from "../src/components/Carousel";
+import ContactForm from "../src/components/ContactForm";
+import { motion } from "framer-motion"
 
 import { textAnimationUp } from "../src/theme/KeyFrames";
 
@@ -36,7 +38,6 @@ class Blog extends Component {
 	constructor(props) {
 		super(props);
 	}
-
 	render() {
 		return (
 			<Layout>
@@ -74,8 +75,28 @@ class Blog extends Component {
 					</SkillsWrapper>
 
 					<H2bold>Our Projects</H2bold>
+					{/* <motion.div 
+						className="animationDiv"
+						drag
+						dragConstraints={{
+						  top: 0,
+						  left: -50,
+						  right: 50,
+						  bottom: 0,
+						}}
+					> */}
 
+						{/* <CarouselHolder>
+							<Carousel />
+							<Carousel />
+							<Carousel />
+						</CarouselHolder> */}
 					<Carousel />
+
+					{/* </motion.div> */}
+
+					<H2bold>Contact Us</H2bold>
+					<ContactForm/>
 				</Wrapper>
 			</Layout>
 		);
@@ -112,13 +133,14 @@ const H1 = styled.h1`
 
 const H2bold = styled.h2`
 	@media ${device.mobile} {
-		font-family: Noah;
+		font-family: Noah-Bold;
 		font-size: 30px;
 		text-align: center;
 		color: #0E0E0E;
 		font-weight: 600;
-		margin: -28px 0 86px 0;
+		margin: -28px 0 70px 0;
 		margin-top: 40px;
+
 	}
 	@media ${device.tablet} {
 	}
@@ -246,6 +268,25 @@ const HeadlineWrapper = styled.div`
 		}
 	}
 	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
+	}
+`;
+
+const CarouselHolder = styled.div`
+	@media ${device.mobile} {
+		margin: auto;
+		/* overflow:initial */
+		border: solid black;
+		
+	}
+	@media ${device.tablet} {
+		display: flex;
+		flex-direction: row;
+		/* overflow-x: hidden; */
+		div:nth-of-type(1) {
+			flex-grow: 1;
+		}
 	}
 	@media ${device.laptop} {
 	}

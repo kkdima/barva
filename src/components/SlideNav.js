@@ -115,18 +115,40 @@ export default SlideNav;
 const StyledLink = styled(Link)``;
 
 const MenuWrapper = styled.div`
-	width: 100vw;
+	/* border: solid black; */
 	box-sizing: border-box;
 	padding-left: 40;
 	z-index: 4;
+
+	p{
+		font-family: 'Chivo', sans-serif;
+	}
 `;
 
 const LogoAndMenuButton = styled.div`
+	@media ${device.mobile} {
+		/* width: 320px; */
+	}
+	@media ${device.mobileM} {
+		/* width: 375px; */
+	}
+	@media ${device.mobileL} {
+		/* width: 425px; */
+	}
+	@media ${device.tablet} {
+		width: 768px;
+	}
+	@media ${device.laptop} {
+		/* width: 1024px; */
+	}
+	@media ${device.desktop} {
+	}
+	margin: auto;
+	/* border: solid blue; */
+
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
-	margin: 0;
-	width: 100%;
 `;
 
 // MENU/CLOSE BUTTON STYLES:

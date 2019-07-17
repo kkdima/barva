@@ -1,17 +1,109 @@
-import styled from "styled-components";
-import { device } from "../theme/GlobalStyle";
+import React, { Component } from "react";
 
-export default function Carousel() {
+import styled from "styled-components";
+import { device, GlobalStyle } from "../theme/GlobalStyle";
+import { motion } from "framer-motion";
+
+import Flicking from "@egjs/react-flicking";
+
+
+import {
+	CarouselProvider,
+	Slider,
+	Slide,
+	ButtonBack,
+	ButtonNext
+} from "pure-react-carousel";
+
+function Card() {
 	return (
-        <div></div>
-    )
-};
+		<motion.div
+			className="animationDiv"
+			whileHover={
+				{
+					// scale: 1.1
+				}
+			}
+		>
+			<Wrapper>
+				<ImgHolder />
+				<BgText />
+				<Button>more info</Button>
+				<ImgHolderShadow />
+			</Wrapper>
+		</motion.div>
+	);
+}
+
+class Carousel extends Component {
+	constructor() {
+		super();
+	}
+
+
+	render() {
+		return (
+            <Flicking
+                horiznatal={true}
+                circular = {true}
+                // infinite = {false}
+                threshold = {40}
+                duration = {100}
+                inputType = {["touch", "mouse"]}
+                autoResize = {true}
+                adaptive = {true}
+                gap={20}
+                hanger = {"50%"}
+                anchor = {"50%"}
+                moveType = {{type: "snap", count: 1}}
+                collectStatistics = {false}
+
+            >
+                <Card/>
+                <Card/>
+                <Card/>
+            </Flicking>
+		);
+	}
+}
+
+export default Carousel;
 
 const Wrapper = styled.div`
 	@media ${device.mobile} {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		position: relative;
+		padding-bottom: 60px;
+		/* margin-bottom: 30px; */
+		margin: auto;
+		justify-content: center;
+		margin-bottom: 40px;
+	}
+	@media ${device.mobileM} {
+	}
+	@media ${device.mobileL} {
+	}
+	@media ${device.tablet} {
+		margin-right: 20px;
+	}
+	@media ${device.laptop} {
+	}
+`;
+
+const ImgHolder = styled.div`
+	@media ${device.mobile} {
+		height: 169px;
+		width: 296px;
+		z-index: 2;
+		background-color: grey;
+		border-radius: 6px;
+		background-image: url("../../static/images/service1.png");
+		background-repeat: no-repeat;
+		background-size: 100%;
+		/* display: none; */
+		overflow: hidden;
 	}
 	@media ${device.mobileM} {
 	}
@@ -19,5 +111,73 @@ const Wrapper = styled.div`
 	}
 	@media ${device.laptop} {
 	}
+`;
 
+const ImgHolderShadow = styled.div`
+	@media ${device.mobile} {
+		width: 255px;
+		height: 144px;
+		left: 29px;
+		bottom: 35px;
+		/* margin: auto; */
+		background-image: url("../../static/images/service1.png");
+		border-radius: 6px;
+		position: absolute;
+		z-index: 1;
+		filter: blur(27px);
+		/* right: 60px; */
+	}
+	@media ${device.mobileM} {
+	}
+	@media ${device.mobileL} {
+	}
+	@media ${device.laptop} {
+	}
+`;
+
+const BgText = styled.div`
+	@media ${device.mobile} {
+		position: absolute;
+		z-index: 2;
+		bottom: 60px;
+		/* width: 100%; */
+		height: 97px;
+		opacity: 0.6;
+		/* background-color: pink; */
+		background-image: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+
+		border-bottom-right-radius: 6px;
+		border-bottom-left-radius: 6px;
+	}
+	@media ${device.mobileM} {
+	}
+	@media ${device.mobileL} {
+	}
+	@media ${device.laptop} {
+	}
+`;
+
+const Button = styled.button`
+	@media ${device.mobile} {
+		position: absolute;
+		z-index: 2;
+		border: 1px solid white;
+		background: none;
+		font-size: 15px;
+		border-radius: 6px;
+		color: #f4f4f4;
+		padding: 0 15px;
+		text-align: center;
+		font-family: Noah-Regular;
+		bottom: 85px;
+		left: 105px;
+	}
+	@media ${device.mobileM} {
+	}
+	@media ${device.mobileL} {
+	}
+	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
+	}
 `;

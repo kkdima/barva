@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../theme/GlobalStyle";
+import { device, GlobalStyle } from "../theme/GlobalStyle";
 
 export default function Skill(props) {
 	return (
@@ -105,6 +105,7 @@ const Title = styled.h2`
 		color: #0e0e0e;
 		font-size: 26px;
 		font-family: Noah-Bold;
+		font-weight: 600;
 		margin-left: 43px;
 		width: 185px;
 	}
@@ -117,6 +118,7 @@ const Title = styled.h2`
 const Text = styled.p`
 	@media ${device.mobile} {
 		font-family: Noah-Regular;
+		font-weight: 300;
 		color: #0e0e0e;
 		font-size: 16px;
 		margin-left: 43px;
