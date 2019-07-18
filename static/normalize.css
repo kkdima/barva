@@ -1,57 +1,4 @@
-import { createGlobalStyle } from "styled-components";
-
-export const size = {
-	mobile: "0px",
-	mobileM: "375px",
-	mobileL: "425px",
-	tablet: "768px",
-	laptop: "1024px",
-	desktop: "2560px",
-	ThirdSectionImageSize: "512px"
-};
-
-export const device = {
-	mobile: `(min-width: ${size.mobile})`,
-	mobileM: `(min-width: ${size.mobileM})`,
-	mobileL: `(min-width: ${size.mobileL})`,
-	tablet: `(min-width: ${size.tablet})`,
-	laptop: `(min-width: ${size.laptop})`,
-	desktop: `(min-width: ${size.desktop})`,
-
-	ThirdSectionImageSize: `(min-width: ${size.ThirdSectionImageSize})`
-};
-
-export const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Chivo', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  @font-face {
-    font-family: 'Chivo', sans-serif;
-    src: url('https://fonts.googleapis.com/css?family=Chivo');
-  }
-  @font-face {
-    font-family: 'Noah-Regular';
-    src: url('../../static/fonts/Noah-Regular.otf');
-  }
-  @font-face {
-    font-family: 'Noah-Bold';
-    src: url('../../static/fonts/Noah-Bold.otf');
-  }
-  button, a {
-    cursor: pointer;
-    outline: none;
-  }
-
-  .animationDiv {
-    margin: auto;
-  }
-
-  /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -77,10 +24,18 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
   
+  /**
+   * Render the `main` element consistently in IE.
+   */
+  
   main {
     display: block;
   }
   
+  /**
+   * Correct the font size and margin on `h1` elements within `section` and
+   * `article` contexts in Chrome, Firefox, and Safari.
+   */
   
   h1 {
     font-size: 2em;
@@ -103,7 +58,7 @@ export const GlobalStyle = createGlobalStyle`
   
   /**
    * 1. Correct the inheritance and scaling of font size in all browsers.
-   * 2. Correct the odd em font sizing in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
    */
   
   pre {
@@ -144,7 +99,7 @@ export const GlobalStyle = createGlobalStyle`
   
   /**
    * 1. Correct the inheritance and scaling of font size in all browsers.
-   * 2. Correct the odd em font sizing in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
    */
   
   code,
@@ -163,7 +118,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   /**
-   * Prevent sub and sup elements from affecting the line height in
+   * Prevent `sub` and `sup` elements from affecting the line height in
    * all browsers.
    */
   
@@ -275,7 +230,13 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0.35em 0.75em 0.625em;
   }
   
-
+  /**
+   * 1. Correct the text wrapping in Edge and IE.
+   * 2. Correct the color inheritance from `fieldset` elements in IE.
+   * 3. Remove the padding so developers are not caught out when they zero out
+   *    `fieldset` elements in all browsers.
+   */
+  
   legend {
     box-sizing: border-box; /* 1 */
     color: inherit; /* 2 */
@@ -341,7 +302,7 @@ export const GlobalStyle = createGlobalStyle`
   
   /**
    * 1. Correct the inability to style clickable types in iOS and Safari.
-   * 2. Change font properties to inherit in Safari.
+   * 2. Change font properties to `inherit` in Safari.
    */
   
   ::-webkit-file-upload-button {
@@ -386,7 +347,3 @@ export const GlobalStyle = createGlobalStyle`
   [hidden] {
     display: none;
   }
-  
-`;
-
-export default GlobalStyle;

@@ -100,6 +100,7 @@ const Number = styled.p`
 `;
 
 const Title = styled.h2`
+	/* all: unset; */
 	@media ${device.mobile} {
 		margin: 0;
 		color: #0e0e0e;
@@ -107,11 +108,12 @@ const Title = styled.h2`
 		font-family: Noah-Bold;
 		font-weight: 600;
 		margin-left: 43px;
-		width: 185px;
+		max-width: 241px;
 	}
 	@media ${device.tablet} {
 	}
 	@media ${device.laptop} {
+
 	}
 `;
 

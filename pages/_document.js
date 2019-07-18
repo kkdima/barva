@@ -26,6 +26,7 @@ export default class MyDocument extends Document {
           <title>BARVA</title>
           {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
+          <link rel="stylesheet" href="/static/normalize.css"></link>
         </Head>
         <body>
           <Main />
