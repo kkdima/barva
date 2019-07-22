@@ -10,6 +10,7 @@ import { planeAnimationOnClick } from "../theme/KeyFrames";
 class ContactForm extends Component {
 	constructor(props) {
 		super(props);
+		this.button = React.createRef();
 		this.state = {
 			isClicked: false,
 			email: '',
@@ -29,11 +30,17 @@ class ContactForm extends Component {
 	// 	})
 	// }
 
-	//eventListener on the button
 	handleClickButton = () => {
-		this.setState({ isClicked: true })
-		// this.handleSubmit()
-		return setTimeout(Submit(), 600)
+		// this.setState({ () => { }isClicked: true })
+
+		// this.setState(prevState => ({
+		// 	pictures: prevState.pictures.concat(pics)
+		// }))
+		const button = this.button.current
+
+		this.setState({ isClicked: true }, () => {
+			button.setTimeout(Submit(), 600)
+		});
 	}
 
 
@@ -47,7 +54,8 @@ class ContactForm extends Component {
 					data-netlify="true"
 					name='contact'
 					data-netlify-honeypot="bot-field"
-					onSubmit={this.handleSubmit}
+					// onSubmit={this.handleSubmit}
+					onSubmit={this.handleClickButton}
 				>
 					<Input type="hidden" name="form-name" value="contact"/>
 					<Input
@@ -76,6 +84,7 @@ class ContactForm extends Component {
 						onChange={this.handleChange}
 					/>
 					<Button
+						ref={this.button}
 						type="submit"
 						onClick={this.handleClickButton}
 						className={isClicked ? "animateOnClick" : "static"}

@@ -36,7 +36,6 @@ class Carousel extends Component {
 	constructor(props) {
 		super(props);
 	}
-
 	render() {
 		return (
 			<Flicking
@@ -65,7 +64,8 @@ const Card = (props) => {
 	return (
 		<motion.div
 			className="animationDiv"
-			whileHover={{
+			whileHover={
+				{
 					// scale: 1.1
 				}}
 		>
@@ -77,7 +77,7 @@ const Card = (props) => {
 				/>
 				<BgText />
 				<Button>more info</Button>
-				{/* <ImgHolderShadow src={props.img} alt="" /> */}
+				<ImgHolderShadow src={props.img} alt="" />
 				<p>{props.id}</p>
 			</Wrapper>
 		</motion.div>
@@ -87,6 +87,7 @@ const Card = (props) => {
 export default Carousel;
 
 const Wrapper = styled.div`
+	all: unset;
 	@media ${device.mobile} {
 		display: flex;
 		flex-direction: column;
@@ -94,9 +95,12 @@ const Wrapper = styled.div`
 		position: relative;
 		padding-bottom: 60px;
 		/* margin-bottom: 30px; */
-		margin: auto;
+		/* margin: auto; */
+		margin-right:  50px;
 		justify-content: center;
 		margin-bottom: 40px;
+		border: solid black;
+		
 	}
 	@media ${device.mobileM} {
 	}
@@ -115,11 +119,12 @@ const ImgHolder = styled.div`
 		width: 296px;
 		z-index: 2;
 		border-radius: 6px;
-		/* background-image: url("../../static/images/service1.png");
-		background-repeat: no-repeat;
-		background-size: 100%; */
-		/* display: none; */
+		/* background-image: url("../../static/images/service1.png"); */
+		/* background-repeat: no-repeat; */
+		background-size: 100%;
 		overflow: hidden;
+
+		border: solid red 1px;
 	}
 	@media ${device.mobileM} {
 	}
@@ -134,14 +139,13 @@ const ImgHolderShadow = styled.div`
 		width: 255px;
 		height: 144px;
 		left: 29px;
-		bottom: 35px;
-		/* margin: auto; */
+		bottom: 55px;
+		margin: auto;
 		/* background-image: url("../../static/images/service1.png"); */
 		border-radius: 6px;
 		position: absolute;
 		z-index: 1;
 		filter: blur(27px);
-		/* right: 60px; */
 	}
 	@media ${device.mobileM} {
 	}
@@ -156,12 +160,9 @@ const BgText = styled.div`
 		position: absolute;
 		z-index: 2;
 		bottom: 60px;
-		/* width: 100%; */
 		height: 97px;
 		opacity: 0.6;
-		/* background-color: pink; */
 		background-image: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-
 		border-bottom-right-radius: 6px;
 		border-bottom-left-radius: 6px;
 	}
@@ -185,7 +186,7 @@ const Button = styled.button`
 		padding: 0 15px;
 		text-align: center;
 		font-family: Noah-Regular;
-		bottom: 85px;
+		bottom: 105px;
 		left: 105px;
 	}
 	@media ${device.mobileM} {
