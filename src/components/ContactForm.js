@@ -33,7 +33,7 @@ class ContactForm extends Component {
 	handleClickButton = () => {
 		this.setState({ isClicked: true })
 		// this.handleSubmit()
-		return setTimeout(submit(), 400)
+		return setTimeout(Submit(), 600)
 	}
 
 
