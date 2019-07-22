@@ -47,7 +47,7 @@ class ContactForm extends Component {
 		const isClicked = this.state.isClicked;
 		return (
 			<Wrapper>
-				<Form action='POST' data-netlify='true'>
+				<Form name='contactBarva' action='POST' data-netlify='true'>
 					<Input
 						value={this.state.name}
 						name="name"
@@ -72,8 +72,7 @@ class ContactForm extends Component {
 						onChange={this.handleChange}
 					/>
 					<Button
-						// onMouseEnter={this.planeAnimation}
-						// onMouseLeave={this.planeAnimationOut}
+						type="submit"
 						ref={this.button}
 						onClick={this.handleClickButton}
 						className={isClicked ? "animateOnClick" : "static"}
@@ -220,7 +219,7 @@ const Input = styled.input`
 	}
 `;
 
-const Form = styled.div`
+const Form = styled.form`
 	all: unset;
 	@media ${device.mobile} {
 		display: flex;
