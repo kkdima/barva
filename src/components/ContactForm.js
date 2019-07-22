@@ -39,7 +39,7 @@ class ContactForm extends Component {
 		const button = this.button.current
 
 		this.setState({ isClicked: true }, () => {
-			button.setTimeout(Submit(), 600)
+			button.setTimeout(submit(), 600)
 		});
 	}
 
