@@ -21,22 +21,22 @@ class ContactForm extends Component {
 			message: '',
 		};
 
-		this.handleChange = this.handleChange.bind(this)
+		// this.handleChange = this.handleChange.bind(this)
 	}
 
-	handleChange(e) {
-		let target = e.target;
-		let value = target.type === 'name' ? target.checked : target.value;
-		let name = target.name;
-		this.setState({
-			[name] : value
-		})
-	}
+	// handleChange(e) {
+	// 	let target = e.target;
+	// 	let value = target.type === 'name' ? target.checked : target.value;
+	// 	let name = target.name;
+	// 	this.setState({
+	// 		[name] : value
+	// 	})
+	// }
 
 	//eventListener on the button
 	handleClickButton = () => {
 		this.setState({ isClicked: true })
-		this.handleSubmit()
+		// this.handleSubmit()
 	}
 
 
@@ -50,7 +50,6 @@ class ContactForm extends Component {
 					data-netlify="true"
 					name='contact'
 					data-netlify-honeypot="bot-field"
-					data-netlify-recaptcha="true"
 					onSubmit={this.handleSubmit}
 				>
 					<Input type="hidden" name="form-name" value="contact"/>
