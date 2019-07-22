@@ -24,13 +24,22 @@ class ContactForm extends Component {
 		this.handleChange = this.handleChange.bind(this)
 	}
 
+	handleSubmit = e => {
+		fetch("/", {
+		  method: "POST",
+		  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+		  body: encode({ "contactBarva": "contact", ...this.state })
+		})
+		  .then(() => alert("Success!"))
+		  .catch(error => alert(error));
+  
+		e.preventDefault();
+	};
+
 	handleChange(e) {
 		let target = e.target;
 		let value = target.type === 'name' ? target.checked : target.value;
 		let name = target.name;
-
-		e.preventDefault()
-		console.log(123);
 		
 		this.setState({
 			[name] : value
@@ -44,26 +53,33 @@ class ContactForm extends Component {
 
 
 	render() {
-		const isClicked = this.state.isClicked;
+		const { name, email, message, isClicked  } = this.state;
 		return (
 			<Wrapper>
-				<Form name='contactBarva' action='POST' data-netlify='true'>
+				<Form 
+					name='contactBarva'
+					value="contact"
+					action='POST'
+					data-netlify='true'
+					data-netlify-recaptcha="true"
+					onSubmit={this.handleSubmit}
+				>
 					<Input
-						value={this.state.name}
+						value={name}
+						type="text"
 						name="name"
-						type="name"
 						placeholder="Name"
 						onChange={this.handleChange}
 					/>
 					<Input
-						value={this.state.email}
+						value={email}
 						name="email"
 						type="email"
 						placeholder="E-mail"
 						onChange={this.handleChange}
 					/>
 					<StyledTextarea
-						value={this.state.message}
+						value={message}
 						id="textarea"
 						name="message"
 						type="message"
@@ -92,6 +108,7 @@ class ContactForm extends Component {
 								delay: 0.5
 							}}>Sent</motion.div> : <div>Submit</div>}
 					</Button>
+					<div data-netlify-recaptcha="true"></div>
 				</Form>
 				<svg
 					width="16px"
