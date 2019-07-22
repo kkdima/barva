@@ -10,10 +10,6 @@ import { planeAnimationOnClick } from "../theme/KeyFrames";
 class ContactForm extends Component {
 	constructor(props) {
 		super(props);
-
-		this.svgRef = React.createRef();
-		this.button = React.createRef();
-
 		this.state = {
 			isClicked: false,
 			email: '',
@@ -21,22 +17,23 @@ class ContactForm extends Component {
 			message: '',
 		};
 
-		this.handleChange = this.handleChange.bind(this)
+		// this.handleChange = this.handleChange.bind(this)
 	}
 
-	handleChange(e) {
-		let target = e.target;
-		let value = target.type === 'name' ? target.checked : target.value;
-		let name = target.name;
-		this.setState({
-			[name] : value
-		})
-	}
+	// handleChange(e) {
+	// 	let target = e.target;
+	// 	let value = target.type === 'name' ? target.checked : target.value;
+	// 	let name = target.name;
+	// 	this.setState({
+	// 		[name] : value
+	// 	})
+	// }
 
 	//eventListener on the button
 	handleClickButton = () => {
 		this.setState({ isClicked: true })
-		this.handleSubmit()
+		// this.handleSubmit()
+		return setTimeout(submit(), 400)
 	}
 
 
@@ -54,7 +51,7 @@ class ContactForm extends Component {
 				>
 					<Input type="hidden" name="form-name" value="contact"/>
 					<Input
-						value={name}
+						// value={name}
 						type="text" 
 						name="name" 
 						id="name"
@@ -62,7 +59,7 @@ class ContactForm extends Component {
 						onChange={this.handleChange}
 					/>
 					<Input
-						value={email}
+						// value={email}
 						type="text" 
 						name="email" 
 						id="email"
@@ -70,7 +67,7 @@ class ContactForm extends Component {
 						onChange={this.handleChange}
 					/>
 					<StyledTextarea
-						value={message}
+						// value={message}
 						id="textarea"
 						name="message"
 						type="message"
@@ -80,7 +77,6 @@ class ContactForm extends Component {
 					/>
 					<Button
 						type="submit"
-						ref={this.button}
 						onClick={this.handleClickButton}
 						className={isClicked ? "animateOnClick" : "static"}
 					>
