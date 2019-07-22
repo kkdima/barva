@@ -7,6 +7,12 @@ import TextareaAutosize from "react-autosize-textarea";
 import { planeAnimation } from "../theme/KeyFrames";
 import { planeAnimationOnClick } from "../theme/KeyFrames";
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
+
 class ContactForm extends Component {
 	constructor(props) {
 		super(props);
@@ -40,7 +46,6 @@ class ContactForm extends Component {
 		let target = e.target;
 		let value = target.type === 'name' ? target.checked : target.value;
 		let name = target.name;
-		
 		this.setState({
 			[name] : value
 		})
@@ -49,6 +54,7 @@ class ContactForm extends Component {
 	//eventListener on the button
 	handleClickButton = () => {
 		this.setState({ isClicked: true })
+		this.handleSubmit()
 	}
 
 
