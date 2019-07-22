@@ -7,12 +7,6 @@ import TextareaAutosize from "react-autosize-textarea";
 import { planeAnimation } from "../theme/KeyFrames";
 import { planeAnimationOnClick } from "../theme/KeyFrames";
 
-// const encode = (data) => {
-//     return Object.keys(data)
-//         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-//         .join("&");
-//   }
-
 class ContactForm extends Component {
 	constructor(props) {
 		super(props);
@@ -29,18 +23,6 @@ class ContactForm extends Component {
 
 		this.handleChange = this.handleChange.bind(this)
 	}
-
-	// handleSubmit = e => {
-	// 	fetch("/", {
-	// 	  method: "POST",
-	// 	  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-	// 	  body: encode({ "contact": "contact", ...this.state })
-	// 	})
-	// 	  .then(() => alert("Success!"))
-	// 	  .catch(error => alert(error));
-  
-	// 	e.preventDefault();
-	// };
 
 	handleChange(e) {
 		let target = e.target;
@@ -63,16 +45,15 @@ class ContactForm extends Component {
 		return (
 			<Wrapper>
 				<Form 
-					name='contact'
-					value="contact"
-					action='POST'
-					// action="/success"
+					name="contact" 
+					method="POST" 
 					data-netlify="true"
+					name='contact'
 					data-netlify-honeypot="bot-field"
 					data-netlify-recaptcha="true"
 					onSubmit={this.handleSubmit}
 				>
-					<Input type="hidden" name="bot-field"/>
+					<Input type="hidden" name="form-name" value="contact"/>
 					<Input
 						value={name}
 						type="text" 
@@ -107,7 +88,6 @@ class ContactForm extends Component {
 						<svg id="Plane" ref={this.svgRef}>
 							<use href="#paperPlane" />
 						</svg>
-						{/* {isClicked ? "Hyit" : "Submit"} */}
 						{isClicked ? <motion.div
 							className="container"
 							initial={{ y:-20, opacity: 0 }}
