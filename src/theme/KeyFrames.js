@@ -10,6 +10,44 @@ export const textAnimationUp = keyframes`
         opacity: 1;
     }
 `
+export const planeAnimation = keyframes`
+    0% {
+
+    }
+    30% {
+        transform: 
+            scale(0.9)
+            translateX(-5px)
+            translateY(-3px) 
+    }
+    100%{
+        transform: 
+            translateX(-2px)
+            rotate(-35deg)
+            translateY(3px) 
+    }
+`
+
+export const planeAnimationOnClick = keyframes`
+    0% {
+        transform: 
+            translateX(-2px)
+            translateY(3px) 
+            rotate(-40deg)
+    }
+    60%{
+        transform: 
+            translateX(-10px)
+            translateY(3px) 
+            rotate(40deg)
+    }
+    100%{
+        transform: 
+            translateX(95px)
+            rotate(50deg)
+            scale(1)
+    }
+`
 
 export const menuAnimationOpen = keyframes`
     0% {

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { planeAnimationOnClick } from "../theme/KeyFrames";
 
 export const size = {
 	mobile: "0px",
@@ -22,6 +23,8 @@ export const device = {
 };
 
 export const GlobalStyle = createGlobalStyle`
+  /* form-placeholder-color: rgb(12, 122, 192); */
+  
   body {
     margin: 0;
     padding: 0;
@@ -50,8 +53,110 @@ export const GlobalStyle = createGlobalStyle`
   .animationDiv {
     margin: auto;
   }
+  
+  /* Static Class */
+  .static {
+    /* all: unset; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    user-select:none;
+    -webkit-text-fill-color: #FC8357;
+    opacity: 1;
 
-  /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+    background: #FFE8E8;
+    box-shadow: 0 12px 13px -12px #FC8357;
+    border-radius: 6px;
+    width: 97px;
+    height: 28px;
+    margin: auto;
+    color: #FC8357;
+    border: none;
+    font-family: Noah-Bold;
+    font-size: 14px;
+    display: flex; 
+    flex-direction: row;
+    padding: 1px 20px 0 12px;
+    overflow: hidden;
+
+    #Plane {
+			width: 16px;
+			height: 16px;
+			margin: 0px 4px 0 0px;
+			transition: all 400ms;
+		}
+
+    :hover {
+			transform: scale(1.09);
+			transition: all 400ms;
+			#Plane {
+				transform: 
+					translateX(-2px)
+					rotate(-35deg)
+					translateY(3px)
+          /* opacity(1) */
+			}
+		}
+  }
+
+  /* animateOnClick Class */
+  .animateOnClick {
+    /* all: unset; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    user-select:none;
+    -webkit-text-fill-color: #FC8357;
+    opacity: 1;
+
+    background: #FFE8E8;
+    box-shadow: 0 12px 13px -12px #FC8357;
+    border-radius: 6px;
+    width: 97px;
+    height: 28px;
+    margin: auto;
+    color: #FC8357;
+    border: none;
+    font-family: Noah-Bold;
+    font-size: 14px;
+    display: flex; 
+    flex-direction: row;
+    padding: 1px 20px 0 12px;
+    overflow: hidden;
+
+    transition: all 700ms;
+    /* padding-left: 7px; */
+    text-align: left;
+
+    #Plane {
+			width: 16px;
+			height: 16px;
+			margin: 0px 4px 0 0px;
+			transition: all 400ms;
+      animation: ${planeAnimationOnClick} 600ms ease-in;
+      animation-fill-mode: forwards;
+		}
+
+    :hover {
+			transform: scale(1.09);
+			transition: all 400ms;
+			#Plane {
+        /* visibility: hidden; */
+				transform: 
+					translateX(-2px)
+					rotate(-35deg)
+					translateY(3px)
+          opacity(0)
+			}
+		}
+
+
+  }
+  
+
+
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */

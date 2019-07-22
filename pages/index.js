@@ -34,7 +34,7 @@ function getSkills() {
 	];
 }
 
-class Blog extends Component {
+class Home extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -70,7 +70,7 @@ class Blog extends Component {
 
 					<SkillsWrapper>
 						{getSkills().map(skill => (
-							<Skill id={skill.id} title={skill.title} text={skill.text} />
+							<Skill key={skill.id} title={skill.title} text={skill.text} />
 						))}
 					</SkillsWrapper>
 
@@ -103,7 +103,7 @@ class Blog extends Component {
 	}
 }
 
-export default Blog;
+export default Home;
 
 const H1 = styled.h1`
 	@media ${device.mobile} {

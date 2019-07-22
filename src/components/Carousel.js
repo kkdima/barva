@@ -15,7 +15,53 @@ import {
 	ButtonNext
 } from "pure-react-carousel";
 
-function Card() {
+export function getProjectsInfo() {
+	return [
+		{
+			id: 1,
+			img: '/static/images/service1.png'
+		},
+		{
+			id: 2,
+			img: '/static/images/service2.png'
+		},
+		{
+			id: 3,
+			img: '/static/images/service1.png'
+		}
+	];
+}
+
+class Carousel extends Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<Flicking
+				horizontal = {true}
+				circular= {true}
+				threshold= {40}
+				duration= {100}
+				inputType= {["touch", "mouse"]}
+				autoResize= {true}
+				adaptive= {true}
+				gap= {20}
+				hanger= {"50%"}
+				anchor= {"50%"}
+				moveType= {{ type: "snap", count: 1 }}
+				collectStatistics= {false}
+			>
+				{getProjectsInfo().map(project => (
+					<Card illustration={project.illustration} key={project.id}/>
+				))}
+			</Flicking>
+		);
+	}
+}
+
+const Card = (props) => {
 	return (
 		<motion.div
 			className="animationDiv"
@@ -26,46 +72,19 @@ function Card() {
 			}
 		>
 			<Wrapper>
-				<ImgHolder />
+				<ImgHolder
+					// src={props.img}
+					src={props.illustration}
+					alt=""
+				/>
 				<BgText />
 				<Button>more info</Button>
-				<ImgHolderShadow />
+				{/* <ImgHolderShadow src={props.img} alt="" /> */}
+				<p>{props.id}</p>
 			</Wrapper>
 		</motion.div>
 	);
-}
-
-class Carousel extends Component {
-	constructor() {
-		super();
-	}
-
-
-	render() {
-		return (
-            <Flicking
-                horiznatal={true}
-                circular = {true}
-                // infinite = {false}
-                threshold = {40}
-                duration = {100}
-                inputType = {["touch", "mouse"]}
-                autoResize = {true}
-                adaptive = {true}
-                gap={20}
-                hanger = {"50%"}
-                anchor = {"50%"}
-                moveType = {{type: "snap", count: 1}}
-                collectStatistics = {false}
-
-            >
-                <Card/>
-                <Card/>
-                <Card/>
-            </Flicking>
-		);
-	}
-}
+};
 
 export default Carousel;
 
@@ -97,11 +116,10 @@ const ImgHolder = styled.div`
 		height: 169px;
 		width: 296px;
 		z-index: 2;
-		background-color: grey;
 		border-radius: 6px;
-		background-image: url("../../static/images/service1.png");
+		/* background-image: url("../../static/images/service1.png");
 		background-repeat: no-repeat;
-		background-size: 100%;
+		background-size: 100%; */
 		/* display: none; */
 		overflow: hidden;
 	}
@@ -120,7 +138,7 @@ const ImgHolderShadow = styled.div`
 		left: 29px;
 		bottom: 35px;
 		/* margin: auto; */
-		background-image: url("../../static/images/service1.png");
+		/* background-image: url("../../static/images/service1.png"); */
 		border-radius: 6px;
 		position: absolute;
 		z-index: 1;
