@@ -7,11 +7,11 @@ import TextareaAutosize from "react-autosize-textarea";
 import { planeAnimation } from "../theme/KeyFrames";
 import { planeAnimationOnClick } from "../theme/KeyFrames";
 
-const encode = (data) => {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-  }
+// const encode = (data) => {
+//     return Object.keys(data)
+//         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+//         .join("&");
+//   }
 
 class ContactForm extends Component {
 	constructor(props) {
@@ -30,17 +30,17 @@ class ContactForm extends Component {
 		this.handleChange = this.handleChange.bind(this)
 	}
 
-	handleSubmit = e => {
-		fetch("/", {
-		  method: "POST",
-		  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		  body: encode({ "contactBarva": "contact", ...this.state })
-		})
-		  .then(() => alert("Success!"))
-		  .catch(error => alert(error));
+	// handleSubmit = e => {
+	// 	fetch("/", {
+	// 	  method: "POST",
+	// 	  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+	// 	  body: encode({ "contact": "contact", ...this.state })
+	// 	})
+	// 	  .then(() => alert("Success!"))
+	// 	  .catch(error => alert(error));
   
-		e.preventDefault();
-	};
+	// 	e.preventDefault();
+	// };
 
 	handleChange(e) {
 		let target = e.target;
@@ -63,24 +63,29 @@ class ContactForm extends Component {
 		return (
 			<Wrapper>
 				<Form 
-					name='contactBarva'
+					name='contact'
 					value="contact"
 					action='POST'
-					data-netlify='true'
+					// action="/success"
+					data-netlify="true"
+					data-netlify-honeypot="bot-field"
 					data-netlify-recaptcha="true"
 					onSubmit={this.handleSubmit}
 				>
+					<Input type="hidden" name="bot-field"/>
 					<Input
 						value={name}
-						type="text"
-						name="name"
+						type="text" 
+						name="name" 
+						id="name"
 						placeholder="Name"
 						onChange={this.handleChange}
 					/>
 					<Input
 						value={email}
-						name="email"
-						type="email"
+						type="text" 
+						name="email" 
+						id="email"
 						placeholder="E-mail"
 						onChange={this.handleChange}
 					/>
