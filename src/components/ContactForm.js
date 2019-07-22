@@ -12,10 +12,10 @@ class ContactForm extends Component {
 		super(props);
 		this.button = React.createRef();
 		this.state = {
-			isClicked: false,
-			email: '',
-			name: '',
-			message: '',
+			isClicked: false
+			// email: '',
+			// name: '',
+			// message: '',
 		};
 
 		// this.handleChange = this.handleChange.bind(this)
@@ -30,46 +30,43 @@ class ContactForm extends Component {
 	// 	})
 	// }
 
-	handleClickButton = () => {
-		// this.setState({ () => { }isClicked: true })
-
-		// this.setState(prevState => ({
-		// 	pictures: prevState.pictures.concat(pics)
-		// }))
-		const button = this.button.current
-
-		this.setState({ isClicked: true }, () => {
-			button.setTimeout(submit(), 600)
-		});
-	}
-
+	handleSubmit = () => {
+		const button = this.button.current;
+		this.setState(
+			{
+				isClicked: true
+			},
+			() => {
+				button.click();
+		);
+	};
 
 	render() {
-		const { name, email, message, isClicked  } = this.state;
+		const { name, email, message, isClicked } = this.state;
 		return (
 			<Wrapper>
-				<Form 
-					name="contact" 
-					method="POST" 
+				<Form
+					name="contact"
+					method="POST"
 					data-netlify="true"
-					name='contact'
+					name="contact"
 					data-netlify-honeypot="bot-field"
 					// onSubmit={this.handleSubmit}
 					onSubmit={this.handleClickButton}
 				>
-					<Input type="hidden" name="form-name" value="contact"/>
+					<Input type="hidden" name="form-name" value="contact" />
 					<Input
 						// value={name}
-						type="text" 
-						name="name" 
+						type="text"
+						name="name"
 						id="name"
 						placeholder="Name"
 						onChange={this.handleChange}
 					/>
 					<Input
 						// value={email}
-						type="text" 
-						name="email" 
+						type="text"
+						name="email"
 						id="email"
 						placeholder="E-mail"
 						onChange={this.handleChange}
@@ -86,24 +83,31 @@ class ContactForm extends Component {
 					<Button
 						ref={this.button}
 						type="submit"
-						onClick={this.handleClickButton}
+						onClick={this.handleSubmit}
 						className={isClicked ? "animateOnClick" : "static"}
 					>
 						<svg id="Plane" ref={this.svgRef}>
 							<use href="#paperPlane" />
 						</svg>
-						{isClicked ? <motion.div
-							className="container"
-							initial={{ y:-20, opacity: 0 }}
-							animate={{ y:0, opacity: 1 }}
-							transition={{
-								type: "spring",
-								stiffness: 260,
-								damping: 20,
-								delay: 0.5
-							}}>Sent</motion.div> : <div>Submit</div>}
+						{isClicked ? (
+							<motion.div
+								className="container"
+								initial={{ y: -20, opacity: 0 }}
+								animate={{ y: 0, opacity: 1 }}
+								transition={{
+									type: "spring",
+									stiffness: 260,
+									damping: 20,
+									delay: 0.5
+								}}
+							>
+								Sent
+							</motion.div>
+						) : (
+							<div>Submit</div>
+						)}
 					</Button>
-					<div data-netlify-recaptcha="true"></div>
+					<div data-netlify-recaptcha="true" />
 				</Form>
 				<svg
 					width="16px"
@@ -177,7 +181,6 @@ const Wrapper = styled.div`
 `;
 
 const Button = styled.button`
-
 	@media ${device.mobile} {
 	}
 	@media ${device.mobileM} {
