@@ -65,11 +65,9 @@ const Card = (props) => {
 	return (
 		<motion.div
 			className="animationDiv"
-			whileHover={
-				{
+			whileHover={{
 					// scale: 1.1
-				}
-			}
+				}}
 		>
 			<Wrapper>
 				<ImgHolder

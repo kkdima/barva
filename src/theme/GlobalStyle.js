@@ -86,17 +86,21 @@ export const GlobalStyle = createGlobalStyle`
 			transition: all 400ms;
 		}
 
-    :hover {
-			transform: scale(1.09);
-			transition: all 400ms;
-			#Plane {
-				transform: 
-					translateX(-2px)
-					rotate(-35deg)
-					translateY(3px)
-          /* opacity(1) */
-			}
-		}
+    @media ${device.tablet} {
+      :hover {
+        transform: scale(1.09);
+        transition: all 400ms;
+        #Plane {
+          
+          transform: 
+            translateX(-2px)
+            rotate(-35deg)
+            translateY(3px)
+            /* opacity(1) */
+        }
+      }
+    }
+
   }
 
   /* animateOnClick Class */
@@ -133,23 +137,24 @@ export const GlobalStyle = createGlobalStyle`
 			height: 16px;
 			margin: 0px 4px 0 0px;
 			transition: all 400ms;
-      animation: ${planeAnimationOnClick} 600ms ease-in;
-      animation-fill-mode: forwards;
+      animation: ${planeAnimationOnClick} 600ms ease-in !important;
+      animation-fill-mode: forwards !important;
 		}
 
-    :hover {
-			transform: scale(1.09);
-			transition: all 400ms;
-			#Plane {
-        /* visibility: hidden; */
-				transform: 
-					translateX(-2px)
-					rotate(-35deg)
-					translateY(3px)
-          opacity(0)
-			}
-		}
-
+    @media ${device.tablet} {
+      :hover {
+        /* transform: scale(1.09); */
+        transition: all 400ms;
+        #Plane {
+          /* visibility: hidden; */
+          transform: 
+            translateX(-2px)
+            rotate(-35deg)
+            translateY(3px)
+            opacity(0)
+        }
+      }
+    }
 
   }
   

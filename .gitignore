@@ -10,4 +10,6 @@ build
 /.next
 /.next-export
 
+.env
+
 npm-debug.log*

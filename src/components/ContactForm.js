@@ -15,53 +15,67 @@ class ContactForm extends Component {
 		this.button = React.createRef();
 
 		this.state = {
-			isClicked: false
+			isClicked: false,
+			email: '',
+			name: '',
+			message: '',
 		};
+
+		this.handleChange = this.handleChange.bind(this)
 	}
 
-	//Animation for plane icon. Rotation.
+	handleChange(e) {
+		let target = e.target;
+		let value = target.type === 'name' ? target.checked : target.value;
+		let name = target.name;
 
-	//changing the class on click
-	planeAnimation = () => {
-		const plane = this.svgRef.current;
-	};
+		e.preventDefault()
+		console.log(123);
+		
+		this.setState({
+			[name] : value
+		})
+	}
 
 	//eventListener on the button
-	componentDidMount = () => {
-		const button = this.button.current;
-		button.addEventListener("click", () => button.classList.toggle("toggled"));
-	};
+	handleClickButton = () => {
+		this.setState({ isClicked: true })
+	}
+
 
 	render() {
 		const isClicked = this.state.isClicked;
 		return (
 			<Wrapper>
-				<Form>
+				<Form action='POST' data-netlify='true'>
 					<Input
+						value={this.state.name}
 						name="name"
-						type="text"
+						type="name"
 						placeholder="Name"
-						// onChange={e => this.setState({})}
+						onChange={this.handleChange}
 					/>
 					<Input
+						value={this.state.email}
 						name="email"
-						type="text"
+						type="email"
 						placeholder="E-mail"
-						// onChange={e => this.setState({})}
+						onChange={this.handleChange}
 					/>
 					<StyledTextarea
+						value={this.state.message}
 						id="textarea"
 						name="message"
-						type="text"
+						type="message"
 						placeholder="Briefly describe the idea you want to bring to life"
-						// onChange={e => this.setState({})}
 						rows={3}
+						onChange={this.handleChange}
 					/>
 					<Button
 						// onMouseEnter={this.planeAnimation}
 						// onMouseLeave={this.planeAnimationOut}
 						ref={this.button}
-						onClick={() => this.setState({ isClicked: true })}
+						onClick={this.handleClickButton}
 						className={isClicked ? "animateOnClick" : "static"}
 					>
 						<svg id="Plane" ref={this.svgRef}>
@@ -73,9 +87,10 @@ class ContactForm extends Component {
 							initial={{ y:-20, opacity: 0 }}
 							animate={{ y:0, opacity: 1 }}
 							transition={{
-							type: "spring",
-							stiffness: 260,
-							damping: 20
+								type: "spring",
+								stiffness: 260,
+								damping: 20,
+								delay: 0.5
 							}}>Sent</motion.div> : <div>Submit</div>}
 					</Button>
 				</Form>
@@ -153,39 +168,12 @@ const Wrapper = styled.div`
 const Button = styled.button`
 
 	@media ${device.mobile} {
-		/* :active {
-			transition: all 700ms;
-			padding-left: 7px;
-			text-align: left;
-			#Plane {
-				animation: ${planeAnimationOnClick} 600ms ease-in;
-				animation-fill-mode: forwards;
-			}
-		} */
-
-
-		/* #Plane {
-			width: 16px;
-			height: 16px;
-			margin: 0px 4px 0 0px;
-			transition: all 400ms;
-		} */
-/* 
-		.animationOnclick {
-			transform: scale(1.09);
-			transition: all 400ms;
-			:active {
-			text-align: left;
-			#Plane {
-				animation: ${planeAnimationOnClick} 600ms ease-in;
-				animation-fill-mode: forwards;
-			}
-		} */
-
 	}
 	@media ${device.mobileM} {
 	}
 	@media ${device.mobileL} {
+	}
+	@media ${device.tablet} {
 	}
 	@media ${device.laptop} {
 	}

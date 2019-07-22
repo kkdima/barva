@@ -235,7 +235,7 @@ const Background = styled.div`
 		top: 0;
 		background-color: #222222;
 		box-sizing: border-box;
-		height: 100vh;
+		height: 100%;
 		width: 100vw;
 	}
 	@media ${device.tablet} {

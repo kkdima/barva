@@ -7,7 +7,6 @@ import Skill from "../src/components/Skill";
 import Carousel from "../src/components/Carousel";
 import ContactForm from "../src/components/ContactForm";
 import { motion } from "framer-motion"
-
 import { textAnimationUp } from "../src/theme/KeyFrames";
 
 function getSkills() {
