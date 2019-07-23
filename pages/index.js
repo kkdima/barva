@@ -53,7 +53,8 @@ class Home extends Component {
 								animate={{ opacity: 1, x: 0, y:0}}
 								transition={{ 
 									ease: "easeOut", 
-									duration: 1.5
+									duration: 1.5,
+									delay: 0.5
 								}}
 							/>
 						</div>
@@ -64,7 +65,8 @@ class Home extends Component {
 							animate={{ opacity: 1, x: 0, y:0}}
 							transition={{ 
 								ease: "easeOut", 
-								duration: 1.5
+								duration: 1.5,
+								delay: 0.5
 							}}
 						>
 							<img src="../static/images/OvalBlue2.svg" id="OvalBlue2" />
@@ -77,6 +79,7 @@ class Home extends Component {
 							transition={{ 
 								ease: "easeOut",
 								duration: 1.5,
+								delay: 0.5
 							}}
 						>
 							<img src="../static/images/OvalOrange.svg" id="OvalOrange" />
@@ -89,6 +92,7 @@ class Home extends Component {
 							transition={{ 
 								ease: "easeOut",
 								duration: 1.5,
+								delay: 0.5
 							}}
 							>
 							<img src="../static/images/OvalOrangeSmall.svg" id="OvalOrangeSmall"/>
@@ -101,6 +105,7 @@ class Home extends Component {
 							transition={{ 
 								ease: "easeOut",
 								duration: 1.5,
+								delay: 0.5
 							}}
 						>
 							<img src="../static/images/OvalOrangeSmaller.svg" id="OvalOrangeSmaller"/>
@@ -114,7 +119,6 @@ class Home extends Component {
 								transition={{ 
 									ease: "easeOut",
 									duration: 0.5,
-									stiffness: 260,
 								}}
 							>
 								<H1>
@@ -175,14 +179,9 @@ const H1 = styled.h1`
 		z-index: 3;
 		position: absolute;
 		bottom: 50px;
-		left: 29px;
+		left: 12px;
+		width: 290px;
 
-		/* animation: ${textAnimationUp} 1s ease;
-		animation-fill-mode: forwards; */
-
-
-
-		/* border: solid pink 1px; */
 	}
 	@media ${device.tablet} {
 	}
