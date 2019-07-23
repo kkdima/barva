@@ -6,7 +6,8 @@ import React, { Component } from "react";
 import Skill from "../src/components/Skill";
 import Carousel from "../src/components/Carousel";
 import ContactForm from "../src/components/ContactForm";
-import { motion } from "framer-motion"
+import Footer from "../src/components/Footer";
+import { motion } from "framer-motion";
 import { textAnimationUp } from "../src/theme/KeyFrames";
 
 function getSkills() {
@@ -37,35 +38,107 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 	}
+
 	render() {
 		return (
 			<Layout>
 				<Wrapper>
 					<HeadlineWrapper>
 						<div id="holder1">
-							<img src="../static/images/OvalBlue1.svg" id="OvalBlue1" />
-						</div>
-						<div id="holder2">
-							<img src="../static/images/OvalBlue2.svg" id="OvalBlue2" />
-						</div>
-						<div id="holder3">
-							<img src="../static/images/OvalOrange.svg" id="OvalOrange" />
-						</div>
-						<div id="holder4">
-							<img src="../static/images/OvalOrangeSmall.svg" id="OvalOrangeSmall" />
-						</div>
-						<div id="holder5">
-							<img src="../static/images/OvalOrangeSmaller.svg" id="OvalOrangeSmaller"/>
+							<motion.img
+								src="../static/images/OvalBlue1.svg"
+								id="OvalBlue1"
+								whileHover={{ scale: 1.1, rotate: 5 }}
+								initial={{ opacity: 0, x: -20, y: 20}}
+								animate={{ opacity: 1, x: 0, y:0}}
+								transition={{ 
+									ease: "easeOut", 
+									duration: 1.5
+								}}
+							/>
 						</div>
 
-						<H1>
-							HI WE ARE <br />
-							BARVA <br />
-							CREATIVE TEAM
-						</H1>
+						<motion.div 
+							id="holder2"
+							initial={{ opacity: 0, x: 100, y: 50}}
+							animate={{ opacity: 1, x: 0, y:0}}
+							transition={{ 
+								ease: "easeOut", 
+								duration: 1.5
+							}}
+						>
+							<img src="../static/images/OvalBlue2.svg" id="OvalBlue2" />
+						</motion.div>
+
+						<motion.div 
+							id="holder3"
+							initial={{ opacity: 0, x: -30, y: 20}}
+							animate={{ opacity: 1, x: 0, y:0}}
+							transition={{ 
+								ease: "easeOut",
+								duration: 1.5,
+							}}
+						>
+							<img src="../static/images/OvalOrange.svg" id="OvalOrange" />
+						</motion.div >
+
+						<motion.div
+							id="holder4"
+							initial={{ opacity: 0, x: -30, y: 20}}
+							animate={{ opacity: 1, x: 0, y:0}}
+							transition={{ 
+								ease: "easeOut",
+								duration: 1.5,
+							}}
+							>
+							<img src="../static/images/OvalOrangeSmall.svg" id="OvalOrangeSmall"/>
+						</motion.div>
+
+						<motion.div 
+							id="holder5"
+							initial={{ opacity: 0, x: 20, y: 60}}
+							animate={{ opacity: 1, x: 0, y:0}}
+							transition={{ 
+								ease: "easeOut",
+								duration: 1.5,
+							}}
+						>
+							<img src="../static/images/OvalOrangeSmaller.svg" id="OvalOrangeSmaller"/>
+						</motion.div>
+
+						<div >
+							<motion.div
+								id="zIndex"
+								initial={{ opacity: 0, y: 300 }}
+								animate={{ opacity: 1, y: 200 }}
+								transition={{ 
+									ease: "easeOut",
+									duration: 0.5,
+									stiffness: 260,
+								}}
+							>
+								<H1>
+									HI WE ARE <br />
+									BARVA <br />
+									CREATIVE TEAM
+								</H1>
+							</motion.div>
+						</div>
 					</HeadlineWrapper>
 
-					<H2>Based in Los Angeles</H2>
+					<div id="zIndex">
+							<motion.div
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								transition={{ 
+									ease: "easeOut",
+									delay: 0.5,
+								}}
+							>
+								<H2>Based in Los Angeles</H2>
+							</motion.div>
+						</div>
+
 
 					<SkillsWrapper>
 						{getSkills().map(skill => (
@@ -74,28 +147,15 @@ class Home extends Component {
 					</SkillsWrapper>
 
 					<H2bold>Our Projects</H2bold>
-					{/* <motion.div 
-						className="animationDiv"
-						drag
-						dragConstraints={{
-						  top: 0,
-						  left: -50,
-						  right: 50,
-						  bottom: 0,
-						}}
-					> */}
-
-						{/* <CarouselHolder>
+					{/* <CarouselHolder>
 							<Carousel />
 							<Carousel />
 							<Carousel />
 						</CarouselHolder> */}
 					<Carousel />
-
-					{/* </motion.div> */}
-
 					<H2bold>Contact Us</H2bold>
-					<ContactForm/>
+					<ContactForm />
+					<Footer />
 				</Wrapper>
 			</Layout>
 		);
@@ -117,8 +177,8 @@ const H1 = styled.h1`
 		bottom: 50px;
 		left: 29px;
 
-		animation: ${textAnimationUp} 1s ease;
-		animation-fill-mode: forwards;
+		/* animation: ${textAnimationUp} 1s ease;
+		animation-fill-mode: forwards; */
 
 
 
@@ -135,11 +195,10 @@ const H2bold = styled.h2`
 		font-family: Noah-Bold;
 		font-size: 30px;
 		text-align: center;
-		color: #0E0E0E;
+		color: #0e0e0e;
 		font-weight: 600;
 		margin: -28px 0 70px 0;
 		margin-top: 40px;
-
 	}
 	@media ${device.tablet} {
 	}
@@ -161,8 +220,6 @@ const H2 = styled.h2`
 	@media ${device.laptop} {
 	}
 `;
-
-
 
 const SkillsWrapper = styled.div`
 	@media ${device.mobile} {
@@ -191,8 +248,6 @@ const Wrapper = styled.div`
 	}
 	@media ${device.laptop} {
 	}
-	/* justify-content: center; */
-	/* justify-content: flex-end; */
 `;
 
 const HeadlineWrapper = styled.div`
@@ -202,15 +257,19 @@ const HeadlineWrapper = styled.div`
 		padding-top: 49px;
 		width: 320px;
 		height: 200px;
-		/* z-index: -3; */
 
-		/* border: solid black 1px; */
+		#zIndex {
+			width: 300px;
+			position: absolute;
+			z-index: 3;
+		}
 
 		#holder1 {
 			z-index: 1;
 			position: absolute;
 			left: 39px;
 			#OvalBlue1 {
+				user-select: none;
 				width: 162.1px;
 				height: 116.2px;
 			}
@@ -222,47 +281,47 @@ const HeadlineWrapper = styled.div`
 			bottom: 25px;
 			right: 14px;
 			#OvalBlue2 {
+				user-select: none;
 				width: 162.9px;
 				height: 100.4px;
 			}
 		}
-		
+
 		#holder3 {
 			z-index: 2;
 			position: absolute;
 			bottom: 25px;
 			left: 4px;
 			#OvalOrange {
+				user-select: none;
 				width: 156.5px;
 				height: 57.6px;
 			}
 		}
 
-		#holder4{
+		#holder4 {
 			z-index: 3;
 			position: absolute;
 			right: 22px;
 			margin-top: 37px;
 			#OvalOrangeSmall {
+				user-select: none;
 				position: relative;
 				width: 40.9px;
 				height: 40.8px;
-				/* left: 257px; */
-				/* top: 85px; */
 			}
 		}
 
-		#holder5{
+		#holder5 {
 			z-index: 3;
 			position: absolute;
 			right: 57px;
 			margin-top: 17px;
 			#OvalOrangeSmaller {
+				user-select: none;
 				position: relative;
 				width: 11.7px;
 				height: 11.3px;
-				/* top: 68px; */
-				/* left: 251px; */
 			}
 		}
 	}
@@ -275,14 +334,11 @@ const HeadlineWrapper = styled.div`
 const CarouselHolder = styled.div`
 	@media ${device.mobile} {
 		margin: auto;
-		/* overflow:initial */
 		border: solid black;
-		
 	}
 	@media ${device.tablet} {
 		display: flex;
 		flex-direction: row;
-		/* overflow-x: hidden; */
 		div:nth-of-type(1) {
 			flex-grow: 1;
 		}

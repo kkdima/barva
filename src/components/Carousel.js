@@ -46,7 +46,7 @@ class Carousel extends Component {
 				inputType= {["touch", "mouse"]}
 				autoResize= {true}
 				adaptive= {true}
-				gap= {20}
+				gap= {40}
 				hanger= {"50%"}
 				anchor= {"50%"}
 				moveType= {{ type: "snap", count: 1 }}
@@ -94,12 +94,8 @@ const Wrapper = styled.div`
 		justify-content: center;
 		position: relative;
 		padding-bottom: 60px;
-		/* margin-bottom: 30px; */
-		/* margin: auto; */
-		margin-right:  50px;
 		justify-content: center;
 		margin-bottom: 40px;
-		border: solid black;
 		
 	}
 	@media ${device.mobileM} {
@@ -107,7 +103,6 @@ const Wrapper = styled.div`
 	@media ${device.mobileL} {
 	}
 	@media ${device.tablet} {
-		margin-right: 20px;
 	}
 	@media ${device.laptop} {
 	}
@@ -119,12 +114,10 @@ const ImgHolder = styled.div`
 		width: 296px;
 		z-index: 2;
 		border-radius: 6px;
-		/* background-image: url("../../static/images/service1.png"); */
+		background-image: url("../../static/images/service1.png");
 		/* background-repeat: no-repeat; */
 		background-size: 100%;
 		overflow: hidden;
-
-		border: solid red 1px;
 	}
 	@media ${device.mobileM} {
 	}
@@ -141,7 +134,7 @@ const ImgHolderShadow = styled.div`
 		left: 29px;
 		bottom: 55px;
 		margin: auto;
-		/* background-image: url("../../static/images/service1.png"); */
+		background-image: url("../../static/images/service1.png");
 		border-radius: 6px;
 		position: absolute;
 		z-index: 1;

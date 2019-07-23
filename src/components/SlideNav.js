@@ -79,32 +79,34 @@ class Menu extends Component {
 					animateMenu={animateMenu}
 				/>
 				{/* {console.log(showMenu)} */}
+				<MenuHolder>
+					<UL className="menuOpens">
+						<StyledLink href="/">
+							<Li>
+								<A>Home</A>
+							</Li>
+						</StyledLink>
+
+						<StyledLink href="/projects">
+							<Li>
+								<A>Projects</A>
+							</Li>
+						</StyledLink>
+
+						<StyledLink href="/about">
+							<Li>
+								<A>About</A>
+							</Li>
+						</StyledLink>
+
+						<StyledLink href="/contact">
+							<Li>
+								<A>Contact</A>
+							</Li>
+						</StyledLink>
+					</UL>
+				</MenuHolder>
 				
-				<UL className="menuOpens">
-					<StyledLink href="/">
-						<Li>
-							<A>Home</A>
-						</Li>
-					</StyledLink>
-
-					<StyledLink href="/projects">
-						<Li>
-							<A>Projects</A>
-						</Li>
-					</StyledLink>
-
-					<StyledLink href="/about">
-						<Li>
-							<A>About</A>
-						</Li>
-					</StyledLink>
-
-					<StyledLink href="/contact">
-						<Li>
-							<A>Contact</A>
-						</Li>
-					</StyledLink>
-				</UL>
 			</div>
 		);
 	}
@@ -119,9 +121,23 @@ const MenuWrapper = styled.div`
 	box-sizing: border-box;
 	padding-left: 40;
 	z-index: 4;
-
 	p{
 		font-family: 'Chivo', sans-serif;
+	}
+`;
+
+const MenuHolder = styled.div`
+	@media ${device.mobile} {
+		margin: auto;
+	}
+	@media ${device.mobileM} {
+	}
+	@media ${device.mobileL} {
+		width: 768px;
+	}
+	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
 	}
 `;
 
@@ -236,7 +252,8 @@ const Background = styled.div`
 		background-color: #222222;
 		box-sizing: border-box;
 		height: 100%;
-		width: 100vw;
+		width: 100%;
+		opacity: 1;
 	}
 	@media ${device.tablet} {
 	}
@@ -301,10 +318,11 @@ const UL = styled.ul`
 		font-size: 32px;
 		font-weight: bold;
 		max-width: 200px;
-		margin: 0px 0px 0px 40px;
+		margin: 0px 0px 0px 25px;
 		padding: 0px;
 	}
 	@media ${device.tablet} {
+		margin-left: 40px;
 	}
 	@media ${device.laptop} {
 	}

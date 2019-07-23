@@ -43,7 +43,7 @@ export const planeAnimationOnClick = keyframes`
     }
     100%{
         transform: 
-            translateX(95px)
+            translateX(115px)
             rotate(50deg)
             scale(1)
     }

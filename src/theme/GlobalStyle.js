@@ -63,20 +63,23 @@ export const GlobalStyle = createGlobalStyle`
     user-select:none;
     -webkit-text-fill-color: #FC8357;
     opacity: 1;
+    width: 121px;
+		height: 35px;
+		font-size: 17px;
 
     background: #FFE8E8;
     box-shadow: 0 12px 13px -12px #FC8357;
     border-radius: 6px;
-    width: 97px;
-    height: 28px;
+    width: 121px;
+		height: 35px;
     margin: auto;
     color: #FC8357;
     border: none;
     font-family: Noah-Bold;
-    font-size: 14px;
+		font-size: 17px;
     display: flex; 
     flex-direction: row;
-    padding: 1px 20px 0 12px;
+    padding: 1px 20px 0 19px;
     overflow: hidden;
 
     #Plane {
@@ -113,16 +116,18 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-text-fill-color: #FC8357;
     opacity: 1;
 
+
     background: #FFE8E8;
     box-shadow: 0 12px 13px -12px #FC8357;
     border-radius: 6px;
-    width: 97px;
-    height: 28px;
+    width: 121px;
+		height: 35px;
+		font-size: 17px;
     margin: auto;
+    margin-top: 
     color: #FC8357;
     border: none;
     font-family: Noah-Bold;
-    font-size: 14px;
     display: flex; 
     flex-direction: row;
     padding: 1px 20px 0 12px;
@@ -130,7 +135,12 @@ export const GlobalStyle = createGlobalStyle`
 
     transition: all 700ms;
     /* padding-left: 7px; */
-    text-align: left;
+    text-align: center;
+
+    #Sent {
+      margin-left: 10px;
+      margin-bottom: 1px;
+    }
 
     #Plane {
 			width: 16px;

@@ -7,11 +7,12 @@ import TextareaAutosize from "react-autosize-textarea";
 import { planeAnimation } from "../theme/KeyFrames";
 import { planeAnimationOnClick } from "../theme/KeyFrames";
 
-const encode = (data) => {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-}
+//encoding form inputs to server readable format
+const encode = data => {
+	return Object.keys(data)
+		.map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+		.join("&");
+};
 
 class ContactForm extends Component {
 	constructor(props) {
@@ -36,16 +37,14 @@ class ContactForm extends Component {
 		});
 	}
 
-	handleSubmit = (e) => {
+	handleSubmit = e => {
 		const button = this.button.current;
+		button.setAttribute("disabled", "disabled");
 		this.setState(
-			{
-				isClicked: true
-			},
-			() => {
-				// button.submit();
-				console.log(this.state);
-			}
+			{ isClicked: true }
+			// () => {
+			// 	console.log(this.state);
+			// }
 		);
 
 		fetch("/", {
@@ -53,7 +52,7 @@ class ContactForm extends Component {
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
 			body: encode({ "form-name": "contact", ...this.state })
 		})
-			.then(() => console.log("Success!")) 
+			.then(() => console.log("Success!"))
 			.catch(error => alert(error));
 
 		e.preventDefault();
@@ -109,6 +108,7 @@ class ContactForm extends Component {
 						</svg>
 						{isClicked ? (
 							<motion.div
+								id="Sent"
 								className="container"
 								initial={{ y: -20, opacity: 0 }}
 								animate={{ y: 0, opacity: 1 }}
@@ -182,8 +182,9 @@ const Wrapper = styled.div`
 	@media ${device.mobile} {
 		padding-top: 43px;
 		height: 320px;
-		width: 100%;
 		background-color: #f5f5ff;
+
+		/* border: solid black; */
 	}
 	@media ${device.mobileM} {
 	}
@@ -196,10 +197,16 @@ const Wrapper = styled.div`
 		-webkit-text-fill-color-placeholder: #ffffff;
 		opacity: 1;
 	}
+	/* Changin the default color of input after autofill in Safari */
+	input:-webkit-autofill, input:-webkit-autofill:focus {
+		box-shadow: 0 0 0 1000px #B8DAFD inset;
+	}
+
 `;
 
 const Button = styled.button`
 	@media ${device.mobile} {
+		/* Styles are in static GlobalJs file */
 	}
 	@media ${device.mobileM} {
 	}
@@ -214,6 +221,7 @@ const Button = styled.button`
 const StyledTextarea = styled(TextareaAutosize)`
 	all: unset;
 	font-family: Noah-Regular;
+	font-size: 19px;
 	background-image: linear-gradient(-97deg, #8cadff 0%, #b6ddfd 67%);
 	box-shadow: 0 17px 10px -13px rgba(200, 199, 223, 0.45);
 	border-radius: 6px;
@@ -221,10 +229,13 @@ const StyledTextarea = styled(TextareaAutosize)`
 	padding-top: 10px;
 	margin-bottom: 22px;
 	height: 78px;
+	line-height: 1.4em;
 
 	::-webkit-input-placeholder {
 		-webkit-text-fill-color: #fff;
 		opacity: 1; /* required on iOS */
+	}
+	@media ${device.tablet} {
 	}
 `;
 
@@ -238,6 +249,7 @@ const Input = styled.input`
 
 	@media ${device.mobile} {
 		font-family: Noah-Regular;
+		font-size: 19px;
 		-webkit-appearance: none;
 		background-image: linear-gradient(-97deg, #8cadff 0%, #b6ddfd 67%);
 		box-shadow: 0 17px 10px -13px rgba(200, 199, 223, 0.45);
@@ -253,14 +265,15 @@ const Input = styled.input`
 `;
 
 const Form = styled.form`
-	all: unset;
 	@media ${device.mobile} {
+		all: unset;
 		display: flex;
 		flex-direction: column;
 		width: 289px;
 		margin: auto;
 	}
 	@media ${device.tablet} {
+		width: 355px;
 	}
 	@media ${device.laptop} {
 	}
