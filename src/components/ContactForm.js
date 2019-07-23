@@ -7,38 +7,56 @@ import TextareaAutosize from "react-autosize-textarea";
 import { planeAnimation } from "../theme/KeyFrames";
 import { planeAnimationOnClick } from "../theme/KeyFrames";
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+}
+
 class ContactForm extends Component {
 	constructor(props) {
 		super(props);
 		this.button = React.createRef();
 		this.state = {
-			isClicked: false
-			// email: '',
-			// name: '',
-			// message: '',
+			isClicked: false,
+			email: "",
+			name: "",
+			message: ""
 		};
 
-		// this.handleChange = this.handleChange.bind(this)
+		this.handleChange = this.handleChange.bind(this);
 	}
 
-	// handleChange(e) {
-	// 	let target = e.target;
-	// 	let value = target.type === 'name' ? target.checked : target.value;
-	// 	let name = target.name;
-	// 	this.setState({
-	// 		[name] : value
-	// 	})
-	// }
+	handleChange(e) {
+		let target = e.target;
+		let value = target.type === "name" ? target.checked : target.value;
+		let name = target.name;
+		this.setState({
+			[name]: value
+		});
+	}
 
-	handleSubmit = () => {
+	handleSubmit = (e) => {
 		const button = this.button.current;
 		this.setState(
 			{
 				isClicked: true
 			},
 			() => {
-				button.click();
+				// button.submit();
+				console.log(this.state);
+			}
 		);
+
+		fetch("/", {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: encode({ "form-name": "contact", ...this.state })
+		})
+			.then(() => console.log("Success!")) 
+			.catch(error => alert(error));
+
+		e.preventDefault();
 	};
 
 	render() {
@@ -56,7 +74,7 @@ class ContactForm extends Component {
 				>
 					<Input type="hidden" name="form-name" value="contact" />
 					<Input
-						// value={name}
+						value={name}
 						type="text"
 						name="name"
 						id="name"
@@ -64,7 +82,7 @@ class ContactForm extends Component {
 						onChange={this.handleChange}
 					/>
 					<Input
-						// value={email}
+						value={email}
 						type="text"
 						name="email"
 						id="email"
@@ -72,7 +90,7 @@ class ContactForm extends Component {
 						onChange={this.handleChange}
 					/>
 					<StyledTextarea
-						// value={message}
+						value={message}
 						id="textarea"
 						name="message"
 						type="message"
