@@ -2290,13 +2290,6 @@ function (_Document) {
           lineNumber: 33
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("script", {
-        src: "https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 34
-        },
-        __self: this
       })));
     }
   }], [{

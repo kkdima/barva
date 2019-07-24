@@ -65,6 +65,7 @@ const Wrapper = styled.div`
 			background-color: #e5eeff;
 			box-shadow: 0 16px 29px -12px rgba(0, 0, 0, 0.14);
 
+
 			#img {
 				display: none;
 			}
@@ -108,7 +109,7 @@ const Title = styled.h2`
 		font-family: Noah-Bold;
 		font-weight: 600;
 		margin-left: 43px;
-		max-width: 241px;
+		max-width: 245px;
 	}
 	@media ${device.tablet} {
 	}
@@ -126,6 +127,7 @@ const Text = styled.p`
 		margin-left: 43px;
 		margin-right: 33px;
 		margin-bottom: 46px;
+		width: 219px;
 	}
 	@media ${device.tablet} {
 	}

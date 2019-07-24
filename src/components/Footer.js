@@ -89,8 +89,8 @@ const Wrapper = styled.div`
         font-family: Noah-Bold;
         font-size: 19px;
         text-align: center;
-
-		border: inside solid black 1px;
+		position: absolute;
+		bottom: 0;
 		a:last-of-type {
 			margin-right: 0;
 		}
@@ -116,6 +116,8 @@ const Wrapper2 = styled.div`
         justify-content: center;
 		.Link {
 			margin-top: 25px;
+			user-select: none;
+			outline:none;
 		}
 	}
 	@media ${device.mobileM} {

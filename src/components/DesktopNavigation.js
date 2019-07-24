@@ -79,6 +79,8 @@ const Wrapper = styled.div`
 			font-family: Noah-Bold;
 			cursor: pointer;
 			text-decoration: none;
+            user-select: none;
+			outline:none;
 			font-size: 19px;
 			margin-left: 35px;
 		}

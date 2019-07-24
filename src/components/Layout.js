@@ -8,7 +8,7 @@ const Layout = props => (
 		<GlobalStyle />
 		<SlideNav />
 		{props.children}
-		<Footer/>
+		<Footer />
 	</Wrapper>
 );
 
@@ -19,5 +19,9 @@ const Wrapper = styled.div`
 	margin: 0;
 	display: flex;
 	flex-direction: column;
-	background-color: #FAFAFF;
+	background-color: #fafaff;
+	
+	/* To keep footer at the very bottom of the 'Body' */
+	position: relative;
+	min-height: 100vh;
 `;

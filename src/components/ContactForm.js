@@ -68,6 +68,7 @@ class ContactForm extends Component {
 					data-netlify="true"
 					name="contact"
 					data-netlify-honeypot="bot-field"
+					data-netlify-recaptcha="true"
 					// onSubmit={this.handleSubmit}
 					onSubmit={this.handleClickButton}
 				>
@@ -184,9 +185,14 @@ const Wrapper = styled.div`
 		height: 320px;
 		background-color: #f5f5ff;
 
-		/* border: solid black; */
+		/* height of the footer */
+		margin-bottom: 320px;
 	}
 	@media ${device.mobileM} {
+	}
+	@media ${device.tablet} {
+		/* height of the footer */
+		margin-bottom: 227px;
 	}
 	@media ${device.mobileL} {
 	}

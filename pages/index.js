@@ -92,7 +92,16 @@ const SkillsWrapper = styled.div`
 		margin: auto;
 		.serviceBlock:nth-child(2) {
 			flex-direction: row-reverse;
+			h2 {
+				max-width: 184px !important;
+			}
 		}
+		:nth-child(2).serviceBlock:nth-child(2) {
+				.rightSide:nth-child(3){
+					max-width: 180px !important;
+					border: solid black;
+				}
+			} 
 	}
 	@media ${device.tablet} {
 	}

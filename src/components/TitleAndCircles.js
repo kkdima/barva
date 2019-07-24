@@ -258,6 +258,8 @@ const H1 = styled.h1`
 		bottom: 50px;
 		left: 12px;
 		width: 290px;
+        user-select: none;
+        outline:none;
 	}
 	@media ${device.tablet} {
 		left: 39px;
