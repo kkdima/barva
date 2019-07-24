@@ -1,4 +1,5 @@
 import SlideNav from "./SlideNav";
+import Footer from "./Footer";
 import GlobalStyle from "../theme/GlobalStyle";
 import styled from "styled-components";
 
@@ -7,6 +8,7 @@ const Layout = props => (
 		<GlobalStyle />
 		<SlideNav />
 		{props.children}
+		<Footer/>
 	</Wrapper>
 );
 

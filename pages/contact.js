@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Contact = () => (
 	<Layout>
-		<A>contact us!</A>
+		<A style={{textAlign: "center"}}>contact us!</A>
 	</Layout>
 );
 

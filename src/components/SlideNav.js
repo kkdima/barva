@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { Component } from "react";
 import styled, { ThemeProvider, css } from "styled-components";
 import Logo from "./Logo";
+import DesktopNavigation from "./DesktopNavigation";
 import { device } from "../theme/GlobalStyle";
 
 import { menuAnimationOpen } from "../theme/KeyFrames";
@@ -51,6 +52,7 @@ class SlideNav extends Component {
 								<p>Close</p>
 							</Span>
 						</MenuTextWrapper>
+						<DesktopNavigation />
 					</LogoAndMenuButton>
 					<ThemeProvider theme={themeOpen}>
 						{showMenu ? <Menu 
@@ -184,6 +186,7 @@ const MenuTextWrapper = styled.div`
 	}
 	@media ${device.tablet} {
 		margin: 40px 40px 0 0;
+		display: none;
 	}
 	@media ${device.laptop} {
 	}

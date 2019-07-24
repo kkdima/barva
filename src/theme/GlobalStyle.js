@@ -124,7 +124,6 @@ export const GlobalStyle = createGlobalStyle`
 		height: 35px;
 		font-size: 17px;
     margin: auto;
-    margin-top: 
     color: #FC8357;
     border: none;
     font-family: Noah-Bold;

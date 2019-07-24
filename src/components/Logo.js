@@ -77,7 +77,7 @@ const LogoWrapper = styled.div`
 		margin-top: 25px;
 	}
 	@media ${device.tablet} {
-		margin: 40px 40px;
+		margin: 40px 40px 0;
 	}
 	@media ${device.laptop} {
 	}

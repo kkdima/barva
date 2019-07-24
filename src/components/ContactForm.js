@@ -207,6 +207,7 @@ const Wrapper = styled.div`
 const Button = styled.button`
 	@media ${device.mobile} {
 		/* Styles are in static GlobalJs file */
+		margin-top: 10px;
 	}
 	@media ${device.mobileM} {
 	}
