@@ -7,7 +7,7 @@ export default function Skill(props) {
 				<div className="leftSide"></div>
 				<div className="rightSide">
 					<Img id="img" src="../../static/images/bg-animation.gif" />
-					<Number>0{props.id}</Number>
+					<Number>0{props.number}</Number>
 					<Title>{props.title}</Title>
 					<Text>{props.text}</Text>
 				</div >

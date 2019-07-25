@@ -38,7 +38,6 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 	}
-
 	render() {
 		return (
 			<Layout>
@@ -48,7 +47,7 @@ class Home extends Component {
 
 					<SkillsWrapper>
 						{getSkills().map(skill => (
-							<Skill key={skill.id} title={skill.title} text={skill.text} />
+							<Skill number={skill.id} key={skill.id} title={skill.title} text={skill.text} />
 						))}
 					</SkillsWrapper>
 

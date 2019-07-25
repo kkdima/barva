@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-
 import styled from "styled-components";
 import { device, GlobalStyle } from "../theme/GlobalStyle";
 import { motion } from "framer-motion";
-
 import Flicking from "@egjs/react-flicking";
+
+// import service from '/static/images/service'
 
 
 import {
@@ -15,19 +15,19 @@ import {
 	ButtonNext
 } from "pure-react-carousel";
 
-export function getProjectsInfo() {
+function getProjectsInfo() {
 	return [
 		{
 			id: 1,
-			img: '/static/images/service1.png'
+			pic: `../../static/images/service.png`
 		},
 		{
 			id: 2,
-			img: '/static/images/service2.png'
+			pic: `/static/images/service2.png`
 		},
 		{
 			id: 3,
-			img: '/static/images/service1.png'
+			pic: `../../static/images/service.png`
 		}
 	];
 }
@@ -39,48 +39,39 @@ class Carousel extends Component {
 	render() {
 		return (
 			<Flicking
-				horizontal = {true}
-				circular= {true}
-				threshold= {40}
-				duration= {100}
-				inputType= {["touch", "mouse"]}
-				autoResize= {true}
-				adaptive= {true}
-				gap= {40}
-				hanger= {"50%"}
-				anchor= {"50%"}
-				moveType= {{ type: "snap", count: 1 }}
-				collectStatistics= {false}
+				horizontal={true}
+				circular={true}
+				threshold={40}
+				duration={100}
+				inputType={["touch", "mouse"]}
+				autoResize={true}
+				adaptive={true}
+				gap={40}
+				hanger={"50%"}
+				anchor={"50%"}
+				moveType={{ type: "snap", count: 1 }}
+				collectStatistics={false}
 			>
 				{getProjectsInfo().map(project => (
-					<Card illustration={project.illustration} key={project.id}/>
+					<Card pic={project.pic} number={project.id} key={project.id} />
 				))}
 			</Flicking>
 		);
 	}
 }
 
-const Card = (props) => {
+const Card = props => {
 	return (
-		<motion.div
-			className="animationDiv"
-			whileHover={
-				{
-					// scale: 1.1
-				}}
-		>
-			<Wrapper>
-				<ImgHolder
-					// src={props.img}
-					src={props.illustration}
-					alt=""
-				/>
-				<BgText />
-				<Button>more info</Button>
-				<ImgHolderShadow src={props.img} alt="" />
-				<p>{props.id}</p>
-			</Wrapper>
-		</motion.div>
+		<Wrapper>
+			<ImgHolder
+				src='/static/images/service'
+				alt=""
+			/>
+			<BgText />
+			<Button>more info</Button>
+			<ImgHolderShadow src={props.pic} alt="" />
+			<p>{props.number}</p>
+		</Wrapper>
 	);
 };
 
@@ -96,7 +87,6 @@ const Wrapper = styled.div`
 		padding-bottom: 60px;
 		justify-content: center;
 		margin-bottom: 40px;
-		
 	}
 	@media ${device.mobileM} {
 	}
@@ -114,8 +104,8 @@ const ImgHolder = styled.div`
 		width: 296px;
 		z-index: 2;
 		border-radius: 6px;
-		background-image: url("../../static/images/service1.png");
-		/* background-repeat: no-repeat; */
+		background-image: url("../../static/images/service.png");
+		background-repeat: no-repeat;
 		background-size: 100%;
 		overflow: hidden;
 	}
@@ -134,7 +124,7 @@ const ImgHolderShadow = styled.div`
 		left: 29px;
 		bottom: 55px;
 		margin: auto;
-		background-image: url("../../static/images/service1.png");
+		background-image: url("../../static/images/service.png");
 		border-radius: 6px;
 		position: absolute;
 		z-index: 1;
@@ -179,7 +169,7 @@ const Button = styled.button`
 		padding: 0 15px;
 		text-align: center;
 		font-family: Noah-Regular;
-		bottom: 105px;
+		/* bottom: 105px; */
 		left: 105px;
 	}
 	@media ${device.mobileM} {

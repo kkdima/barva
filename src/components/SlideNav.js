@@ -254,7 +254,7 @@ const Background = styled.div`
 		top: 0;
 		background-color: #222222;
 		box-sizing: border-box;
-		height: 100%;
+		height: 100vh;
 		width: 100%;
 		opacity: 1;
 	}

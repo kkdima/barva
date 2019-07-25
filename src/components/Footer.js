@@ -37,7 +37,7 @@ class Footer extends Component {
 					<Link href="/contact">
 						<motion.a
 							className="Link"
-							style={{ userSelect: "none", height: '20px', margnRight: 0 }}                        
+							style={{ userSelect: "none", outline: "none", height: '20px', margnRight: 0 }}                        
 							whileHover={{ scale: 1.1 }}
 							whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
 						>
@@ -57,9 +57,9 @@ class Footer extends Component {
 						}}
 					>
 						<p>with</p>
-						<svg width="13px" height="12px" viewBox="0 0 13 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnSXlink="http://www.w3.org/1999/xlink">
-							<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								<g id="Mobile-Home" transform="translate(-138.000000, -3035.000000)" fill="#9AA0B7" fill-rule="nonzero">
+						<svg width="13px" height="12px" viewBox="0 0 13 12" version="1.1" xmln="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+							<g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+								<g id="Mobile-Home" transform="translate(-138.000000, -3035.000000)" fill="#9AA0B7" fillRule="nonzero">
 									<g id="Footer" transform="translate(0.000000, 2818.000000)">
 										<g id="Copyright" transform="translate(78.000000, 214.000000)">
 											<g id="Ionicons-md-heart-empty" transform="translate(60.628049, 3.000000)">
@@ -117,7 +117,10 @@ const Wrapper2 = styled.div`
 		.Link {
 			margin-top: 25px;
 			user-select: none;
-			outline:none;
+			outline: none;
+			:focus {
+				outline: none;
+			}
 		}
 	}
 	@media ${device.mobileM} {
