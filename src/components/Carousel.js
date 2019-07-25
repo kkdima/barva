@@ -19,7 +19,7 @@ function getProjectsInfo() {
 	return [
 		{
 			id: 1,
-			pic: `../../static/images/service.png`
+			pic: `src('../../static/images/service.png')`
 		},
 		{
 			id: 2,
