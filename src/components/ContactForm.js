@@ -69,8 +69,8 @@ class ContactForm extends Component {
 					name="contact"
 					data-netlify-honeypot="bot-field"
 					data-netlify-recaptcha="true"
-					// onSubmit={this.handleSubmit}
-					onSubmit={this.handleClickButton}
+					onSubmit={this.handleSubmit}
+					// onSubmit={this.handleClickButton}
 				>
 					<Input type="hidden" name="form-name" value="contact" />
 					<Input
@@ -203,7 +203,7 @@ const Wrapper = styled.div`
 		-webkit-text-fill-color-placeholder: #ffffff;
 		opacity: 1;
 	}
-	/* Changin the default color of input after autofill in Safari */
+	/* Changing the default color of input after autofill in Safari */
 	input:-webkit-autofill, input:-webkit-autofill:focus {
 		box-shadow: 0 0 0 1000px #B8DAFD inset;
 	}

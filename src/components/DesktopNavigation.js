@@ -28,15 +28,14 @@ class DesktopNavigation extends Component {
 		return (
 			<Wrapper>
 				<Link href="/">
-					<motion.div
-						style={{ userSelect: "none", height: '20px' }}
-						whileHover={{ scale: 1.1 }}
-						whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
-                        >
-						<a className="Link">
-                            Home
-                        </a>
-					</motion.div>
+                    <motion.a
+                        className="Link"
+                        style={{ userSelect: "none", height: '20px' }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9, x: "-5px", y: "5px" }}
+                    >
+                        Home
+                    </motion.a>
                 </Link>
                 <div>
                     {/* <motion.div
@@ -115,8 +114,6 @@ const Wrapper = styled.div`
             /* transform: translateY(-50%); */
             /* z-index: -1; */
             /* left: 115px; */
-            /* bottom: 40px; */
-            
             /* bottom: 15px; */
 
         }

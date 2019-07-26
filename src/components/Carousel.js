@@ -108,6 +108,8 @@ const ImgHolder = styled.div`
 		background-repeat: no-repeat;
 		background-size: 100%;
 		overflow: hidden;
+
+		/* border : solid black 1px; */
 	}
 	@media ${device.mobileM} {
 	}
