@@ -1,19 +1,45 @@
+import React, { useState, useRef, useLayoutEffect } from "react";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
 import { device } from "../src/theme/GlobalStyle";
 import Layout from "../src/components/Layout.js";
-import Link from "next/link";
-import React, { Component } from "react";
 import Skill from "../src/components/Skill";
 import Carousel from "../src/components/Carousel";
 import ContactForm from "../src/components/ContactForm";
 import TitleAndCircles from "../src/components/TitleAndCircles";
-import { motion } from "framer-motion";
 import { textAnimationUp } from "../src/theme/KeyFrames";
+import Link from "next/link";
+// import ovalblue from '../static/images/OvalBlue1';
+
+
+const ParallaxImage = ({ src, ...style }) => {
+	const [elementTop, setElementTop] = useState(0);
+	const ref = useRef(null);
+	const { scrollY } = useViewportScroll();
+  
+	const y = useTransform(scrollY, [elementTop, elementTop + 1], [0, -1], {
+	  clamp: false
+	});
+  
+	useLayoutEffect(() => {
+	  const element = ref.current;
+	  setElementTop(element.offsetTop);
+	}, [ref]);
+  
+	return (
+	  <div ref={ref} className="image-container">
+		<motion.div className="overlay" style={{ ...style, y }} />
+		<img src={src} alt="" />
+	  </div>
+	);
+  };
+  
 
 function getSkills() {
 	return [
 		{
 			id: 1,
+			img: '../static/images/ddd.png',
 			title: "UI/UX and web\
 			design",
 			text:
@@ -21,12 +47,14 @@ function getSkills() {
 		},
 		{
 			id: 2,
+			img: '../static/images/ddd.png',
 			title: "Branding and identity",
 			text:
 				"You want to add aesthetics to your business idea? We can help you set a 360ᵒ branding identity and copywriting tone of voice."
 		},
 		{
 			id: 3,
+			img: '../static/images/ddd.png',
 			title: "Cinematography level video production",
 			text:
 				"In the era of digital consumption your business should leave a strong impression. Video format is the best way to translate the vibe of your products directly to the consumer’s mind."
@@ -34,20 +62,19 @@ function getSkills() {
 	];
 }
 
-class Home extends Component {
-	constructor(props) {
-		super(props);
-	}
-	render() {
-		return (
+const Home = () => (
 			<Layout>
 				<Wrapper>
-
-					<TitleAndCircles/>
-
+					<TitleAndCircles />
 					<SkillsWrapper>
 						{getSkills().map(skill => (
-							<Skill number={skill.id} key={skill.id} title={skill.title} text={skill.text} />
+							<Skill
+								number={skill.id}
+								key={skill.id}
+								title={skill.title}
+								text={skill.text}
+								img={skill.img}
+							/>
 						))}
 					</SkillsWrapper>
 
@@ -58,12 +85,9 @@ class Home extends Component {
 					<H2bold>Contact Us</H2bold>
 
 					<ContactForm />
-
 				</Wrapper>
 			</Layout>
-		);
-	}
-}
+)
 
 export default Home;
 
@@ -96,11 +120,11 @@ const SkillsWrapper = styled.div`
 			}
 		}
 		:nth-child(2).serviceBlock:nth-child(2) {
-				.rightSide:nth-child(3){
-					max-width: 180px !important;
-					border: solid black;
-				}
-			} 
+			.rightSide:nth-child(3) {
+				max-width: 180px !important;
+				border: solid black;
+			}
+		}
 	}
 	@media ${device.tablet} {
 	}

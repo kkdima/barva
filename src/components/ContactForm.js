@@ -52,8 +52,8 @@ class ContactForm extends Component {
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
 			body: encode({ "form-name": "contact", ...this.state })
 		})
-			.then(() => console.log("Success!"))
-			.catch(error => alert(error));
+		.then(() => console.log("Success!"))
+		.catch(error => alert(error));
 
 		e.preventDefault();
 	};

@@ -2226,7 +2226,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Users/dimakononenko/Desktop/barva/pages/_document.js";
+var _jsxFileName = "/Users/dimakononenko/Code/Barva/pages/_document.js";
 
  // Import styled components ServerStyleSheet
 

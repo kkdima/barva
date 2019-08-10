@@ -4,9 +4,9 @@ import { device, GlobalStyle } from "../theme/GlobalStyle";
 export default function Skill(props) {
 	return (
 		<Wrapper className="serviceBlock">
-				<div className="leftSide"></div>
+				<img src={props.img} className="leftSide"></img>
 				<div className="rightSide">
-					<Img id="img" src="../../static/images/bg-animation.gif" />
+					<Img id="img" src={props.img}/>
 					<Number>0{props.number}</Number>
 					<Title>{props.title}</Title>
 					<Text>{props.text}</Text>
@@ -26,6 +26,9 @@ const Wrapper = styled.div`
 		margin-bottom: 60px;
 		/* border: solid black 1px; */
 
+		.leftSide {
+			display: none;
+		}
 		.rightSide {
 			background-color: #e5eeff;
 			border-radius: 6px;
@@ -36,25 +39,22 @@ const Wrapper = styled.div`
 		}
 	}
 	@media ${device.mobileM} {
-		/* margin: 0 10.66666%; */
 		margin-bottom: 60px;
 	}
 	@media ${device.mobileL} {
-		/* margin: 0 15.294%; */
 		margin-bottom: 60px;
 	}
 	@media ${device.tablet} {
 		flex-direction: row;
-		/* width: 100%; */
 		width: 688px;
 		overflow: visible;
 		justify-content: space-between;
 
 		.leftSide{
+			display: block;
 			width: 325px;
 			height: 325px;
-			background-color: pink;
-			/* margin-right: 36px; */
+			border: none;
 			border-radius: 6px;
 			box-shadow: 0 16px 29px -12px rgba(0, 0, 0, 0.14);
 		}
@@ -80,6 +80,7 @@ const Img = styled.img`
 	@media ${device.mobile} {
 		width: 100%;
 		height: 141px;
+		object-fit: cover;
 	}
 	@media ${device.tablet} {
 	}

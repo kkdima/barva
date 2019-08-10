@@ -56,7 +56,6 @@ export const GlobalStyle = createGlobalStyle`
   
   /* Static Class */
   .static {
-    /* all: unset; */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -99,7 +98,6 @@ export const GlobalStyle = createGlobalStyle`
             translateX(-2px)
             rotate(-35deg)
             translateY(3px)
-            /* opacity(1) */
         }
       }
     }
@@ -108,7 +106,6 @@ export const GlobalStyle = createGlobalStyle`
 
   /* animateOnClick Class */
   .animateOnClick {
-    /* all: unset; */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -133,7 +130,6 @@ export const GlobalStyle = createGlobalStyle`
     overflow: hidden;
 
     transition: all 700ms;
-    /* padding-left: 7px; */
     text-align: center;
 
     #Sent {
@@ -152,10 +148,8 @@ export const GlobalStyle = createGlobalStyle`
 
     @media ${device.tablet} {
       :hover {
-        /* transform: scale(1.09); */
         transition: all 400ms;
         #Plane {
-          /* visibility: hidden; */
           transform: 
             translateX(-2px)
             rotate(-35deg)
