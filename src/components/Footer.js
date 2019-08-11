@@ -89,8 +89,8 @@ const Wrapper = styled.div`
         font-family: Noah-Bold;
         font-size: 19px;
         text-align: center;
-		position: absolute;
-		bottom: 0;
+		/* position: absolute;
+		bottom: 0; */
 		a:last-of-type {
 			margin-right: 0;
 		}

@@ -22,6 +22,6 @@ const Wrapper = styled.div`
 	background-color: #fafaff;
 	
 	/* To keep footer at the very bottom of the 'Body' */
-	position: relative;
-	min-height: 100vh;
+	/* position: relative;
+	min-height: 100vh; */
 `;

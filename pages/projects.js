@@ -3,179 +3,155 @@ import styled from "styled-components";
 import { device } from "../src/theme/GlobalStyle";
 import React from "react";
 import { motion } from "framer-motion";
+import HeadlineOvals from "../src/components/projects/HeadlineOvals";
 
-const Projects = () => (
-	<Layout>
-		<Div>
+const Projects = () => {
+	// const styles = {
+	// 	src='../static/images/service2.png',
+	// 	initial={ opacity: 0, x: 0, y: 200 },
+	// 	animate={ opacity: 1, x: 0, y: 0 },
+	// 	transition={ ease: "easeOut", duration: 1 }
+	// }
+
+	const transition = { ease: "easeOut", duration: 1 };
+
+	
+	const imageVariants = {
+		initial: { opacity: 0, scale: 1.3 },
+		enter: { opacity: 1, scale: 1 }
+	};
+	
+	const imageShadowVariants = {
+		initial: { opacity: 0, scale: 1.7, x: -430, y: 30 },
+		enter: { opacity: 1, scale: 1, x: -430, y: 85 }
+	};
+	
+	const infoProjectVariants = {
+		initial: { opacity: 0, x: 150, y: 35 },
+		enter: {
+			opacity: 1,
+			x: 140,
+			y: 37,
+			transition: { delay: 0.7, ...transition }
+		},
+		hover: { scale: 1.1, transition: { ...transition, duration: 0.3 } }
+	};
+
+	return (
+		<Layout>
+			<HeadlineOvals />
+
 			<Wrapper>
-				<motion.div
-					id='holder1'
-					initial={{ opacity: 0, x: -20, y: 20 }}
-					animate={{ opacity: 1, x: 0, y: 0 }}
-					transition={{
-						ease: "easeOut",
-						duration: 1.5,
-						delay: 0.5
-					}}
-				>
-					<img src='../static/images/OvalBlue1.svg' id='OvalBlue1' />
-				</motion.div>
-
-				<motion.div
-					id='holder2'
-					initial={{ opacity: 0, x: 400, y: -110, scale: 0.4 }}
-					animate={{ opacity: 1, x: 205, y: -130, scale: 1 }}
-					transition={{
-						ease: "easeOut",
-						duration: 1.5,
-						delay: 0.5
-					}}
-				>
-					<img src='../static/images/OvalBlue2.svg' id='OvalBlue2' />
-				</motion.div>
-
-				<motion.div
-					id='holder3'
-					initial={{ opacity: 0, x: -30, y: -300 }}
-					animate={{ opacity: 1, x: -43, y: -188, scale: 0.4 }}
-					transition={{
-						ease: "easeOut",
-						duration: 1.5,
-						delay: 0.5
-					}}
-				>
-					<img src='../static/images/OvalOrange.svg' id='OvalOrange' />
-				</motion.div>
-
-				<motion.div
-					id='holder4'
-					initial={{ opacity: 0, x: -30, y: -400 }}
-					animate={{ opacity: 1, x: 10, y: -350 }}
-					transition={{
-						ease: "easeOut",
-						duration: 1.5,
-						delay: 0.5
-					}}
-				>
-					<img src='../static/images/OvalOrangeSmall.svg' id='OvalOrangeSmall' />
-				</motion.div>
-
-				<motion.div
-					id='holder5'
-					initial={{ opacity: 0, x: 10, y: 60 }}
-					animate={{ opacity: 1, x: 25, y: -350 }}
-					transition={{
-						ease: "easeOut",
-						duration: 1.5,
-						delay: 0.5
-					}}
-				>
-					<img src='../static/images/OvalOrangeSmaller.svg' id='OvalOrangeSmaller' />
-				</motion.div>
-
-				<motion.div
-					id='zIndex'
-					initial={{ opacity: 0, y: -220 }}
-					animate={{ opacity: 1, y: -270 }}
-					transition={{
-						ease: "easeOut",
-						duration: 1
-					}}
-				>
-					<H1>Our Projects</H1>
-				</motion.div>
-
 				<div className='ProjectHolder'>
-					<motion.img
-						src='../static/images/service2.png'
-						initial={{ opacity: 0, x: 0, y: 200 }}
-						animate={{ opacity: 1, x:0, y: 0 }}
-						transition={{
-							ease: "easeOut",
-							duration: 1
-						}}
-					/>
+
+					<div id='image-project'>
+						<motion.img
+							id='image'
+							src='../static/images/service2.png'
+							transition={transition}
+							variants={imageVariants}
+							initial='initial'
+							animate='enter'
+						/>
+						<motion.img
+							id='image-shadow'
+							src='../static/images/service2.png'
+							variants={imageShadowVariants}
+							transition={transition}
+							initial='initial'
+							animate='enter'
+						/>
+					</div>
+
 					<motion.div
 						className='InfoProject'
-						initial={{ opacity: 0, x: 600, y: -50 }}
-						animate={{ opacity: 1, x:200, y: -150 }}
-						transition={{
-							ease: "easeOut",
-							duration: 1
-						}}
-					/>
+						variants={infoProjectVariants}
+						initial='initial'
+						animate='enter'
+						whileHover='hover'
+					>
+						<div>
+							<h3>Ever Two Films</h3>
+							<p>You want to add aesthetics to your business idea?</p>
+						</div>
+						<div id='second-part'>
+							<h4></h4>
+							<p id='more'>more info</p>
+						</div>
+					</motion.div>
 				</div>
 			</Wrapper>
-		</Div>
-	</Layout>
-);
+		</Layout>
+	);
+};
 
 export default Projects;
 
-const Div = styled.div`
+const Wrapper = styled.div`
 	@media ${device.mobile} {
-		/* border: solid black; */
-		position: relative;
+		margin: auto;
+		width: 1024px;
+		/* border: solid red; */
+		/* position: relative;
 		display: flex;
 		justify-content: center;
-		padding-bottom: 700px;
+		padding-bottom: 700px; */
+		#image-project {
+			/* border: solid red; */
+		}
+		#image {
+			position: relative;
+			/* border: solid yellow; */
+			object-fit: cover;
+			height: auto;
+			width: 100%;
+			border-radius: 6px;
+			/* width: 489px; */
+			height: 273px;
+			z-index: 3;
+		}
+		#image-shadow {
+			position: absolute;
+			width: 382px;
+			height: 210px;
+			border-radius: 6px;
+			z-index: 2;
+			-webkit-filter: blur(27px);
+			filter: blur(27px);
+		}
 	}
 
 	.ProjectHolder {
-		border: solid black;
-		position: relative;
-		margin: 0;
-		padding: 0;
+		display: flex;
+		justify-content: center;
 	}
+
 	.InfoProject {
 		position: absolute;
+		z-index: 2;
+		display: flex;
+		justify-content: flex-end;
 		width: 284px;
 		height: 189px;
 		border-radius: 6px;
 		box-shadow: 0 16px 29px -12px rgba(0, 0, 0, 0.14);
 		background-color: #e5eeff;
-	}
-`;
-const Wrapper = styled.div`
-	@media ${device.mobile} {
-		position: relative;
-		/* margin: auto; */
-		padding-top: 49px;
-		margin-bottom: 50px;
-		width: 320px;
-		height: 200px;
-		/* border: solid black; */
-		img {
-			user-select: none;
-			outline: none;
-		}
-	}
-	@media ${device.tablet} {
-		width: 409px;
-		height: 148px;
-	}
-	@media ${device.laptop} {
-	}
-`;
 
-const H1 = styled.h1`
-	@media ${device.mobile} {
-		font-family: Noah-Bold;
-		font-size: 40px;
-		text-transform: uppercase;
-		line-height: 1.03;
-		letter-spacing: normal;
-		margin: 0;
-		z-index: 3;
-		position: absolute;
-		bottom: 50px;
-		user-select: none;
-		outline: none;
-		/* border: solid black; */
-	}
-	@media ${device.tablet} {
-		left: 61px;
-	}
-	@media ${device.laptop} {
+		#second-part {
+			/* border: solid red; */
+			position: relative;
+			min-width: 40px;	
+		}
+
+		#more {
+			position: absolute;
+			left: -32px;
+			top: 55px;
+			font-family: Noah-Regular;
+			width: 101px;
+			height: 31px;
+			transform: rotate(-90deg);
+			font-size: 25px;
+			color: #7b7b7b;
 	}
 `;
