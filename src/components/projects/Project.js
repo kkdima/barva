@@ -1,15 +1,16 @@
-import React, { Component, useState, useEffect } from "react";
-
+import React, { Component } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { device } from "../../theme/GlobalStyle";
 
 class Project extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+
 		this.projectImage = React.createRef();
 		this.projectInfo = React.createRef();
 		this.arrowBack = React.createRef();
+
 		this.state = {
 			animationToggle: false,
 			closeToggle: false
@@ -17,18 +18,14 @@ class Project extends Component {
 	}
 
 	animateLeftSideOnClick = () => {
-		// this.projectImage.current.setAttribute("animate", "click");
 		this.setState({ animationToggle: true });
 	};
 
 	animationArrowBack = () => {
-        this.setState({ closeToggle: true });
-        this.setState({ animationToggle: false });
-        this.projectInfo.current.setAttribute("animate", "clickArrow");
+		this.setState({ closeToggle: true });
+		this.setState({ animationToggle: false });
+		this.projectInfo.current.setAttribute("animate", "clickArrow");
 		this.projectImage.current.setAttribute("animate", "click");
-        // console.log('success');
-        
-        
 	};
 
 	render() {
@@ -58,12 +55,12 @@ class Project extends Component {
 				y: 0,
 				x: 293
 			},
-            hover: { scale: 1.05, transition: { ...transition, duration: 0.3 } },
-            
+			hover: { scale: 1.05, transition: { ...transition, duration: 0.3 } },
+
 			clickArrow: {
 				width: 300,
 				height: 200,
-				y:  36,
+				y: 36,
 				x: 130
 			},
 			// whileTap: { scale: 1 },
@@ -71,8 +68,8 @@ class Project extends Component {
 		};
 
 		const animateProjectHolder = {
-            click: { x: -268, zIndex: 3 },
-            clickArrow: { x: 0 }
+			click: { x: -268, zIndex: 3 },
+			clickArrow: { x: 0 }
 		};
 
 		const arrowBackClick = {
@@ -88,11 +85,17 @@ class Project extends Component {
 						id='image-project'
 						ref={this.projectImage}
 						variants={animateProjectHolder}
-						animate={this.state.animationToggle ? "click" : (this.state.closeToggle) ? 'clickArrow' : null}
+						animate={
+							this.state.animationToggle
+								? "click"
+								: this.state.closeToggle
+								? "clickArrow"
+								: null
+						}
 					>
 						<motion.img
 							id='image'
-							src='../static/images/service2.png'
+							src={this.props.pic}
 							transition={transition}
 							variants={imageVariants}
 							initial='initial'
@@ -100,7 +103,7 @@ class Project extends Component {
 						/>
 						<motion.img
 							id='image-shadow'
-							src='../static/images/service2.png'
+							src={this.props.pic}
 							variants={imageShadowVariants}
 							transition={transition}
 							initial='initial'
@@ -113,12 +116,23 @@ class Project extends Component {
 						ref={this.projectInfo}
 						variants={infoProjectVariants}
 						initial='initial'
-						animate={this.state.animationToggle ? "click" : (this.state.closeToggle) ? 'clickArrow' : 'enter'}
+						animate={
+							this.state.animationToggle
+								? "click"
+								: this.state.closeToggle
+								? "clickArrow"
+								: "enter"
+						}
 						// whileHover={this.state.animationToggle ? '' : 'hover'}
 						// whileTap={this.state.animationToggle ? '' : 'whileTap'}
 					>
 						<div id='first-part'>
-							<h3>Ever Two Films</h3>
+							<div id='topPart'>
+								<a>Ever Two Films</a>
+								<a href=''>
+									<img src='../../../static/images/iconLink.svg' alt='' />
+								</a>
+							</div>
 							<p>
 								You want to add aesthetics to your business idea? We can help you set a
 								360ᵒ branding identity and copywriting tone of voice.
@@ -154,22 +168,14 @@ const Wrapper = styled.div`
 	@media ${device.mobile} {
 		margin: auto;
 		width: 1024px;
-		/* border: solid red; */
-		/* position: relative;
-		display: flex;
-		justify-content: center;
-		padding-bottom: 700px; */
 		#image-project {
-			/* border: solid red; */
 		}
 		#image {
 			position: relative;
-			/* border: solid yellow; */
 			object-fit: cover;
 			height: auto;
-			width: 100%;
+			width: 490px;
 			border-radius: 6px;
-			/* width: 489px; */
 			height: 273px;
 			z-index: 3;
 		}
@@ -187,6 +193,7 @@ const Wrapper = styled.div`
 	.ProjectHolder {
 		display: flex;
 		justify-content: center;
+		margin-bottom: 90px;
 	}
 
 	.InfoProject {
@@ -195,45 +202,64 @@ const Wrapper = styled.div`
 		display: flex;
 		justify-content: space-between;
 		width: 284px;
-        max-width: 490px !important;
+		max-width: 490px !important;
 		height: 189px;
 		border-radius: 6px;
 		box-shadow: 0 16px 29px -12px rgba(0, 0, 0, 0.14);
 		background-color: #e5eeff;
-        padding: 0px 45px;
-        box-sizing: border-box;
+		padding: 0px 45px;
+		box-sizing: border-box;
+		overflow: hidden;
 
-        #first-part {
-        }
-        #first-part h3{
-            font-size: 26px;
-        }
+		#topPart {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin-top: 31px;
+		}
 
-		#second-part img{
-            cursor: pointer;
-        }
-		#second-part {
+		#topPart img {
+		}
+
+		#topPart a:nth-of-type(1) {
 			/* border: solid red; */
+		}
+
+		#topPart a:nth-of-type(2) {
+			display: flex;
+			align-items: center;
+			margin-left: 25px;
+		}
+
+		#first-part a {
+			font-size: 26px;
+			font-weight: bold;
+		}
+
+		#second-part img {
+			cursor: pointer;
+		}
+
+		#second-part {
 			position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-
-            padding-top: 27px;
-
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			padding-top: 27px;
 		}
 
 		#more {
 			position: absolute;
 			left: -22px;
 			top: 5px;
-            margin-top: 75px;
+			margin-top: 75px;
 			font-family: Noah-Regular;
 			width: 101px;
 			height: 31px;
 			transform: rotate(-90deg);
 			font-size: 25px;
 			color: #7b7b7b;
-            cursor: pointer;
+			cursor: pointer;
+		}
 	}
 `;

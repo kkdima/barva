@@ -4,11 +4,6 @@ import { device, GlobalStyle } from "../theme/GlobalStyle";
 import { motion } from "framer-motion";
 import Flicking from "@egjs/react-flicking";
 
-import Image1 from "../../static/images/service2.png";
-// import Image2 from "./service2";
-
-// import service from '/static/images/service'
-
 // import {
 // 	CarouselProvider,
 // 	Slider,
@@ -32,7 +27,7 @@ function getProjectsInfo() {
 			pic: `../../static/images/service.png`
 		},
 		{
-			id: 3,
+			id: 4,
 			pic: `../../static/images/service2.png`
 		}
 	];
