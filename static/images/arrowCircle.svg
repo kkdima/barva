@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>JamIcons arrow left circle</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy" transform="translate(-1184.000000, -1330.000000)" fill="#5D5D5D" fill-rule="nonzero">
+            <g id="Projects-Copy" transform="translate(208.000000, 450.000000)">
+                <g id="Project-3" transform="translate(0.000000, 846.000000)">
+                    <g id="Group-2">
+                        <g id="Description" transform="translate(534.000000, 0.000000)">
+                            <g id="JamIcons-arrow-left-circle" transform="translate(442.000000, 34.000000)">
+                                <path d="M13.5,0 C6.0328125,0 0,6.0328125 0,13.5 C0,20.9671875 6.0328125,27 13.5,27 C20.9671875,27 27,20.9671875 27,13.5 C27,6.0328125 20.9671875,0 13.5,0 Z M13.5,24.46875 C7.425,24.46875 2.53125,19.575 2.53125,13.5 C2.53125,7.425 7.425,2.53125 13.5,2.53125 C19.575,2.53125 24.46875,7.425 24.46875,13.5 C24.46875,19.575 19.575,24.46875 13.5,24.46875 Z M16.4953125,7.2140625 C15.9890625,6.7078125 15.1875,6.7078125 14.7234375,7.2140625 L9.3234375,12.6140625 C9.0703125,12.8671875 8.94375,13.1625 8.94375,13.5 C8.94375,13.8375 9.0703125,14.1328125 9.3234375,14.3859375 L14.68125,19.74375 C15.1875,20.25 15.9890625,20.25 16.453125,19.74375 C16.959375,19.2375 16.959375,18.4359375 16.453125,17.971875 L12.0234375,13.5 L16.4953125,9.028125 C17.0015625,8.521875 17.0015625,7.7203125 16.4953125,7.2140625 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

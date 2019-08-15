@@ -12,27 +12,28 @@ import { MenuToCloseBackwards } from "../theme/KeyFrames";
 import { bgAnimationOpen } from "../theme/KeyFrames";
 import { bgAnimationClose } from "../theme/KeyFrames";
 
-
-
 class SlideNav extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { 
+		this.state = {
 			showMenu: false,
-			animateMenu: false,
+			animateMenu: false
 		};
 	}
 
 	toggleMenu = () => {
-		const current = this.state.showMenu
-		this.setState({ 
+		const current = this.state.showMenu;
+		this.setState({
 			showMenu: true,
 			animateMenu: true
 		});
-		return setTimeout(this.setState({
-			showMenu: !current,
-			animateMenu: false
-		}), 800 );
+		return setTimeout(
+			this.setState({
+				showMenu: !current,
+				animateMenu: false
+			}),
+			800
+		);
 	};
 
 	render() {
@@ -40,27 +41,29 @@ class SlideNav extends Component {
 		const { animateMenu } = this.state;
 
 		return (
-			<MenuWrapper className="menu">
-					<LogoAndMenuButton>
-						<Logo />
-						<MenuTextWrapper>
-							<Input type="checkbox" onClick={this.toggleMenu} />
-							<Span className="text-Menu">
-								<p>Menu</p>
-							</Span>
-							<Span className="text-Close">
-								<p>Close</p>
-							</Span>
-						</MenuTextWrapper>
-						<DesktopNavigation />
-					</LogoAndMenuButton>
-					<ThemeProvider theme={themeOpen}>
-						{showMenu ? <Menu 
+			<MenuWrapper className='menu'>
+				<LogoAndMenuButton>
+					<Logo />
+					<MenuTextWrapper>
+						<Input type='checkbox' onClick={this.toggleMenu} />
+						<Span className='text-Menu'>
+							<p>Menu</p>
+						</Span>
+						<Span className='text-Close'>
+							<p>Close</p>
+						</Span>
+					</MenuTextWrapper>
+					<DesktopNavigation />
+				</LogoAndMenuButton>
+				<ThemeProvider theme={themeOpen}>
+					{showMenu ? (
+						<Menu
 							animateMenu={this.state.animateMenu}
 							// showMenu={this.state.showMenu}
-						/> : null }
-					</ThemeProvider>
-				</MenuWrapper>
+						/>
+					) : null}
+				</ThemeProvider>
+			</MenuWrapper>
 		);
 	}
 }
@@ -76,39 +79,38 @@ class Menu extends Component {
 
 		return (
 			<div>
-				<Background 
+				<Background
 					// showMenu={showMenu}
 					animateMenu={animateMenu}
 				/>
 				{/* {console.log(showMenu)} */}
 				<MenuHolder>
-					<UL className="menuOpens">
-						<StyledLink href="/">
+					<UL className='menuOpens'>
+						<StyledLink href='/'>
 							<Li>
 								<A>Home</A>
 							</Li>
 						</StyledLink>
 
-						<StyledLink href="/projects">
+						<StyledLink href='/projects'>
 							<Li>
 								<A>Projects</A>
 							</Li>
 						</StyledLink>
 
-						<StyledLink href="/about">
+						<StyledLink href='/about'>
 							<Li>
 								<A>About</A>
 							</Li>
 						</StyledLink>
 
-						<StyledLink href="/contact">
+						<StyledLink href='/contact'>
 							<Li>
 								<A>Contact</A>
 							</Li>
 						</StyledLink>
 					</UL>
 				</MenuHolder>
-				
 			</div>
 		);
 	}
@@ -123,8 +125,8 @@ const MenuWrapper = styled.div`
 	box-sizing: border-box;
 	padding-left: 40;
 	z-index: 4;
-	p{
-		font-family: 'Chivo', sans-serif;
+	p {
+		font-family: "Chivo", sans-serif;
 	}
 `;
 
@@ -283,19 +285,19 @@ const Background = styled.div`
 	
 	animation: bgAnimationOpen 0.8s
 		cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-	animation-direction: ${props => !props.animateMenu ? 'normal' : 'reverse'};
+	animation-direction: ${props => (!props.animateMenu ? "normal" : "reverse")};
 
-	/* ${props.animateMenu &&  css`
-		animation: bgAnimationOpen 0.8s
-		cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-		animation-direction: normal;`
-	};
+	/* ${props.animateMenu &&
+		css`
+			animation: bgAnimationOpen 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+			animation-direction: normal;
+		`};
 
-	${!props.animateMenu &&  css`
-		animation: bgAnimationOpen 0.8s
-		cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-		animation-direction: reverse;`
-	}; */
+	${!props.animateMenu &&
+		css`
+			animation: bgAnimationOpen 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+			animation-direction: reverse;
+		`}; */
 `;
 
 Background.defaultProps = {
@@ -305,10 +307,10 @@ Background.defaultProps = {
 };
 
 const themeOpen = {
-	main: "bgAnimationOpen",
+	main: "bgAnimationOpen"
 };
 const themeClose = {
-	main: "bgAnimationClose",
+	main: "bgAnimationClose"
 };
 
 // UL NAVIGATION STYLES:
