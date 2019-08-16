@@ -33,7 +33,8 @@ class Project extends Component {
 
 		const imageVariants = {
 			initial: { opacity: 0, scale: 1.3 },
-			enter: { opacity: 1, scale: 1 }
+			enter: { opacity: 1, scale: 1 },
+			hover: { scale: 1.1 }
 		};
 
 		const imageShadowVariants = {
@@ -78,6 +79,14 @@ class Project extends Component {
 			click: {}
 		};
 
+		const projectHover = {
+			initial: { opacity: 0, y: 200 },
+			enter: { opacity: 1, x: -150, y: -100, scale: 0.2 },
+
+			initialBg: { opacity: 0, y: 200 },
+			enterBg: { opacity: 0.8, y: 0 }
+		};
+
 		return (
 			<Wrapper>
 				<div className='ProjectHolder'>
@@ -93,14 +102,17 @@ class Project extends Component {
 								: null
 						}
 					>
-						<motion.img
-							id='image'
-							src={this.props.pic}
-							transition={transition}
-							variants={imageVariants}
-							initial='initial'
-							animate='enter'
-						/>
+                        <div id='image-hover'>
+                            <motion.img
+                                id='image'
+                                src={this.props.pic}
+                                transition={transition}
+                                variants={imageVariants}
+                                initial='initial'
+                                animate='enter'
+                                whileHover='hover'
+                            />
+                        </div>
 						<motion.img
 							id='image-shadow'
 							src={this.props.pic}
@@ -123,13 +135,11 @@ class Project extends Component {
 								? "clickArrow"
 								: "enter"
 						}
-						// whileHover={this.state.animationToggle ? '' : 'hover'}
-						// whileTap={this.state.animationToggle ? '' : 'whileTap'}
 					>
 						<div id='first-part'>
 							<div id='topPart'>
-								<a>Ever Two Films</a>
-								<a href=''>
+								<a href='https://www.evertwofilms.com' target="_blank">Ever Two Films</a>
+								<a href='https://www.evertwofilms.com' target="_blank" >
 									<img src='../../../static/images/iconLink.svg' alt='' />
 								</a>
 							</div>
@@ -168,15 +178,24 @@ const Wrapper = styled.div`
 	@media ${device.mobile} {
 		margin: auto;
 		width: 1024px;
+
+
+
 		#image-project {
+			box-sizing: border-box;
+			width: 490px;
+			height: 273px;
+            position: relative;
+			border-radius: 6px;
 		}
 		#image {
+			box-sizing: border-box;
 			position: relative;
 			object-fit: cover;
 			height: auto;
 			width: 490px;
-			border-radius: 6px;
 			height: 273px;
+			border-radius: 6px;
 			z-index: 3;
 		}
 		#image-shadow {
@@ -184,13 +203,45 @@ const Wrapper = styled.div`
 			width: 382px;
 			height: 210px;
 			border-radius: 6px;
+            left: 480px;
 			z-index: 2;
 			-webkit-filter: blur(27px);
 			filter: blur(27px);
 		}
 	}
 
+    #image-hover {
+        position: absolute;
+        overflow: hidden;
+        border-radius: 6px;
+    }
+
+	#bg img {
+		object-fit: cover;
+	}
+
+	#previewLogo {
+		position: absolute;
+		z-index: 4;
+	}
+
+	#bg {
+		display: flex;
+		align-content: flex-end;
+		position: absolute;
+		width: 490px;
+		height: 273px;
+		overflow: hidden;
+		border-radius: 0 0 6px 6px;
+		background-image: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+		box-sizing: border-box;
+		z-index: 4;
+		pointer-events: none;
+		/* display: none; */
+	}
+
 	.ProjectHolder {
+		box-sizing: border-box;
 		display: flex;
 		justify-content: center;
 		margin-bottom: 90px;
@@ -217,6 +268,12 @@ const Wrapper = styled.div`
 			align-items: center;
 			margin-top: 31px;
 		}
+
+        #topPart a, a:link, a:visited {
+            border: none;
+            text-decoration: none;
+            color: #0E0E0E;
+        }
 
 		#topPart img {
 		}
