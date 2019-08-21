@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React, { Component } from "react";
 import styled, { ThemeProvider, css } from "styled-components";
+import { device } from "../theme/GlobalStyle";
 import Logo from "./Logo";
 import DesktopNavigation from "./DesktopNavigation";
-import { device } from "../theme/GlobalStyle";
 
 import { menuAnimationOpen } from "../theme/KeyFrames";
 import { menuToClose } from "../theme/KeyFrames";
@@ -121,7 +121,6 @@ export default SlideNav;
 const StyledLink = styled(Link)``;
 
 const MenuWrapper = styled.div`
-	/* border: solid black; */
 	box-sizing: border-box;
 	padding-left: 40;
 	z-index: 4;
@@ -141,34 +140,30 @@ const MenuHolder = styled.div`
 	}
 	@media ${device.tablet} {
 	}
-	@media ${device.laptop} {
-	}
 `;
 
 const LogoAndMenuButton = styled.div`
 	@media ${device.mobile} {
-		/* width: 320px; */
+		margin: auto;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		width: 320px;
 	}
 	@media ${device.mobileM} {
-		/* width: 375px; */
+		width: 375px;
 	}
 	@media ${device.mobileL} {
-		/* width: 425px; */
+		width: 425px;
 	}
 	@media ${device.tablet} {
 		width: 768px;
 	}
 	@media ${device.laptop} {
-		/* width: 1024px; */
+		/* padding: 0 30px; */
 	}
 	@media ${device.desktop} {
 	}
-	margin: auto;
-	/* border: solid blue; */
-
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
 `;
 
 // MENU/CLOSE BUTTON STYLES:

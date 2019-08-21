@@ -7,6 +7,7 @@ export const size = {
 	mobileL: "425px",
 	tablet: "768px",
 	laptop: "1024px",
+	laptopL: "1400px",
 	desktop: "2560px",
 	ThirdSectionImageSize: "512px"
 };
@@ -17,6 +18,7 @@ export const device = {
 	mobileL: `(min-width: ${size.mobileL})`,
 	tablet: `(min-width: ${size.tablet})`,
 	laptop: `(min-width: ${size.laptop})`,
+	laptopL: `(min-width: ${size.laptopL})`,
 	desktop: `(min-width: ${size.desktop})`,
 
 	ThirdSectionImageSize: `(min-width: ${size.ThirdSectionImageSize})`
@@ -32,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Chivo', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
   @font-face {
     font-family: 'Chivo', sans-serif;

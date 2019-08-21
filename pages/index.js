@@ -9,7 +9,6 @@ import ContactForm from "../src/components/ContactForm";
 import TitleAndCircles from "../src/components/TitleAndCircles";
 import { textAnimationUp } from "../src/theme/KeyFrames";
 import Link from "next/link";
-// import ovalblue from '../static/images/OvalBlue1';
 
 
 const ParallaxImage = ({ src, ...style }) => {
@@ -82,30 +81,12 @@ const Home = () => (
 
 					<Carousel />
 
-					<H2bold>Contact Us</H2bold>
-
 					<ContactForm />
 				</Wrapper>
 			</Layout>
 )
 
 export default Home;
-
-const H2bold = styled.h2`
-	@media ${device.mobile} {
-		font-family: Noah-Bold;
-		font-size: 30px;
-		text-align: center;
-		color: #0e0e0e;
-		font-weight: 600;
-		margin: -28px 0 70px 0;
-		margin-top: 40px;
-	}
-	@media ${device.tablet} {
-	}
-	@media ${device.laptop} {
-	}
-`;
 
 const SkillsWrapper = styled.div`
 	@media ${device.mobile} {
@@ -132,12 +113,28 @@ const SkillsWrapper = styled.div`
 	}
 `;
 
+const H2bold = styled.h2`
+	@media ${device.mobile} {
+		font-family: Noah-Bold;
+		font-size: 30px;
+		text-align: center;
+		color: #0e0e0e;
+		font-weight: 600;
+		margin: 40px 0 70px 0;
+	}
+	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
+	}
+`;
+
 const Wrapper = styled.div`
 	@media ${device.mobile} {
 		padding: 0;
 		margin: 0;
 		display: flex;
 		flex-direction: column;
+		z-index: 2;
 	}
 	@media ${device.tablet} {
 	}

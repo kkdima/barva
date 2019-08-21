@@ -80,5 +80,6 @@ const LogoWrapper = styled.div`
 		margin: 40px 40px 0;
 	}
 	@media ${device.laptop} {
+		margin-left: 0;
 	}
 `;

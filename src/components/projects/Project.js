@@ -85,7 +85,9 @@ class Project extends Component {
 
 			initialBg: { opacity: 0, y: 200 },
 			enterBg: { opacity: 0.8, y: 0 }
-		};
+        };
+        
+        const {link, name, text, pic } = this.props;
 
 		return (
 			<Wrapper>
@@ -105,7 +107,7 @@ class Project extends Component {
                         <div id='image-hover'>
                             <motion.img
                                 id='image'
-                                src={this.props.pic}
+                                src={pic}
                                 transition={transition}
                                 variants={imageVariants}
                                 initial='initial'
@@ -115,7 +117,7 @@ class Project extends Component {
                         </div>
 						<motion.img
 							id='image-shadow'
-							src={this.props.pic}
+							src={pic}
 							variants={imageShadowVariants}
 							transition={transition}
 							initial='initial'
@@ -138,14 +140,13 @@ class Project extends Component {
 					>
 						<div id='first-part'>
 							<div id='topPart'>
-								<a href='https://www.evertwofilms.com' target="_blank">Ever Two Films</a>
-								<a href='https://www.evertwofilms.com' target="_blank" >
+								<a href={link} target="_blank">{name}</a>
+								<a href={link} target="_blank" >
 									<img src='../../../static/images/iconLink.svg' alt='' />
 								</a>
 							</div>
 							<p>
-								You want to add aesthetics to your business idea? We can help you set a
-								360ᵒ branding identity and copywriting tone of voice.
+								{text}
 							</p>
 						</div>
 						<div id='second-part'>
