@@ -59,7 +59,8 @@ class Footer extends Component {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{
 							ease: "easeOut",
-							duration: 1
+							duration: 1,
+							delay: 2
 						}}
 					>
 						<p>with</p>
@@ -112,7 +113,7 @@ export default Footer;
 
 const Wrapper = styled.div`
 	@media ${device.mobile} {
-		/* border: solid black 1px; */
+		z-index: 1;
 		width: 100%;
 		background: #E6E6FF;
 		font-family: Noah-Bold;

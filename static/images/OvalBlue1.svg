@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="194px" height="134px" viewBox="0 0 194 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="229px" height="158px" viewBox="0 0 229 158" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>Oval Copy 4</title>
+    <title>Oval</title>
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Tablet-Home" transform="translate(-207.000000, -153.000000)" fill="#E5EEFF">
-            <g id="HEADLINE" transform="translate(181.000000, 153.000000)">
-                <g id="BG-for-headline">
-                    <path d="M131.210544,133.686698 C176.524221,128.818225 220,91.557717 220,65.8764761 C220,40.1952352 130.003078,0 93,0 C55.9969218,0 26,20.8187591 26,46.5 C26,72.1812409 85.8968675,138.555172 131.210544,133.686698 Z" id="Oval-Copy-4"></path>
-                </g>
+        <g id="Desktop-HD-About" transform="translate(-605.000000, -183.000000)" fill="#E5EEFF">
+            <g id="HEADLINE-Copy" transform="translate(605.000000, 183.000000)">
+                <path d="M124.191828,157.700167 C177.680652,151.957194 229,108.003768 229,77.7095357 C229,47.4153029 122.76652,0 79.0876289,0 C35.4087375,0 0,24.558328 0,54.8525608 C0,85.1467935 70.7030034,163.443139 124.191828,157.700167 Z" id="Oval"></path>
             </g>
         </g>
     </g>

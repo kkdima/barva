@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device, GlobalStyle } from "../theme/GlobalStyle";
+import { device, GlobalStyle } from "../../theme/GlobalStyle";
 
 export default function Skill(props) {
 	return (

@@ -1,109 +1,92 @@
 import styled from "styled-components";
-import { device } from "../theme/GlobalStyle";
+import { device } from "../../theme/GlobalStyle";
 import React, { Component } from "react";
 import { motion } from "framer-motion";
 
-const TitleAndCircles = () => (
-	<HeadlineWrapper>
-		<div id='holder1'>
-			<motion.img
-				src='../static/images/OvalBlue1.svg'
-				id='OvalBlue1'
-				whileHover={{ scale: 1.1, rotate: 5 }}
-				initial={{ opacity: 0, x: -20, y: 20 }}
+const TitleAndCircles = () => {
+
+	const transition = { ease: "easeOut", duration: 1 };
+
+	return (
+		<HeadlineWrapper>
+			<div id='holder1'>
+				<motion.img
+					src='../static/images/OvalBlue1.svg'
+					id='OvalBlue1'
+					whileHover={{ scale: 1.1, rotate: 5 }}
+					initial={{ opacity: 0, x: -20, y: 20 }}
+					animate={{ opacity: 1, x: 0, y: 0 }}
+					transition={transition}
+				/>
+			</div>
+
+			<motion.div
+				id='holder2'
+				initial={{ opacity: 0, x: 100, y: 50 }}
 				animate={{ opacity: 1, x: 0, y: 0 }}
-				transition={{
-					ease: "easeOut",
-					duration: 1.5,
-					delay: 0.5
-				}}
-			/>
-		</div>
-
-		<motion.div
-			id='holder2'
-			initial={{ opacity: 0, x: 100, y: 50 }}
-			animate={{ opacity: 1, x: 0, y: 0 }}
-			transition={{
-				ease: "easeOut",
-				duration: 1.5,
-				delay: 0.5
-			}}
-		>
-			<img src='../static/images/OvalBlue2.svg' id='OvalBlue2' />
-		</motion.div>
-
-		<motion.div
-			id='holder3'
-			initial={{ opacity: 0, x: -30, y: 20 }}
-			animate={{ opacity: 1, x: 0, y: 0 }}
-			transition={{
-				ease: "easeOut",
-				duration: 1.5,
-				delay: 0.5
-			}}
-		>
-			<img src='../static/images/OvalOrange.svg' id='OvalOrange' />
-		</motion.div>
-
-		<motion.div
-			id='holder4'
-			initial={{ opacity: 0, x: -30, y: 20 }}
-			animate={{ opacity: 1, x: 0, y: 0 }}
-			transition={{
-				ease: "easeOut",
-				duration: 1.5,
-				delay: 0.5
-			}}
-		>
-			<img src='../static/images/OvalOrangeSmall.svg' id='OvalOrangeSmall' />
-		</motion.div>
-
-		<motion.div
-			id='holder5'
-			initial={{ opacity: 0, x: 20, y: 60 }}
-			animate={{ opacity: 1, x: 0, y: 0 }}
-			transition={{
-				ease: "easeOut",
-				duration: 1.5,
-				delay: 0.5
-			}}
-		>
-			<img src='../static/images/OvalOrangeSmaller.svg' id='OvalOrangeSmaller' />
-		</motion.div>
-
-		<div>
-			<motion.div
-				id='zIndex'
-				initial={{ opacity: 0, y: 300 }}
-				animate={{ opacity: 1, y: 200 }}
-				transition={{
-					ease: "easeOut",
-					duration: 0.5
-				}}
+				transition={transition}
 			>
-				<H1>
-					HI WE ARE <br />
-					BARVA <br />
-					CREATIVE TEAM
-				</H1>
+				<img src='../static/images/OvalBlue2.svg' id='OvalBlue2' />
 			</motion.div>
-		</div>
 
-		<div id='zIndex'>
 			<motion.div
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{
-					ease: "easeOut",
-					delay: 1.4
-				}}
+				id='holder3'
+				initial={{ opacity: 0, x: -30, y: 20 }}
+				animate={{ opacity: 1, x: 0, y: 0 }}
+				transition={transition}
 			>
-				<H2>Based in Los Angeles</H2>
+				<img src='../static/images/OvalOrange.svg' id='OvalOrange' />
 			</motion.div>
-		</div>
-	</HeadlineWrapper>
-);
+
+			<motion.div
+				id='holder4'
+				initial={{ opacity: 0, x: -30, y: 20 }}
+				animate={{ opacity: 1, x: 0, y: 0 }}
+				transition={transition}
+			>
+				<img src='../static/images/OvalOrangeSmall.svg' id='OvalOrangeSmall' />
+			</motion.div>
+
+			<motion.div
+				id='holder5'
+				initial={{ opacity: 0, x: 20, y: 60 }}
+				animate={{ opacity: 1, x: 0, y: 0 }}
+				transition={transition}
+			>
+				<img src='../static/images/OvalOrangeSmaller.svg' id='OvalOrangeSmaller' />
+			</motion.div>
+
+			<div>
+				<motion.div
+					id='zIndex'
+					initial={{ opacity: 0, y: 300 }}
+					animate={{ opacity: 1, y: 200 }}
+					transition={transition}
+				>
+					<H1>
+						HI WE ARE <br />
+						BARVA <br />
+						CREATIVE TEAM
+					</H1>
+				</motion.div>
+			</div>
+
+			<div id='zIndex'>
+				<motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{
+						ease: "easeOut",
+						delay: 1.4
+					}}
+				>
+					<H2>Based in Los Angeles</H2>
+				</motion.div>
+			</div>
+		</HeadlineWrapper>
+
+	)
+};
 
 export default TitleAndCircles;
 

@@ -65,73 +65,74 @@ class ContactForm extends Component {
 			<Wrapper>
 				<BackgroundContactFrom />
 				<H2bold>Contact Us</H2bold>
-				{/* <Background /> */}
-				<Form
-					name='contact'
-					method='POST'
-					data-netlify='true'
-					name='contact'
-					data-netlify-honeypot='bot-field'
-					data-netlify-recaptcha='true'
-					onSubmit={this.handleSubmit}
-					// onSubmit={this.handleClickButton}
-				>
-					<Input type='hidden' name='form-name' value='contact' />
-					<Input
-						value={name}
-						type='text'
-						name='name'
-						id='name'
-						placeholder='Name'
-						onChange={this.handleChange}
-					/>
-					<Input
-						value={email}
-						type='text'
-						name='email'
-						id='email'
-						placeholder='E-mail'
-						onChange={this.handleChange}
-					/>
-					<StyledTextarea
-						value={message}
-						id='textarea'
-						name='message'
-						type='message'
-						placeholder='Briefly describe the idea you want to bring to life'
-						rows={3}
-						onChange={this.handleChange}
-					/>
-					<Button
-						ref={this.button}
-						type='submit'
-						onClick={this.handleSubmit}
-						className={isClicked ? "animateOnClick" : "static"}
+				<FormWrapper>
+					<Form
+						name='contact'
+						method='POST'
+						data-netlify='true'
+						name='contact'
+						data-netlify-honeypot='bot-field'
+						data-netlify-recaptcha='true'
+						onSubmit={this.handleSubmit}
+						// onSubmit={this.handleClickButton}
 					>
-						<svg id='Plane' ref={this.svgRef}>
-							<use href='#paperPlane' />
-						</svg>
-						{isClicked ? (
-							<motion.div
-								id='Sent'
-								className='container'
-								initial={{ y: -20, opacity: 0 }}
-								animate={{ y: 0, opacity: 1 }}
-								transition={{
-									type: "spring",
-									stiffness: 260,
-									damping: 20,
-									delay: 0.5
-								}}
-							>
-								Sent
-							</motion.div>
-						) : (
-							<div>Submit</div>
-						)}
-					</Button>
-					<div data-netlify-recaptcha='true' />
-				</Form>
+						<Input type='hidden' name='form-name' value='contact' />
+						<Input
+							value={name}
+							type='text'
+							name='name'
+							id='name'
+							placeholder='Name'
+							onChange={this.handleChange}
+						/>
+						<Input
+							value={email}
+							type='text'
+							name='email'
+							id='email'
+							placeholder='E-mail'
+							onChange={this.handleChange}
+						/>
+						<StyledTextarea
+							value={message}
+							id='textarea'
+							name='message'
+							type='message'
+							placeholder='Briefly describe the idea you want to bring to life'
+							rows={3}
+							onChange={this.handleChange}
+						/>
+						<Button
+							ref={this.button}
+							type='submit'
+							onClick={this.handleSubmit}
+							className={isClicked ? "animateOnClick" : "static"}
+						>
+							<svg id='Plane' ref={this.svgRef}>
+								<use href='#paperPlane' />
+							</svg>
+							{isClicked ? (
+								<motion.div
+									id='Sent'
+									className='container'
+									initial={{ y: -20, opacity: 0 }}
+									animate={{ y: 0, opacity: 1 }}
+									transition={{
+										type: "spring",
+										stiffness: 260,
+										damping: 20,
+										delay: 0.5
+									}}
+								>
+									Sent
+								</motion.div>
+							) : (
+								<div>Submit</div>
+							)}
+						</Button>
+						<div data-netlify-recaptcha='true' />
+					</Form>
+				</FormWrapper>
 				<svg
 					width='16px'
 					height='16px'
@@ -188,14 +189,11 @@ const Wrapper = styled.div`
 		box-sizing: border-box;
 		position: relative;
 		width: 100%;
-		/* height: 780px; */
 		overflow: hidden;
 		/* height of the footer */
 		/* margin-bottom: 320px; */
 	}
 	@media ${device.mobileL} {
-		/* height: 830px; */
-		/* padding-top: 338px; */
 	}
 	@media ${device.tablet} {
 		/* height of the footer */
@@ -222,6 +220,7 @@ const BackgroundContactFrom = styled.div`
 		position: absolute;
 		z-index: -1;
 		width: 100%;
+		height: 100%;
 		background-size: 100% 100%;
 		background-size: cover;
 	}
@@ -266,8 +265,7 @@ const H2bold = styled.h2`
 
 const Button = styled.button`
 	@media ${device.mobile} {
-		/* Styles are in static GlobalJs file */
-		margin-bottom: 40px;
+		margin-bottom: 50px;
 	}
 	@media ${device.mobileM} {
 	}
@@ -290,7 +288,7 @@ const StyledTextarea = styled(TextareaAutosize)`
 	padding-top: 10px;
 	padding-left: 17px;
 	margin-bottom: 47px;
-	height: 78px;
+	height: 150px;
 	line-height: 1.4em;
 
 	::-webkit-input-placeholder {
@@ -304,7 +302,6 @@ const StyledTextarea = styled(TextareaAutosize)`
 const Input = styled.input`
 	all: unset;
 	::-webkit-input-placeholder {
-		/* -webkit-text-fill-color: #868686; */
 		-webkit-text-fill-color: #fff;
 		opacity: 1; /* required on iOS */
 	}
@@ -313,7 +310,6 @@ const Input = styled.input`
 		font-family: Noah-Regular;
 		font-size: 21px;
 		-webkit-appearance: none;
-		/* background-image: linear-gradient(-97deg, #8cadff 0%, #b6ddfd 67%); */
 		background-image: linear-gradient(-97deg, #b6ddfd 0%, #8cadff 67%);
 		box-shadow: 0 17px 10px -13px rgba(200, 199, 223, 0.45);
 		border-radius: 6px;
@@ -327,16 +323,29 @@ const Input = styled.input`
 	}
 `;
 
+const FormWrapper = styled.div`
+	@media ${device.mobile} {
+		margin: auto;
+		padding: 0 25px;
+		z-index: 6;
+	}
+	@media ${device.tablet} {
+	}
+	@media ${device.laptop} {
+	}
+	@media ${device.laptopL} {
+	}
+`;
+
 const Form = styled.form`
 	@media ${device.mobile} {
 		all: unset;
 		display: flex;
 		flex-direction: column;
-		width: 289px;
+		max-width: 490px;
 		margin: auto;
 	}
 	@media ${device.tablet} {
-		width: 490px;
 	}
 	@media ${device.laptop} {
 	}

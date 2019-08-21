@@ -104,7 +104,7 @@ class Project extends Component {
 								: null
 						}
 					>
-                        <div id='image-hover'>
+						<div id='image-hover'>
                             <motion.img
                                 id='image'
                                 src={pic}

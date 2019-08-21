@@ -3,10 +3,10 @@ import { motion, useViewportScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
 import { device } from "../src/theme/GlobalStyle";
 import Layout from "../src/components/Layout.js";
-import Skill from "../src/components/Skill";
+import Skill from "../src/components/home/Skill";
 import Carousel from "../src/components/Carousel";
 import ContactForm from "../src/components/ContactForm";
-import TitleAndCircles from "../src/components/TitleAndCircles";
+import TitleAndCircles from "../src/components/home/TitleAndCircles";
 import { textAnimationUp } from "../src/theme/KeyFrames";
 import Link from "next/link";
 

@@ -96,6 +96,7 @@ const Div = styled.div`
 		display: flex;
 		justify-content: center;
 		/* padding-bottom: 700px; */
+		z-index: 1;
 	}
 
 	.ProjectHolder {

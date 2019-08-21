@@ -73,13 +73,10 @@ const LogoWrapper = styled.div`
     }
 
 	@media ${device.mobile} {
-		margin-left: 25px;
 		margin-top: 25px;
 	}
 	@media ${device.tablet} {
-		margin: 40px 40px 0;
 	}
 	@media ${device.laptop} {
-		margin-left: 0;
 	}
 `;

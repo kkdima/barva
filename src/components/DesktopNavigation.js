@@ -90,10 +90,6 @@ const Wrapper = styled.div`
 
 		#circleProjects {
 			position: absolute;
-			/* transform: translateY(-50%); */
-			/* z-index: -1; */
-			/* left: 115px; */
-			/* bottom: 15px; */
 		}
 
 		.Link {
@@ -115,5 +111,3 @@ const Wrapper = styled.div`
 		margin-right: 0;
 	}
 `;
-
-const A = styled.a``;

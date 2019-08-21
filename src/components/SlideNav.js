@@ -121,17 +121,11 @@ export default SlideNav;
 const StyledLink = styled(Link)``;
 
 const MenuWrapper = styled.div`
-	box-sizing: border-box;
-	padding-left: 40;
 	z-index: 4;
-	p {
-		font-family: "Chivo", sans-serif;
-	}
 `;
 
 const MenuHolder = styled.div`
 	@media ${device.mobile} {
-		margin: auto;
 	}
 	@media ${device.mobileM} {
 	}
@@ -144,23 +138,21 @@ const MenuHolder = styled.div`
 
 const LogoAndMenuButton = styled.div`
 	@media ${device.mobile} {
+		z-index: 4;
 		margin: auto;
 		display: flex;
 		justify-content: space-between;
 		flex-direction: row;
-		width: 320px;
+		max-width: 1024px;
+		padding: 0 45px;
 	}
 	@media ${device.mobileM} {
-		width: 375px;
 	}
 	@media ${device.mobileL} {
-		width: 425px;
 	}
 	@media ${device.tablet} {
-		width: 768px;
 	}
 	@media ${device.laptop} {
-		/* padding: 0 30px; */
 	}
 	@media ${device.desktop} {
 	}
@@ -178,8 +170,10 @@ const MenuTextWrapper = styled.div`
 		height: 26px;
 		padding: 0;
 		z-index: 1;
-		margin-right: 25px;
 		margin-top: 25px;
+		p {
+			font-family: "Chivo", sans-serif;
+		}
 	}
 	@media ${device.tablet} {
 		margin: 40px 40px 0 0;
