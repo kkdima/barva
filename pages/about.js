@@ -64,12 +64,12 @@ const Wrapper = styled.div`
 
 		p {
 			font-family: Noah-Regular;
-			font-size: 26px;
 			color: #2b2b2b;
-			line-height: 39px;
 			text-align: left;
 			max-width: 1024px;
             padding: 0 45px;
+            font-size: 20px;
+            line-height: 2rem;
 			margin: auto;
 			margin-top: 0px;
             /* border: solid red 1px; */
@@ -129,5 +129,9 @@ const Wrapper = styled.div`
 	@media ${device.tablet} {
 	}
 	@media ${device.laptop} {
+        p {
+            font-size: 26px;
+			line-height: 39px;
+        }
 	}
 `;

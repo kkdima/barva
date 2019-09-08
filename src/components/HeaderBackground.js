@@ -16,11 +16,10 @@ const Wrapper = styled.div`
         box-sizing: border-box;
 		display: flex;
 		position: absolute;
-		z-index: 1;
+		/* z-index: 1; */
 		background-image: url("../../static/images/header_bg.svg");
-		height: 220px;
-
-        width: 100%;
+		height: 450px;
+        width: 140vw;
         background-size: 100% 100%;
 		/* background-size: cover; */
 	}
@@ -30,6 +29,7 @@ const Wrapper = styled.div`
 	}
 	@media ${device.tablet} {
 		height: 685px;
+        width: 100vw;
 	}
 	@media ${device.laptop} {
 	}

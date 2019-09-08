@@ -98,6 +98,7 @@ const HeadlineWrapper = styled.div`
 		margin-bottom: 50px;
 		width: 320px;
 		height: 200px;
+		/* z-index: -1; */
 
 		/* border: solid black; */
 

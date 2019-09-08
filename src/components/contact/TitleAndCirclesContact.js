@@ -8,20 +8,25 @@ const TitleAndCirclesAbout = () => {
 
 	return (
 		<Wrapper>
-			<motion.div 
+			<motion.div
 				id='holder1'
 				initial={{ opacity: 0, x: -20, y: 20 }}
 				animate={{ opacity: 1, x: 0, y: 0 }}
 				transition={transition}
+			/>
+			<motion.div
+				id='holder2'
+				initial={{ opacity: 0, x: -20, y: 20 }}
+				animate={{ opacity: 1, x: 0, y: 0 }}
+				transition={transition}
+			/>
+			<motion.h1
+				transition={transition}
+				initial={{ opacity: 0, y: 80 }}
+				animate={{ opacity: 1, x: -10, y: 30 }}
 			>
-			</motion.div>
-				<motion.h1
-					transition={transition}
-					initial={{ opacity: 0, y: 80 }}
-					animate={{ opacity: 1, x: -10, y: 30 }}
-				>
-					ABOUT US
-				</motion.h1>
+				Contact us
+			</motion.h1>
 		</Wrapper>
 	);
 };
@@ -36,13 +41,22 @@ const Wrapper = styled.div`
 		position: relative;
 		margin: 45px 0 20px 0;
 		/* border: solid black 1px; */
-		#OvalBlue1 { 
+		#OvalBlue1 {
 			user-select: none;
 		}
 		#holder1 {
 			z-index: 1;
 			margin-bottom: 0px;
-			background-image: url('../../../static/images/OvalBlue1.svg');
+			background-image: url("../../../static/images/OvalBlue1.svg");
+			background-repeat: no-repeat;
+			width: 229px;
+			height: 165px;
+		}
+		#holder2 {
+			z-index: 1;
+			margin-bottom: 0px;
+            position: absolute;
+			background-image: url("../../../static/images/contact/OvalBlue2.svg");
 			background-repeat: no-repeat;
 			width: 229px;
 			height: 165px;

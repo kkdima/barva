@@ -2272,25 +2272,46 @@ function (_Document) {
           lineNumber: 29
         },
         __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("body", {
+      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("link", {
+        rel: "stylesheet",
+        href: "https://unpkg.com/aos@next/dist/aos.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 30
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_8__["Main"], {
+      })), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("body", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 32
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_8__["NextScript"], {
+      }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_8__["Main"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 33
         },
         __self: this
-      })));
+      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_8__["NextScript"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 34
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("script", {
+        src: "https://unpkg.com/aos@next/dist/aos.js",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("script", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36
+        },
+        __self: this
+      }, "AOS.init();")));
     }
   }], [{
     key: "getInitialProps",
