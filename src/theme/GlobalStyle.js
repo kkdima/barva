@@ -34,7 +34,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Chivo', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
   }
   @font-face {
     font-family: 'Chivo', sans-serif;

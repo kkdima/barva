@@ -312,7 +312,7 @@ const UL = styled.ul`
 		font-size: 32px;
 		font-weight: bold;
 		max-width: 200px;
-		margin: 0px 0px 0px 25px;
+		margin: 0px 0px 0px 45px;
 		padding: 0px;
 	}
 	@media ${device.tablet} {

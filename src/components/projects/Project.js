@@ -11,10 +11,21 @@ class Project extends Component {
 		this.projectInfo = React.createRef();
 		this.arrowBack = React.createRef();
 
+		this.showInfoIcon = React.createRef();
+		this.showInfo = React.createRef();
+
+		this.moreInfo = React.createRef();
+		this.content = React.createRef();
+		this.paragraph = React.createRef();
+		this.info = React.createRef();
+		this.image = React.createRef();
+		this.wrapper = React.createRef();
+
 		this.state = {
 			animationToggle: false,
 			closeToggle: false,
 			isDesktop: false,
+			moreInfoOpened: false,
 			width: 0,
 			height: 0
 		};
@@ -37,200 +48,185 @@ class Project extends Component {
 			width: window.innerWidth,
 			height: window.innerHeight
 		});
-		console.log(this.state.isDesktop);
+		this.info.current.style.flexDirection = this.state.isDesktop
+			? "row"
+			: "column";
+		this.moreInfo.current.style.flexDirection = this.state.isDesktop
+			? "column"
+			: "row";
 	}
 
-	animateLeftSideOnClick = () => {
-		this.setState({ animationToggle: true });
-	};
-
-	animationArrowBack = () => {
-		this.setState({ closeToggle: true });
-		this.setState({ animationToggle: false });
-		this.projectInfo.current.setAttribute("animate", "clickArrow");
-		this.projectImage.current.setAttribute("animate", "click");
+	showMoreInfo = () => {
+		this.setState({ moreInfoOpened: !this.state.moreInfoOpened });
+		this.paragraph.current.style.height = this.state.moreInfoOpened
+			? "0px"
+			: "auto";
+		window.innerWidth >= 1024
+			? null
+			: (this.wrapper.current.style.marginBottom = this.state.moreInfoOpened
+					? "50px"
+					: this.info.current.clientHeight + "px");
 	};
 
 	render() {
+		const { link, name, text, pic, direction } = this.props;
+
+		const isDesktop = this.state.isDesktop;
+		const moreInfoOpened = this.state.moreInfoOpened;
+
 		const transition = { ease: "easeOut", duration: 1 };
 
-		const imageVariants = {
+		const imageVariantsMobile = {
 			initial: { opacity: 0, scale: 1.3 },
-			enter: { opacity: 1, scale: 1 },
+			enter: {
+				opacity: 1,
+				scale: 1,
+				bottom: 0,
+				top: 0,
+				style: { margin: "auto" }
+				// x: 0
+			},
+			// click: { x: -267 },
+			hover: { scale: 1.1 },
+			arrowEnter: { rotate: 90 }
+		};
+
+		const imageVariantsDesktop = {
+			initial: { opacity: 0, scale: 1.3 },
+			enter: {
+				opacity: 1,
+				scale: 1,
+				bottom: 0,
+				top: 0,
+				style: { margin: "auto" },
+				x: 0,
+				style: { zIndex: 2 }
+			},
+			click: { x: -247, style: { zIndex: 2 } },
 			hover: { scale: 1.1 }
 		};
 
-		const imageShadowVariants = {
-			initial: { opacity: 0, scale: 1.7, x: -430, y: 30 },
-			enter: { opacity: 1, scale: 1, x: -430, y: 85 }
-		};
-
-		const infoProjectVariants = {
-			initial: { opacity: 0, x: 110, y: 35 },
-			enter: {
-				// opacity: [0, 0, 1],
-				// x: -40,
-				// y: -200,
-				// transition: { delay: 0.7, ...transition }
-				opacity: [0, 0, 1],
-				x: 140,
-				y: 40
-			},
-			initialMobile: { opacity: 0, x: 0, y: 0 },
-			enterMobile: {
-				opacity: [0, 0, 1],
-				x: 0,
-				y: 0,
-				transition: { delay: 0.7, ...transition }
-			},
-			click: {
-				width: 490,
-				height: 270,
-				y: 0,
-				x: 290
-			},
-			hover: { scale: 1.05, transition: { ...transition, duration: 0.3 } },
-
-			clickArrow: {
-				width: 300,
-				height: 200,
-				y: 36,
-				x: 130
-			},
-			hidden: { opacity: 1, scale: 0 }
-		};
-
-		const animateProjectHolder = {
-			click: { x: -268, zIndex: 3 },
-			clickArrow: { x: 0 }
-		};
-
-		const arrowBackClick = {
-			hover: { scale: 1.05, transition: { ...transition, duration: 0.3 } },
-			whileTap: { scale: 0.95 },
+		const imageHolder = {
+			initial: { scale: 1.3 },
+			enter: { scale: 1 },
+			hover: { scale: 1.1 },
+			animate: { x: 100 },
 			click: {}
 		};
 
-		const { link, name, text, pic, direction } = this.props;
-		const isDesktop = this.state.isDesktop;
+		const imageShadowVariants = {
+			transition: { delay: 1 },
+			initial: {
+				opacity: 0,
+				scale: 0.8,
+				top: 94,
+				left: 0,
+				right: 0,
+				style: { margin: "auto" }
+			},
+			enter: { opacity: 0.8, scale: 1 }
+		};
+
+		const content = {
+			initial: {
+				opacity: 0,
+				scale: 0,
+				left: 0,
+				right: 0,
+				style: { margin: "auto" }
+			},
+			enterContent: { opacity: 1, scale: 1 }
+		};
+
+		const infoVariantsMobile = {
+			initial: {
+				scale: 0,
+				y: -30
+			},
+			enter: {
+				scale: 1,
+				y: 0
+			},
+			click: { y: 81 }
+		};
+
+		const infoVariantsDesktop = {
+			initial: { x: -40 },
+			enter: {
+				height: 200,
+				x: 0
+			},
+			click: {
+				height: 270,
+				x: 235
+			}
+		};
 
 		return (
-			<Wrapper data-aos={direction}>
-				<motion.div className='ProjectHolder'>
-					<motion.div
-						id='image-project'
-						ref={this.projectImage}
-						variants={animateProjectHolder}
-						animate={
-							this.state.animationToggle
-								? "click"
-								: this.state.closeToggle
-								? "clickArrow"
-								: null
-						}
-					>
-						<div id='image-hover'>
-							<motion.img
-								id='image'
-								src={pic}
-								transition={transition}
-								variants={imageVariants}
-								initial='initial'
-								animate='enter'
-								whileHover='hover'
-							/>
-						</div>
-
-						<motion.div
-							id='footer-info'
-							initial={{ bottom: -30 }}
-							animate={{ opacity: 1, bottom: 0 }}
-							transition={{
-								ease: "easeOut",
-								duration: 1,
-								delay: 2
-							}}
-						>
-							<p>more info</p>
-							<motion.img
-								id='icon-mobile'
-								src='../../../static/images/arrowCircle.svg'
-							/>
-						</motion.div>
-
+			<Wrapper ref={this.wrapper} data-aos={direction}>
+				<motion.div
+					id='image-wrapper'
+					variants={isDesktop ? imageVariantsDesktop : imageVariantsMobile}
+					animate={moreInfoOpened ? "click" : "enter"}
+				>
+					<motion.div id='image-holder'>
 						<motion.img
-							id='image-shadow'
+							id='image'
+							ref={this.image}
 							src={pic}
-							variants={imageShadowVariants}
 							transition={transition}
+							variants={imageHolder}
 							initial='initial'
-							animate='enter'
+							// animate= 'enter'
+							whileHover='hover'
 						/>
 					</motion.div>
-					<motion.div
-						className='InfoProject'
-						ref={this.projectInfo}
-						variants={infoProjectVariants}
+					<motion.img
+						id='image-shadow'
+						src={pic}
+						variants={imageShadowVariants}
+						transition={transition}
 						initial='initial'
-						animate={
-							this.state.animationToggle
-								? "click"
-								: this.state.closeToggle
-								? "clickArrow"
-								: this.state.isDesktop
-								? "enter"
-								: "enterMobile"
-						}
-					>
-						<div id='relative-wrapper'>
-							{/* {isDesktop ? ( */}
-								<div>
-									<div id='first-part'>
-										<div id='topPart'>
-											<a href={link} target='_blank'>
-												{name}
-											</a>
-											<a href={link} target='_blank'>
-												<img src='../../../static/images/iconLink.svg' alt='' />
-											</a>
-										</div>
-										<p>{text}</p>
-										<p id='more-mobile'>more info</p>
-										<motion.img
-											id='icon-mobile'
-											src='../../../static/images/arrowCircle.svg'
-										/>
-									</div>
-									<div id='second-part'>
-										{this.state.animationToggle ? (
-											<motion.img
-												onClick={this.animationArrowBack}
-												ref={this.arrowBack}
-												src='../../../static/images/arrowCircle.svg'
-												variants={arrowBackClick}
-												whileHover='hover'
-												whileTap='whileTap'
-											/>
-										) : (
-											<p id='more' onClick={this.animateLeftSideOnClick}>
-												more info
-											</p>
-										)}
-									</div>
-								</div>
-							{/* ) : (
-							 	<div></div>
-							)} */}
-						</div>
-					</motion.div>
+						animate='enter'
+					/>
 				</motion.div>
-				<div>
-					{isDesktop ? (
-						<div>I show on 1025px or higher</div>
-					) : (
-						<div>I show on 1024px or lower</div>
-					)}
-				</div>
+
+				<motion.div
+					id='info'
+					ref={this.info}
+					variants={isDesktop ? infoVariantsDesktop : infoVariantsMobile}
+					initial='initial'
+					animate={moreInfoOpened ? "click" : "enter"}
+				>
+					<motion.div
+						id='content'
+						ref={this.content}
+						variants={content}
+						initial='initial'
+						animate='enterContent'
+					>
+						<div id='topPart'>
+							<a href={link} target='_blank'>
+								{name}
+							</a>
+							<a href={link} target='_blank'>
+								<img src='../../../static/images/iconLink.svg' alt='' />
+							</a>
+						</div>
+						<p ref={this.paragraph}>{text}</p>
+					</motion.div>
+
+					<div id='moreInfo' ref={this.moreInfo} onClick={this.showMoreInfo}>
+						{moreInfoOpened ? <p>close</p> : <p>more info</p>}
+						<motion.img
+							ref={this.arrowBack}
+							variants='infoVariantsMobile'
+							animation='arrowEnter'
+							id='icon-mobile'
+							src='../../../static/images/arrowCircle.svg'
+						/>
+					</div>
+				</motion.div>
 			</Wrapper>
 		);
 	}
@@ -241,239 +237,186 @@ export default Project;
 const Wrapper = styled.div`
 	@media ${device.mobile} {
 		margin: auto;
-		/* width: 1024px; */
-		/* height: auto; */
-		/* border: solid black; */
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding-bottom: 70px;
+		padding: 20px;
+		margin-bottom: 50px;
+		box-sizing: border-box;
+		z-index: 2;
+		position: relative;
+		/* border: solid green 1px; */
 
-		.ProjectHolder {
-			box-sizing: border-box;
-			display: flex;
-			/* margin-bottom: 90px; */
-
-			display: flex;
-			flex-direction: column;
-
-		}
-
-		#relative-wrapper {
-			height: 100%;
+		#image-holder {
+			position: relative;
 			width: 100%;
-			position: relative;
-		}
-
-		#image-project {
-			box-sizing: border-box;
-			/* width: 80vw; */
-			height: 270px;
-			/* max-height: auto; */
-			position: relative;
-			border-radius: 6px;
-			display: flex;
-			justify-content: center;			
-
-			border: solid black;
-		}
-		#image {
-			box-sizing: border-box;
-			position: relative;
-			object-fit: cover;
-			/* width: 490px; */
-			width: 80vw;
-			/* height: 270px; */
 			height: auto;
-			max-height: 270px;
+			display: flex;
+			justify-content: center;
+			box-sizing: border-box;
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
 			border-radius: 6px;
-			/* z-index: 3; */
+			z-index: 3;
+			box-shadow: 0 10px 29px -7px rgba(0, 0, 0, 0.5);
 		}
+
+		#image {
+			display: flex;
+			width: 100%;
+			max-width: 490px;
+			height: 100%;
+			box-sizing: border-box;
+			object-fit: fill;
+			z-index: 3;
+		}
+
+		#image-wrapper {
+		}
+
 		#image-shadow {
 			position: absolute;
-			/* width: 222px;
-			height: 122px; */
-			/* width: 382px; */
-			width: 60vw;
-			height: 122px;
-			bottom: 60px;
+			width: 80%;
+			height: 70%;
+			left: 0;
+			right: 0;
+			margin: auto;
 			border-radius: 6px;
-			left: 480px;
 			z-index: 1;
 			-webkit-filter: blur(27px);
 			filter: blur(27px);
 		}
-		#image-hover {
-			position: absolute;
-			overflow: hidden;
-			border-radius: 6px;
+
+		#topPart a,
+		a:link,
+		a:visited {
+			border: none;
+			text-decoration: none;
+			color: #0e0e0e;
 		}
 
-		#bg img {
-			object-fit: cover;
-		}
-
-		#previewLogo {
-			position: absolute;
-			z-index: 4;
-		}
-
-		#bg {
+		#footer-info {
+			margin: auto;
+			box-sizing: border-box;
+			position: relative;
+			min-height: 30px;
+			height: auto;
+			width: 90%;
+			background-color: #dde8fe;
 			display: flex;
-			align-content: flex-end;
-			position: absolute;
-			width: 490px;
-			width: 80vw;
-			height: 273px;
-			overflow: hidden;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
 			border-radius: 0 0 6px 6px;
-			background-image: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-			box-sizing: border-box;
-			z-index: 4;
-			pointer-events: none;
-		}
 
-
-		.InfoProject {
-			/* position: absolute; */
-			z-index: 2;
-			/* display: flex; */
-			/* width: 284px; */
-			width: 70vw;
-			max-width: 490px !important;
-			/* height: 300px; */
-			height: 100%;
-			max-height: 300px;
-			max-height: 30px;
-			border-radius: 0 0 6px 6px;
-			box-shadow: 0 16px 29px -12px rgba(0, 0, 0, 0.14);
-			background-color: #e5eeff;
-			box-sizing: border-box;
-			overflow: hidden;
-			/* display: inline-block; */
-			/* object-fit: contain; */
-
-			#first-part {
-				overflow: hidden;
-				p:first-of-type {
-					display: none;
-				}
-			}
-
-			#second-part {
-				position: relative;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: flex-start;
-				width: 31px;
-			}
-
-			#topPart {
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-			}
-
-			#topPart a,
-			a:link,
-			a:visited {
-				border: none;
-				text-decoration: none;
-				color: #0e0e0e;
-			}
-
-			#topPart a:nth-of-type(2) {
-				display: flex;
-				align-items: center;
-				margin-left: 25px;
-			}
-
-			#first-part a {
-				font-size: 26px;
-				font-weight: bold;
-			}
-			#first-part p:first-of-type {
-				/* display: none */
-			}
-
-			#second-part img {
-				cursor: pointer;
-			}
-
-			#icon-mobile {
-				height: 14px;
-				width: 14px;
-				margin-left: 5px;
-			}
-
-			#more-mobile {
-				position: absolute;
-				/* width: 200px; */
+			cursor: pointer;
+			p {
+				font-weight: 100;
+				font-family: Noah-Regular;
+				font-size: 16px;
+				color: #2b2b2b;
 				text-align: center;
 				margin: 0;
-				/* padding: 4px 0; */
-				bottom: 10px;
-				/* transform: translateX(40px); */
-				font-size: 16px;
-				font-weight: 300;
-				/* background-color: #dde8fe; */
+				padding: 0;
 			}
+		}
 
-			#footer-info {
-				position: absolute;
-				height: 30px;
-				width: 100%;
-				background-color: #dde8fe;
-				z-index: 3;
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				align-items: center;
-				cursor: pointer;
-				p {
-					font-weight: 100;
-					font-family: Noah-Regular;
-					font-size: 16px;
-					color: #2b2b2b;
-					text-align: center;
-				}
-			}
+		#icon-mobile {
+			height: 14px;
+			width: 14px;
+			margin-left: 5px;
+			fill: #2b2b2b;
+		}
 
-			#more {
-				position: absolute;
-				left: 2px;
-				/* bottom: 0px; */
-				/* width: 100%; */
-				margin: 0;
-				color: #7b7b7b;
-				cursor: pointer;
-				font-family: Noah-Regular;
-				background-color: #dde8fe;
+		#topPart {
+			padding-top: 29px;
+			padding-left: 30px;
+			a:first-of-type {
+				font-family: Noah-Bold;
+				font-size: 26px;
+				color: #0e0e0e;
 			}
+			img:last-child {
+				padding-left: 10px;
+				width: 16px;
+			}
+		}
+
+		#info {
+			display: flex;
+			flex-direction: column;
+			position: absolute;
+			box-sizing: border-box;
+			border-radius: 0 0 6px 6px;
+			width: 80%;
+			height: auto;
+			box-shadow: 0 16px 29px -12px rgba(0, 0, 0, 0.14);
+			left: 0;
+			right: 0px;
+			margin: auto;
+			top: calc(100% - 110px);
+			z-index: 2;
+			max-width: 490px;
+			background-color: #e5eeff;
+		}
+
+		p {
+			padding: 0 20px 0 30px;
+			line-height: 1.4rem;
+			overflow: hidden;
+			height: 0px;
+		}
+
+		#moreInfo {
+			-webkit-tap-highlight-color: transparent;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			cursor: pointer;
+			user-select: none;
+			font-weight: 100;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			background-color: #dde8fe;
+			padding: 5px 0;
+			border-radius: 0 0 6px 6px;
+		}
+		#moreInfo p {
+			overflow: visible;
+			padding: 0;
+			margin: 0;
+			height: auto;
 		}
 	}
 
-	@media ${device.tablet} {
-		.InfoProject {
-			height: 100px;
+	@media ${device.laptop} {
+		#info {
+			position: absolute;
+			flex-direction: row !important;
+			border-radius: 6px;
+			bottom: 0;
+			top: 0;
+			left: 118px;
+			margin: auto;
+			height: 50%;
 		}
-		#image-project {
-			width: 490px;
-			height: 270px;
+
+		#moreInfo {
+			border-radius: 0 6px 6px 0;
+			width: 32px !important;
+			display: flex;
+			flex-direction: column !important;
 		}
-		#image {
-			width: 490px;
-			height: 270px;
+		#moreInfo img {
+			order: -1;
+			padding-bottom: 7px;
+			margin-left: 0;
 		}
-		#image-shadow {
-			width: 382px;
-			height: 210px;
-		}
-		#more {
-			transform: rotate(-90deg);
-			width: 101px;
-			font-size: 25px;
+		#moreInfo p {
+			transform: rotate(180deg);
+			text-orientation: mixed;
+			writing-mode: vertical-rl;
+			line-height: 32px;
 		}
 	}
 `;

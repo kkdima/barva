@@ -3,7 +3,7 @@ import { device, GlobalStyle } from "../../theme/GlobalStyle";
 
 export default function Skill(props) {
 	return (
-		<Wrapper className="serviceBlock">
+		<Wrapper className="serviceBlock" data-aos={props.direction}>
 				<img src={props.img} className="leftSide"></img>
 				<div className="rightSide">
 					<Img id="img" src={props.img}/>

@@ -94,6 +94,8 @@ const Div = styled.div`
 		/* border: solid black; */
 		position: relative;
 		display: flex;
+		width: 100%;
+		overflow-x: hidden !important;
 		justify-content: center;
 		padding-bottom: 100px;
 		z-index: 1;
@@ -118,13 +120,9 @@ const Div = styled.div`
 const Wrapper = styled.div`
 	@media ${device.mobile} {
 		position: relative;
-		/* margin: auto; */
 		padding-top: 49px;
-		/* margin-bottom: 50px; */
-		/* width: 320px; */
 		width: 409px;
 		height: 200px;
-		/* border: solid black; */
 		img {
 			user-select: none;
 			outline: none;
@@ -132,7 +130,6 @@ const Wrapper = styled.div`
 	}
 	@media ${device.tablet} {
 		width: 409px;
-		/* height: 148px; */
 	}
 	@media ${device.laptop} {
 	}
@@ -151,7 +148,6 @@ const H1 = styled.h1`
 		position: relative;
 		user-select: none;
 		outline: none;
-		/* border: solid black; */
 		left: 46px;
 		bottom: 80px;
 	}

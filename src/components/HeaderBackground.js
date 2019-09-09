@@ -16,21 +16,15 @@ const Wrapper = styled.div`
         box-sizing: border-box;
 		display: flex;
 		position: absolute;
-		/* z-index: 1; */
 		background-image: url("../../static/images/header_bg.svg");
-		height: 450px;
-        width: 140vw;
+		height: 650px;
+        width: 150%;
+		transform: translateX(-20%);
         background-size: 100% 100%;
-		/* background-size: cover; */
-	}
-	@media ${device.mobileM} {
-	}
-	@media ${device.mobileL} {
 	}
 	@media ${device.tablet} {
+        width: 100%;
+		transform: translateX(0);
 		height: 685px;
-        width: 100vw;
-	}
-	@media ${device.laptop} {
 	}
 `;

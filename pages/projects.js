@@ -6,7 +6,6 @@ import { device } from "../src/theme/GlobalStyle";
 import { motion } from "framer-motion";
 import HeadlineOvals from "../src/components/projects/HeadlineOvals";
 import Project from "../src/components/projects/Project";
-import ProjectTest from "../src/components/projects/ProjectTest";
 
 function getProjects() {
 	return [
@@ -44,31 +43,11 @@ function getProjects() {
 	];
 }
 
-function test() {
-	var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-
-	if (viewportWidth > 640) {
-		return console.log("Wide viewport");
-	} else {
-		return console.log("Small viewport");
-	}
-}
-
 const Projects = props => (
 	<Layout>
-		{/* {test()} */}
 		<HeadlineOvals />
 		{getProjects().map(project => (
-			// <Project
-			// 	name={project.name}
-			// 	text={project.text}
-			// 	link={project.link}
-			// 	pic={project.pic}
-			// 	id={project.id}
-			// 	key={project.id}
-			// 	direction={project.direction}
-			// />
-			<ProjectTest
+			<Project
 				name={project.name}
 				text={project.text}
 				link={project.link}

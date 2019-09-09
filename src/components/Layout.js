@@ -23,7 +23,10 @@ const Wrapper = styled.div`
 	margin: 0;
 	display: flex;
 	flex-direction: column;
-	/* background-color: #fafaff; */
+
+	position: relative;
+	width: 100%;
+    overflow-x: hidden !important;
 	
 	/* To keep footer at the very bottom of the 'Body' */
 	/* position: relative;
