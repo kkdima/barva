@@ -10,8 +10,6 @@ class Project extends Component {
 		this.projectImage = React.createRef();
 		this.projectInfo = React.createRef();
 		this.arrowBack = React.createRef();
-
-		this.showInfoIcon = React.createRef();
 		this.showInfo = React.createRef();
 
 		this.moreInfo = React.createRef();

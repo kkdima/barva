@@ -81,7 +81,7 @@ const HeadlineOvals = () => (
 					duration: 1
 				}}
 			>
-				<H1>OUR PROJECTS</H1>
+				<H1 >OUR PROJECTS</H1>
 			</motion.div>
 		</Wrapper>
 	</Div>
@@ -97,7 +97,7 @@ const Div = styled.div`
 		width: 100%;
 		overflow-x: hidden !important;
 		justify-content: center;
-		padding-bottom: 100px;
+		padding-bottom: 40px;
 		z-index: 1;
 	}
 
@@ -148,7 +148,7 @@ const H1 = styled.h1`
 		position: relative;
 		user-select: none;
 		outline: none;
-		left: 46px;
+		left: 36px;
 		bottom: 80px;
 	}
 	@media ${device.tablet} {

@@ -1,9 +1,6 @@
 import React from "react";
 import Layout from "../src/components/Layout";
 import ContactForm from "../src/components/ContactForm";
-import styled from "styled-components";
-import { device } from "../src/theme/GlobalStyle";
-import { motion } from "framer-motion";
 import HeadlineOvals from "../src/components/projects/HeadlineOvals";
 import Project from "../src/components/projects/Project";
 
