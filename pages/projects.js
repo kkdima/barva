@@ -1,41 +1,28 @@
-import React from "react";
-import Layout from "../src/components/Layout";
-import ContactForm from "../src/components/ContactForm";
-import HeadlineOvals from "../src/components/projects/HeadlineOvals";
-import Project from "../src/components/projects/Project";
+import React from 'react';
+import Layout from '../src/components/Layout';
+import ContactForm from '../src/components/ContactForm';
+import HeadlineOvals from '../src/components/projects/HeadlineOvals';
+import Project from '../src/components/projects/Project';
 
 function getProjects() {
 	return [
 		{
 			id: 1,
-			name: "Ever Two Films",
-			link: "https://www.evertwofilms.com/",
+			name: 'Ever Two Films',
+			link: 'https://www.evertwofilms.com/',
 			text:
-				"Adobe Creative Cloud is a set of applications and services from Adobe Systems that gives subscribers access to a collection of software used for graphic design, video editing, web development, photography, along with a set of mobile applications and also some optional cloud services. ",
+				'Wedding video and photo production company based in Los Angeles. The guys need to tell their stories not only through video and photo thus site is very important part for storytelling too.',
 			pic: `/images/EverTwo-Films-Vasquez-Rocks-Engagement-Shoot-135-1.jpg`,
-			direction: "fade-left"
+			direction: 'fade-left'
 		},
 		{
 			id: 2,
-			name: "Cinestory Films",
-			link: "https://www.cinestoryfilms.com/",
-			text: "Lorem Ipsum",
-			pic: `/images/service2.png`,
-			direction: "fade-right"
-		},
-		{
-			id: 3,
-			name: "Cinestory Films",
-			link: "https://www.cinestoryfilms.com/",
-			pic: `/images/service.png`,
-			direction: "fade-left"
-		},
-		{
-			id: 4,
-			name: "Cinestory Films",
-			link: "https://www.cinestoryfilms.com/",
-			pic: `/images/service2.png`,
-			direction: "fade-right"
+			name: 'Cinestory Films',
+			link: 'https://www.cinestoryfilms.com/',
+			text:
+				'Cinstory Films is a very high-end video production company. With the same high expectations for aesthetics when it comes to the web presence.',
+			pic: '/images/projects/cinestory_films.jpg',
+			direction: 'fade-right'
 		}
 	];
 }

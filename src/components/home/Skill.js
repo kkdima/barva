@@ -1,16 +1,20 @@
-import styled from "styled-components";
-import { device, GlobalStyle } from "../../theme/GlobalStyle";
+import styled from 'styled-components';
+import { device, GlobalStyle } from '../../theme/GlobalStyle';
 
 export default function Skill(props) {
 	return (
-		<Wrapper className="serviceBlock" data-aos={props.direction}>
-				<img src={props.img} className="leftSide"></img>
-				<div className="rightSide">
-					<Img id="img" src={props.img}/>
-					<Number>0{props.number}</Number>
-					<Title>{props.title}</Title>
-					<Text>{props.text}</Text>
-				</div >
+		<Wrapper className='serviceBlock' data-aos={props.direction}>
+			<div>
+				<img src={props.img} className='leftSide object-contain'></img>
+			</div>
+			<div className='rightSide'>
+				<div>
+					<Img id='img' src={props.img} />
+				</div>
+				<Number>0{props.number}</Number>
+				<Title>{props.title}</Title>
+				<Text className='mt-4 mb-10'>{props.text}</Text>
+			</div>
 		</Wrapper>
 	);
 }
@@ -24,7 +28,6 @@ const Wrapper = styled.div`
 		color: white;
 		overflow: hidden;
 		margin-bottom: 60px;
-		/* border: solid black 1px; */
 
 		.leftSide {
 			display: none;
@@ -32,9 +35,11 @@ const Wrapper = styled.div`
 		.rightSide {
 			background-color: #e5eeff;
 			border-radius: 6px;
+
 			#img {
 				border-top-left-radius: 6px;
 				border-top-right-radius: 6px;
+				height: 141px;
 			}
 		}
 	}
@@ -50,7 +55,7 @@ const Wrapper = styled.div`
 		overflow: visible;
 		justify-content: space-between;
 
-		.leftSide{
+		.leftSide {
 			display: block;
 			width: 325px;
 			height: 325px;
@@ -65,7 +70,6 @@ const Wrapper = styled.div`
 			background-color: #e5eeff;
 			box-shadow: 0 16px 29px -12px rgba(0, 0, 0, 0.14);
 
-
 			#img {
 				display: none;
 			}
@@ -73,13 +77,11 @@ const Wrapper = styled.div`
 	}
 	@media ${device.laptop} {
 	}
-
 `;
 
 const Img = styled.img`
 	@media ${device.mobile} {
 		width: 100%;
-		height: 141px;
 		object-fit: cover;
 	}
 	@media ${device.tablet} {
@@ -115,7 +117,6 @@ const Title = styled.h2`
 	@media ${device.tablet} {
 	}
 	@media ${device.laptop} {
-
 	}
 `;
 

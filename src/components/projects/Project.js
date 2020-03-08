@@ -57,7 +57,7 @@ const Project = props => {
 			? null
 			: (wrapper.current.style.marginBottom = moreInfoOpened
 					? null
-					: info.current.clientHeight - 50% + 'px');
+					: info.current.clientHeight - (50 % +'px'));
 	};
 
 	const { link, name, text, pic, direction } = props;
@@ -125,6 +125,7 @@ const Project = props => {
 				<div id='moreInfo' ref={moreInfo} onClick={showMoreInfo}>
 					{moreInfoOpened ? <p>close</p> : <p>more info</p>}
 					<motion.img
+						className='h-5'
 						ref={arrowBack}
 						variants='infoVariantsMobile'
 						animation='arrowEnter'
@@ -143,7 +144,6 @@ const Wrapper = styled.div`
 	@media ${device.mobile} {
 		margin: auto;
 		padding: 20px;
-		margin-bottom: 50px;
 		box-sizing: border-box;
 		position: relative;
 
@@ -288,6 +288,8 @@ const Wrapper = styled.div`
 	}
 
 	@media ${device.laptop} {
+		margin-bottom: 50px;
+		
 		#info {
 			position: absolute;
 			bottom: -200px;
