@@ -176,7 +176,8 @@ const Wrapper = styled.div`
 		#image-shadow {
 			position: absolute;
 			width: 80%;
-			/* height: 70%; */
+			top: 30px !important;
+			height: 50px !important;
 			left: 0;
 			right: 0;
 			margin: auto;
@@ -289,6 +290,10 @@ const Wrapper = styled.div`
 
 	@media ${device.laptop} {
 		margin-bottom: 50px;
+
+		#imageShadow {
+			/* height: 120px; */
+		}
 		
 		#info {
 			position: absolute;

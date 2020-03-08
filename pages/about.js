@@ -38,7 +38,7 @@ const About = () => {
 				>
 					Our team
 				</motion.h1>
-				<div className='md: flex m-auto'>
+				<div className='flex-col flex md:flex-row m-auto'>
 					<div className='team'>
 						<div className='member ml-3'>
 							<img src='/images/portrait-Dima.png' alt='' />
