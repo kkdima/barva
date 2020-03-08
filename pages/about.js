@@ -1,14 +1,14 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
-import styled from "styled-components";
-import { device } from "../src/theme/GlobalStyle";
-import Layout from "../src/components/Layout.js";
+import React, { useState, useRef, useLayoutEffect } from 'react';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import styled from 'styled-components';
+import { device } from '../src/theme/GlobalStyle';
+import Layout from '../src/components/Layout.js';
 
-import TitleAndCirclesAbout from "../src/components/about/TitleAndCirclesAbout";
-import ContactForm from "../src/components/ContactForm";
+import TitleAndCirclesAbout from '../src/components/about/TitleAndCirclesAbout';
+import ContactForm from '../src/components/ContactForm';
 
 const About = () => {
-	const transition = { ease: "easeOut", duration: 1 };
+	const transition = { ease: 'easeOut', duration: 1 };
 	return (
 		<Layout>
 			<Wrapper>
@@ -16,8 +16,8 @@ const About = () => {
 				<motion.p>
 					A Barva Agency is a full-service digital marketing and web development
 					company that partners with small businesses and individuals to deliver an
-					experience unlike any other. We avoid buzzwords and bullshit – we spend our
-					energy instead focused on creating best-in-class user experiences that
+					experience unlike any other. We avoid buzzwords and bullshit – we spend
+					our energy instead focused on creating best-in-class user experiences that
 					translate into the things that actually matter.
 				</motion.p>
 
@@ -31,21 +31,29 @@ const About = () => {
 				</motion.p>
 
 				<motion.h1
-                    id='team-h1'
+					id='team-h1'
 					transition={transition}
 					// initial={{ opacity: 0, y: 80 }}
 					// animate={{ opacity: 1, x: -10, y: 30 }}
 				>
 					Our team
 				</motion.h1>
-                <div className="team">
-                    <div className="member">
-                        <img src="../static/images/portret-Dima.png" alt=""/>
-                        <h3>Dima Kononenko</h3>
-                        <h3>Designer, Web Developer</h3>
-                    </div>
-
-                </div>
+				<div className='md: flex m-auto'>
+					<div className='team'>
+						<div className='member ml-3'>
+							<img src='/images/portrait-Dima.png' alt='' />
+							<h3>Dima Kononenko</h3>
+							<h3>Designer, Web Developer</h3>
+						</div>
+					</div>
+					<div className='team'>
+						<div className='member ml-4'>
+							<img src='/images/portrait-Alexandra.jpg' alt='' />
+							<h3>Alexandra Zbarashchuk</h3>
+							<h3>Front-End Developer</h3>
+						</div>
+					</div>
+				</div>
 
 				<ContactForm />
 			</Wrapper>
@@ -60,26 +68,26 @@ const Wrapper = styled.div`
 		display: flex;
 		flex-direction: column;
 		z-index: 1;
-        /* border: solid black 1px; */
+		/* border: solid black 1px; */
 
 		p {
 			font-family: Noah-Regular;
 			color: #2b2b2b;
 			text-align: left;
 			max-width: 1024px;
-            padding: 0 45px;
-            font-size: 20px;
-            line-height: 2rem;
+			padding: 0 45px;
+			font-size: 20px;
+			line-height: 2rem;
 			margin: auto;
 			margin-top: 0px;
-            /* border: solid red 1px; */
+			/* border: solid red 1px; */
 		}
 		#barva-tag {
 			font-family: Noah-Bold;
 			font-size: 226px;
 			line-height: 140px;
 			color: #f7f7ff;
-            z-index: -1;
+			z-index: -1;
 		}
 
 		#team-h1 {
@@ -92,46 +100,46 @@ const Wrapper = styled.div`
 			z-index: 3;
 			outline: none;
 			user-select: none;
-            margin-top: 40px;
-            margin-bottom: 40px;
+			margin-top: 40px;
+			margin-bottom: 40px;
 		}
 
-        .team {
-            max-width: 1024px;
-            position: relative;
-            margin: auto;
-            /* border: solid red 1px; */
-        }
+		.team {
+			max-width: 1024px;
+			position: relative;
+			margin: auto;
+			/* border: solid red 1px; */
+		}
 
-        .member {
-            font-family: Noah-Bold;
-            font-size: 21px;
-            color: #343434;
+		.member {
+			font-family: Noah-Bold;
+			font-size: 21px;
+			color: #343434;
 
-            h3 {
-                margin-bottom: 7px;
-            }
+			h3 {
+				margin-bottom: 7px;
+			}
 
-            h3:nth-last-of-type(1) {
-                font-family: Noah-Regular !important;
-                font-size: 21px;
-                font-weight: 200;
-                margin-top: 0;
-            }
-        }
+			h3:nth-last-of-type(1) {
+				font-family: Noah-Regular !important;
+				font-size: 21px;
+				font-weight: 200;
+				margin-top: 0;
+			}
+		}
 
-        .member img {
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-        }
+		.member img {
+			margin-left: auto;
+			margin-right: auto;
+			width: 100%;
+		}
 	}
 	@media ${device.tablet} {
 	}
 	@media ${device.laptop} {
-        p {
-            font-size: 26px;
+		p {
+			font-size: 26px;
 			line-height: 39px;
-        }
+		}
 	}
 `;

@@ -12,7 +12,7 @@ function getProjects() {
 			link: "https://www.evertwofilms.com/",
 			text:
 				"Adobe Creative Cloud is a set of applications and services from Adobe Systems that gives subscribers access to a collection of software used for graphic design, video editing, web development, photography, along with a set of mobile applications and also some optional cloud services. ",
-			pic: `../static/images/EverTwo-Films-Vasquez-Rocks-Engagement-Shoot-135-1.jpg`,
+			pic: `/images/EverTwo-Films-Vasquez-Rocks-Engagement-Shoot-135-1.jpg`,
 			direction: "fade-left"
 		},
 		{
@@ -20,21 +20,21 @@ function getProjects() {
 			name: "Cinestory Films",
 			link: "https://www.cinestoryfilms.com/",
 			text: "Lorem Ipsum",
-			pic: `../../static/images/service2.png`,
+			pic: `/images/service2.png`,
 			direction: "fade-right"
 		},
 		{
 			id: 3,
 			name: "Cinestory Films",
 			link: "https://www.cinestoryfilms.com/",
-			pic: `../../static/images/service.png`,
+			pic: `/images/service.png`,
 			direction: "fade-left"
 		},
 		{
 			id: 4,
 			name: "Cinestory Films",
 			link: "https://www.cinestoryfilms.com/",
-			pic: `../../static/images/service2.png`,
+			pic: `/images/service2.png`,
 			direction: "fade-right"
 		}
 	];

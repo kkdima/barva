@@ -11,7 +11,7 @@ const TitleAndCircles = () => {
 		<HeadlineWrapper>
 			<div id='holder1'>
 				<motion.img
-					src='../static/images/OvalBlue1.svg'
+					src='/images/OvalBlue1.svg'
 					id='OvalBlue1'
 					whileHover={{ scale: 1.1, rotate: 5 }}
 					initial={{ opacity: 0, x: -20, y: 20 }}
@@ -26,7 +26,7 @@ const TitleAndCircles = () => {
 				animate={{ opacity: 1, x: 0, y: 0 }}
 				transition={transition}
 			>
-				<img src='../static/images/OvalBlue2.svg' id='OvalBlue2' />
+				<img src='/images/OvalBlue2.svg' id='OvalBlue2' />
 			</motion.div>
 
 			<motion.div
@@ -35,7 +35,7 @@ const TitleAndCircles = () => {
 				animate={{ opacity: 1, x: 0, y: 0 }}
 				transition={transition}
 			>
-				<img src='../static/images/OvalOrange.svg' id='OvalOrange' />
+				<img src='/images/OvalOrange.svg' id='OvalOrange' />
 			</motion.div>
 
 			<motion.div
@@ -44,7 +44,7 @@ const TitleAndCircles = () => {
 				animate={{ opacity: 1, x: 0, y: 0 }}
 				transition={transition}
 			>
-				<img src='../static/images/OvalOrangeSmall.svg' id='OvalOrangeSmall' />
+				<img src='/images/OvalOrangeSmall.svg' id='OvalOrangeSmall' />
 			</motion.div>
 
 			<motion.div
@@ -53,7 +53,7 @@ const TitleAndCircles = () => {
 				animate={{ opacity: 1, x: 0, y: 0 }}
 				transition={transition}
 			>
-				<img src='../static/images/OvalOrangeSmaller.svg' id='OvalOrangeSmaller' />
+				<img src='/images/OvalOrangeSmaller.svg' id='OvalOrangeSmaller' />
 			</motion.div>
 
 			<div>
@@ -80,7 +80,7 @@ const TitleAndCircles = () => {
 						delay: 1.4
 					}}
 				>
-					<H2>Based in Los Angeles</H2>
+					<H2 className='mb-5' >Based in Los Angeles</H2>
 				</motion.div>
 			</div>
 		</HeadlineWrapper>

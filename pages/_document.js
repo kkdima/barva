@@ -1,6 +1,8 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import React from 'react';
+import Document, { Head, Main, NextScript } from 'next/document';
+
 // Import styled components ServerStyleSheet
-import { ServerStyleSheet } from "styled-components";
+import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
 	static getInitialProps({ renderPage }) {
@@ -26,7 +28,7 @@ export default class MyDocument extends Document {
 					<title>BARVA</title>
 					{/* Step 5: Output the styles in the head  */}
 					{this.props.styleTags}
-					<link rel='stylesheet' href='/static/normalize.css'></link>
+					<link rel='stylesheet' href='/public/styles/index.css'></link>
 					<link rel='stylesheet' href='https://unpkg.com/aos@next/dist/aos.css' />
 				</Head>
 				<body>

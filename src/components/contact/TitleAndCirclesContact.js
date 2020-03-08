@@ -47,7 +47,7 @@ const Wrapper = styled.div`
 		#holder1 {
 			z-index: 1;
 			margin-bottom: 0px;
-			background-image: url("../../../static/images/OvalBlue1.svg");
+			background-image: url("/images/OvalBlue1.svg");
 			background-repeat: no-repeat;
 			width: 229px;
 			height: 165px;
@@ -56,7 +56,7 @@ const Wrapper = styled.div`
 			z-index: 1;
 			margin-bottom: 0px;
             position: absolute;
-			background-image: url("../../../static/images/contact/OvalBlue2.svg");
+			background-image: url("/images/contact/OvalBlue2.svg");
 			background-repeat: no-repeat;
 			width: 229px;
 			height: 165px;

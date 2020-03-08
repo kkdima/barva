@@ -41,11 +41,11 @@ export const GlobalStyle = createGlobalStyle`
   }
   @font-face {
     font-family: 'Noah-Regular';
-    src: url('../../static/fonts/Noah-Regular.otf');
+    src: url('/fonts/Noah-Regular.otf');
   }
   @font-face {
     font-family: 'Noah-Bold';
-    src: url('../../static/fonts/Noah-Bold.otf');
+    src: url('/fonts/Noah-Bold.otf');
   }
   button, a {
     cursor: pointer;

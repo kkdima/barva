@@ -17,7 +17,7 @@ const HeadlineOvals = () => (
 					delay: 0.5
 				}}
 			>
-				<img src='../static/images/OvalBlue1.svg' id='OvalBlue1' />
+				<img src='/images/OvalBlue1.svg' id='OvalBlue1' />
 			</motion.div>
 
 			<motion.div
@@ -30,7 +30,7 @@ const HeadlineOvals = () => (
 					delay: 0.5
 				}}
 			>
-				<img src='../static/images/OvalBlue2.svg' id='OvalBlue2' />
+				<img src='images/OvalBlue2.svg' id='OvalBlue2' />
 			</motion.div>
 
 			<motion.div
@@ -43,7 +43,7 @@ const HeadlineOvals = () => (
 					delay: 0.5
 				}}
 			>
-				<img src='../static/images/OvalOrange.svg' id='OvalOrange' />
+				<img src='images/OvalOrange.svg' id='OvalOrange' />
 			</motion.div>
 
 			<motion.div
@@ -56,7 +56,7 @@ const HeadlineOvals = () => (
 					delay: 0.5
 				}}
 			>
-				<img src='../static/images/OvalOrangeSmall.svg' id='OvalOrangeSmall' />
+				<img src='images/OvalOrangeSmall.svg' id='OvalOrangeSmall' />
 			</motion.div>
 
 			<motion.div
@@ -69,7 +69,7 @@ const HeadlineOvals = () => (
 					delay: 0.5
 				}}
 			>
-				<img src='../static/images/OvalOrangeSmaller.svg' id='OvalOrangeSmaller' />
+				<img src='/images/OvalOrangeSmaller.svg' id='OvalOrangeSmaller' />
 			</motion.div>
 
 			<motion.div

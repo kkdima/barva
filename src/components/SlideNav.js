@@ -41,7 +41,7 @@ class SlideNav extends Component {
 		const { animateMenu } = this.state;
 
 		return (
-			<MenuWrapper className='menu'>
+			<MenuWrapper className='menu z-50'>
 				<LogoAndMenuButton>
 					<Logo />
 					<MenuTextWrapper>

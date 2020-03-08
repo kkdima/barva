@@ -101,12 +101,12 @@ const Background = ({ src, ...style }) => {
 		<Wrapper>
 			<motion.img
 				ref={ref}
-				src='../../static/images/left.svg'
+				src='/images/left.svg'
 				style={{ ...style, y }}
 			/>
 			<motion.img
 				ref={ref2}
-				src='../../static/images/right.svg'
+				src='/images/right.svg'
 				style={{ ...style, y }}
 			/>
 		</Wrapper>

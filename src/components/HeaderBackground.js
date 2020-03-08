@@ -16,7 +16,7 @@ const Wrapper = styled.div`
         box-sizing: border-box;
 		display: flex;
 		position: absolute;
-		background-image: url("../../static/images/header_bg.svg");
+		background-image: url("/images/header_bg.svg");
 		height: 650px;
         width: 150%;
 		transform: translateX(-20%);

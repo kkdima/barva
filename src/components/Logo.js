@@ -31,15 +31,15 @@ const LogoWrapper = styled.div`
 	
 	@keyframes gifs {
 		0% {
-			background: url("../../static/images/bg-animation.gif")
+			background: url("/images/bg-animation.gif")
 				center contain no-repeat;
 		}
 		33% {
-			background: url("../../static/images/bg-animation.gif")
+			background: url("/images/bg-animation.gif")
 				center;
 		}
 		100% {
-			background: url("../../static/images/bg-animation.gif")            
+			background: url("/images/bg-animation.gif")            
 				center;
 		}
 	}

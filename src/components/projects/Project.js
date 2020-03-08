@@ -1,234 +1,141 @@
-import React, { Component } from "react";
-import { motion } from "framer-motion";
-import styled from "styled-components";
-import { device } from "../../theme/GlobalStyle";
+import React, { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
+import { device } from '../../theme/GlobalStyle';
+import {
+	imageVariantsMobile,
+	imageVariantsDesktop,
+	imageHolder,
+	imageShadowVariants,
+	content,
+	infoVariantsMobile,
+	infoVariantsDesktop,
+	transition
+} from '../../../public/styles/framer_animation/animations.js';
 
-class Project extends Component {
-	constructor(props) {
-		super(props);
+const Project = props => {
+	const [animationToggle, setAnimationToggle] = useState(false);
+	const [closeToggle, setCloseToggle] = useState(false);
+	const [isDesktop, setIsDesktop] = useState(false);
+	const [moreInfoOpened, setMoreInfoOpened] = useState(false);
+	const [width, setWidth] = useState(0);
+	const [height, setHeight] = useState(0);
 
-		this.projectImage = React.createRef();
-		this.projectInfo = React.createRef();
-		this.arrowBack = React.createRef();
-		this.showInfo = React.createRef();
+	const projectImage = useRef(null);
+	const projectInfo = useRef(null);
+	const arrowBack = useRef(null);
+	const showInfo = useRef(null);
+	const moreInfo = useRef(null);
+	const content = useRef(null);
+	const paragraph = useRef(null);
+	const info = useRef(null);
+	const image = useRef(null);
+	const wrapper = useRef(null);
 
-		this.moreInfo = React.createRef();
-		this.content = React.createRef();
-		this.paragraph = React.createRef();
-		this.info = React.createRef();
-		this.image = React.createRef();
-		this.wrapper = React.createRef();
+	const updatePredicate = () => {
+		setIsDesktop(window.innerWidth >= 1024);
+		setWidth(window.innerWidth);
+		setHeight(window.innerHeight);
 
-		this.state = {
-			animationToggle: false,
-			closeToggle: false,
-			isDesktop: false,
-			moreInfoOpened: false,
-			width: 0,
-			height: 0
-		};
+		info.current.style.flexDirection = isDesktop ? 'row' : 'column';
 
-		this.updatePredicate = this.updatePredicate.bind(this);
-	}
-
-	componentDidMount() {
-		this.updatePredicate();
-		window.addEventListener("resize", this.updatePredicate);
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener("resize", this.updatePredicate);
-	}
-
-	updatePredicate() {
-		this.setState({
-			isDesktop: window.innerWidth >= 1024,
-			width: window.innerWidth,
-			height: window.innerHeight
-		});
-		this.info.current.style.flexDirection = this.state.isDesktop
-			? "row"
-			: "column";
-		this.moreInfo.current.style.flexDirection = this.state.isDesktop
-			? "column"
-			: "row";
-	}
-
-	showMoreInfo = () => {
-		this.setState({ moreInfoOpened: !this.state.moreInfoOpened });
-		this.paragraph.current.style.height = this.state.moreInfoOpened
-			? "0px"
-			: "auto";
-		window.innerWidth >= 1024
-			? null
-			: (this.wrapper.current.style.marginBottom = this.state.moreInfoOpened
-					? "50px"
-					: this.info.current.clientHeight + "px");
+		moreInfo.current.style.flexDirection = isDesktop ? 'column' : 'row';
 	};
 
-	render() {
-		const { link, name, text, pic, direction } = this.props;
-
-		const isDesktop = this.state.isDesktop;
-		const moreInfoOpened = this.state.moreInfoOpened;
-
-		const transition = { ease: "easeOut", duration: 1 };
-
-		const imageVariantsMobile = {
-			initial: { opacity: 0, scale: 1.3 },
-			enter: {
-				opacity: 1,
-				scale: 1,
-				bottom: 0,
-				top: 0,
-				style: { margin: "auto" }
-				// x: 0
-			},
-			// click: { x: -267 },
-			hover: { scale: 1.1 },
-			arrowEnter: { rotate: 90 }
+	useEffect(() => {
+		updatePredicate();
+		window.addEventListener('resize', updatePredicate());
+		return () => {
+			window.removeEventListener('resize', updatePredicate());
 		};
+	});
 
-		const imageVariantsDesktop = {
-			initial: { opacity: 0, scale: 1.3 },
-			enter: {
-				opacity: 1,
-				scale: 1,
-				bottom: 0,
-				top: 0,
-				style: { margin: "auto" },
-				x: 0,
-				style: { zIndex: 2 }
-			},
-			click: { x: -247, style: { zIndex: 2 } },
-			hover: { scale: 1.1 }
-		};
+	const showMoreInfo = () => {
+		setMoreInfoOpened(!moreInfoOpened);
+		paragraph.current.style.height = moreInfoOpened ? '0px' : 'auto';
+		window.innerWidth >= 1024
+			? null
+			: (wrapper.current.style.marginBottom = moreInfoOpened
+					? null
+					: info.current.clientHeight - 50% + 'px');
+	};
 
-		const imageHolder = {
-			initial: { scale: 1.3 },
-			enter: { scale: 1 },
-			hover: { scale: 1.1 },
-			animate: { x: 100 },
-			click: {}
-		};
+	const { link, name, text, pic, direction } = props;
 
-		const imageShadowVariants = {
-			transition: { delay: 1 },
-			initial: {
-				opacity: 0,
-				scale: 0.8,
-				top: 94,
-				left: 0,
-				right: 0,
-				style: { margin: "auto" }
-			},
-			enter: { opacity: 0.8, scale: 1 }
-		};
-
-		const content = {
-			initial: {
-				opacity: 0,
-				scale: 0,
-				left: 0,
-				right: 0,
-				style: { margin: "auto" }
-			},
-			enterContent: { opacity: 1, scale: 1 }
-		};
-
-		const infoVariantsMobile = {
-			initial: {
-				scale: 0,
-				y: -30
-			},
-			enter: {
-				scale: 1,
-				y: 0
-			},
-			click: { y: 81 }
-		};
-
-		const infoVariantsDesktop = {
-			initial: { x: -40 },
-			enter: {
-				height: 200,
-				x: 0
-			},
-			click: {
-				height: 270,
-				x: 235
-			}
-		};
-
-		return (
-			<Wrapper ref={this.wrapper} data-aos={direction}>
-				<motion.div
-					id='image-wrapper'
-					variants={isDesktop ? imageVariantsDesktop : imageVariantsMobile}
-					animate={moreInfoOpened ? "click" : "enter"}
-				>
-					<motion.div id='image-holder'>
-						<motion.img
-							id='image'
-							ref={this.image}
-							src={pic}
-							transition={transition}
-							variants={imageHolder}
-							initial='initial'
-							// animate= 'enter'
-							whileHover='hover'
-						/>
-					</motion.div>
+	return (
+		<Wrapper ref={wrapper} data-aos={direction}>
+			<motion.div
+				id='image-wrapper'
+				variants={isDesktop ? imageVariantsDesktop : imageVariantsMobile}
+				animate={moreInfoOpened ? 'click' : 'enter'}
+				className='z-20'
+			>
+				<motion.div id='image-holder' className='z-30'>
 					<motion.img
-						id='image-shadow'
+						id='image'
+						ref={image}
 						src={pic}
-						variants={imageShadowVariants}
+						className='z-30'
 						transition={transition}
+						variants={imageHolder}
 						initial='initial'
-						animate='enter'
+						// animate= 'enter'
+						whileHover='hover'
 					/>
 				</motion.div>
-
-				<motion.div
-					id='info'
-					ref={this.info}
-					variants={isDesktop ? infoVariantsDesktop : infoVariantsMobile}
+				<motion.img
+					id='image-shadow'
+					className='z-20 h-64'
+					src={pic}
+					variants={imageShadowVariants}
+					transition={transition}
 					initial='initial'
-					animate={moreInfoOpened ? "click" : "enter"}
-				>
-					<motion.div
-						id='content'
-						ref={this.content}
-						variants={content}
-						initial='initial'
-						animate='enterContent'
-					>
-						<div id='topPart'>
-							<a href={link} target='_blank'>
-								{name}
-							</a>
-							<a href={link} target='_blank'>
-								<img src='../../../static/images/iconLink.svg' alt='' />
-							</a>
-						</div>
-						<p ref={this.paragraph}>{text}</p>
-					</motion.div>
+					animate='enter'
+				/>
+			</motion.div>
 
-					<div id='moreInfo' ref={this.moreInfo} onClick={this.showMoreInfo}>
-						{moreInfoOpened ? <p>close</p> : <p>more info</p>}
-						<motion.img
-							ref={this.arrowBack}
-							variants='infoVariantsMobile'
-							animation='arrowEnter'
-							id='icon-mobile'
-							src='../../../static/images/arrowCircle.svg'
-						/>
+			<motion.div
+				id='info'
+				ref={info}
+				variants={isDesktop ? infoVariantsDesktop : infoVariantsMobile}
+				initial='initial'
+				animate={moreInfoOpened ? 'click' : 'enter'}
+				className='flex justify-between z-0'
+			>
+				<motion.div
+					id='content'
+					ref={content}
+					variants={content}
+					initial='initial'
+					animate='enterContent'
+				>
+					<div id='topPart' className='flex mb-8'>
+						<a href={link} target='_blank'>
+							{name}
+						</a>
+						<a href={link} target='_blank'>
+							<img src='/images/iconLink.svg' className='w-8' alt='' />
+						</a>
 					</div>
+					<p className='mb-4' ref={paragraph}>
+						{text}
+					</p>
 				</motion.div>
-			</Wrapper>
-		);
-	}
-}
+
+				<div id='moreInfo' ref={moreInfo} onClick={showMoreInfo}>
+					{moreInfoOpened ? <p>close</p> : <p>more info</p>}
+					<motion.img
+						ref={arrowBack}
+						variants='infoVariantsMobile'
+						animation='arrowEnter'
+						id='icon-mobile'
+						src='/images/arrowCircle.svg'
+					/>
+				</div>
+			</motion.div>
+		</Wrapper>
+	);
+};
 
 export default Project;
 
@@ -238,9 +145,7 @@ const Wrapper = styled.div`
 		padding: 20px;
 		margin-bottom: 50px;
 		box-sizing: border-box;
-		z-index: 2;
 		position: relative;
-		/* border: solid green 1px; */
 
 		#image-holder {
 			position: relative;
@@ -253,7 +158,6 @@ const Wrapper = styled.div`
 			margin: 0;
 			padding: 0;
 			border-radius: 6px;
-			z-index: 3;
 			box-shadow: 0 10px 29px -7px rgba(0, 0, 0, 0.5);
 		}
 
@@ -264,7 +168,6 @@ const Wrapper = styled.div`
 			height: 100%;
 			box-sizing: border-box;
 			object-fit: fill;
-			z-index: 3;
 		}
 
 		#image-wrapper {
@@ -273,12 +176,11 @@ const Wrapper = styled.div`
 		#image-shadow {
 			position: absolute;
 			width: 80%;
-			height: 70%;
+			/* height: 70%; */
 			left: 0;
 			right: 0;
 			margin: auto;
 			border-radius: 6px;
-			z-index: 1;
 			-webkit-filter: blur(27px);
 			filter: blur(27px);
 		}
@@ -341,7 +243,6 @@ const Wrapper = styled.div`
 		#info {
 			display: flex;
 			flex-direction: column;
-			position: absolute;
 			box-sizing: border-box;
 			border-radius: 0 0 6px 6px;
 			width: 80%;
@@ -350,8 +251,7 @@ const Wrapper = styled.div`
 			left: 0;
 			right: 0px;
 			margin: auto;
-			top: calc(100% - 110px);
-			z-index: 2;
+			/* top: calc(100% - 110px); */
 			max-width: 490px;
 			background-color: #e5eeff;
 		}
@@ -390,11 +290,10 @@ const Wrapper = styled.div`
 	@media ${device.laptop} {
 		#info {
 			position: absolute;
+			bottom: -200px;
+			left: 118px;
 			flex-direction: row !important;
 			border-radius: 6px;
-			bottom: 0;
-			top: 0;
-			left: 118px;
 			margin: auto;
 			height: 50%;
 		}

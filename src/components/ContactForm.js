@@ -215,7 +215,7 @@ const Wrapper = styled.div`
 
 const BackgroundContactFrom = styled.div`
 	@media ${device.mobile} {
-		background-image: url("../../static/images/contact-form/contact_form_bg_mobile.svg");
+		background-image: url("/images/contact-form/contact_form_bg_mobile.svg");
 		height: 650px;
 		position: absolute;
 		z-index: -1;
@@ -229,15 +229,15 @@ const BackgroundContactFrom = styled.div`
 	@media ${device.mobileL} {
 	}
 	@media ${device.tablet} {
-		background-image: url("../../static/images/contact-form/contact_form_bg_tablet.svg");
+		background-image: url("/images/contact-form/contact_form_bg_tablet.svg");
 		height: 746px;
 	}
 	@media ${device.laptop} {
-		background-image: url("../../static/images/contact-form/contact_form_bg_laptopL.svg");
+		background-image: url("/images/contact-form/contact_form_bg_laptopL.svg");
 		height: 856px;
 	}
 	@media ${device.laptopL} {
-		background-image: url("../../static/images/contact-form/contact_form_bg_laptopL.svg");
+		background-image: url("/images/contact-form/contact_form_bg_laptopL.svg");
 		height: 856px;
 	}
 `;

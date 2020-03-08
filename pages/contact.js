@@ -20,7 +20,7 @@ const Contact = () => (
 				</div>
 				<div id='map'>
 					<img
-						src='../static/images/Screen Shot 2019-08-24 at 11.45.08 AM.png'
+						src='/images/Screen Shot 2019-08-24 at 11.45.08 AM.png'
 						alt='map image'
 					/>
 				</div>
