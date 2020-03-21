@@ -1,0 +1,4 @@
+{
+    "bracketPairColorizer.showBracketsInGutter": true,
+    "editor.suggestSelection": "recentlyUsedByPrefix"
+}

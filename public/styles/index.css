@@ -1,4 +1,11 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
+#__next-prerender-indicator {
+	display: none;
+}
+
+.allGoodColor {
+	color: #8DAEFF;
+}

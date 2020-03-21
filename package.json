@@ -26,6 +26,7 @@
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"file-loader": "^4.3.0",
+		"formik": "^2.1.4",
 		"framer-motion": "^1.9.1",
 		"googleapis": "^47.0.0",
 		"http-proxy-middleware": "^1.0.1",
@@ -41,7 +42,8 @@
 		"serve-static": "^1.14.1",
 		"styled-components": "^4.4.1",
 		"tailwindcss": "^1.2.0",
-		"url-loader": "^2.3.0"
+		"url-loader": "^2.3.0",
+		"yup": "^0.28.3"
 	},
 	"devDependencies": {
 		"babel-plugin-styled-components": "^1.10.7",
