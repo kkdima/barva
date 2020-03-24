@@ -14,7 +14,7 @@ const Contact = () => (
 			<div id='info-wrapper'>
 				<div id='info'>
 					<h4>Email</h4>
-					<p>hello@barva-design.com</p>
+					<p className='mb-8'>hello@barva-design.com</p>
 					<h4>Telephone</h4>
 					<p>+1 213-332-83-98</p>
 				</div>

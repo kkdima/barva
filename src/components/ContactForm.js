@@ -47,10 +47,10 @@ const ContactForm = () => {
 
 					axios
 						.post('/api/send', values)
-						.then(function(response) {
+						.then(response => {
 							console.log(response);
 						})
-						.catch(function(error) {
+						.catch(error => {
 							console.log(error);
 						});
 				}}
@@ -69,7 +69,6 @@ const ContactForm = () => {
 						name='contact'
 						method='POST'
 						action='/api/send'
-						name='contact'
 						onSubmit={handleSubmit}
 					>
 						<div className='w-full flex flex-col px-5'>
@@ -146,51 +145,6 @@ const ContactForm = () => {
 					</Form>
 				)}
 			</Formik>
-
-			<svg
-				width='16px'
-				height='16px'
-				viewBox='0 0 16 16'
-				version='1.1'
-				xmlns='http://www.w3.org/2000/svg'
-				xmlnsXlink='http://www.w3.org/1999/xlink'
-			>
-				<defs>
-					<linearGradient
-						x1='19.6347313%'
-						y1='64.7080107%'
-						x2='100%'
-						y2='0%'
-						id='linearGradient-1'
-					>
-						<stop stopColor='#F9885E' offset='0%' />
-						<stop stopColor='#FF7B4A' offset='100%' />
-					</linearGradient>
-				</defs>
-				<symbol id='paperPlane'>
-					<g
-						id='Page-1'
-						stroke='none'
-						strokeWidth='1'
-						fill='none'
-						fillRule='evenodd'
-					>
-						<g
-							id='Tablet-Home'
-							transform='translate(-349.000000, -2534.000000)'
-							fill='url(#linearGradient-1)'
-							fillRule='nonzero'
-						>
-							<g id='contact-us' transform='translate(1.000000, 2176.000000)'>
-								<path
-									d='M363.495711,358.035834 L348.19853,364.703837 C347.927672,364.83303 347.936006,365.220608 348.211031,365.341465 L352.348895,367.679434 C352.59475,367.816962 352.898944,367.787789 353.111463,367.604419 L361.270515,360.569675 C361.324687,360.523833 361.453865,360.436315 361.503869,360.486325 C361.55804,360.540503 361.4747,360.665528 361.428862,360.719705 L354.369907,368.6713 C354.174056,368.892177 354.144887,369.217242 354.303234,369.467293 L357.007639,373.805663 C357.140984,374.068215 357.520185,374.064048 357.641029,373.797328 L363.966586,358.498426 C364.104098,358.198366 363.791571,357.894139 363.495711,358.035834 Z'
-									id='Path'
-								/>
-							</g>
-						</g>
-					</g>
-				</symbol>
-			</svg>
 		</Wrapper>
 	);
 };

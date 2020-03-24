@@ -111,13 +111,3 @@ export const bgAnimationClose = keyframes`
         visibility: block;
     }
 `
-
-
-// export const bgAnimationClose = keyframes`
-//     0% {
-//         transform: translateY(-900px);        
-//     }
-//     100% {
-//         opacity: 0;
-//     }
-// `

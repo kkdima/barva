@@ -63,7 +63,7 @@ const Project = props => {
 	const { link, name, text, pic, direction } = props;
 
 	return (
-		<Wrapper ref={wrapper} data-aos={direction}>
+		<Wrapper ref={wrapper} data-aos={direction} className='-mb-20 lg:mb-10'>
 			<motion.div
 				id='image-wrapper'
 				variants={isDesktop ? imageVariantsDesktop : imageVariantsMobile}
@@ -79,7 +79,7 @@ const Project = props => {
 						transition={transition}
 						variants={imageHolder}
 						initial='initial'
-						// animate= 'enter'
+						animate= 'enter'
 						whileHover='hover'
 					/>
 				</motion.div>

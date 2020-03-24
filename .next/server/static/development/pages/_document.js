@@ -1886,7 +1886,13 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
         lineNumber: 27
       },
       __self: this
-    }, this.props.styleTags, __jsx("link", {
+    }, __jsx("title", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28
+      },
+      __self: this
+    }, "BARVA"), this.props.styleTags, __jsx("link", {
       rel: "stylesheet",
       href: "/public/styles/index.css",
       __source: {

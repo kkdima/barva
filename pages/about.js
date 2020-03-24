@@ -38,19 +38,23 @@ const About = () => {
 				>
 					Our team
 				</motion.h1>
-				<div className='flex-col flex md:flex-row m-auto'>
-					<div className='team'>
-						<div className='member ml-3'>
-							<img src='/images/portrait-Dima.png' alt='' />
-							<h3>Dima Kononenko</h3>
-							<h3>Designer, Web Developer</h3>
+				<div className='flex-col flex md:flex-row m-auto lg:justify-center'>
+					<div className='team md:max-w-1/2 lg:max-w-1/4'>
+						<div className='member pl-3'>
+							<img src='/images/portrait-Dima.png' alt='' className=''/>
+							<div className='ml-8'>
+								<h3>Dima Kononenko</h3>
+								<h3>Designer, Web Developer</h3>
+							</div>
 						</div>
 					</div>
-					<div className='team'>
-						<div className='member ml-4'>
-							<img src='/images/portrait-Alexandra.jpg' alt='' />
-							<h3>Alexandra Zbarashchuk</h3>
-							<h3>Front-End Developer</h3>
+					<div className='team md:max-w-1/2 lg:max-w-1/4'>
+						<div className='member pl-4'>
+							<img src='/images/portrait-Alexandra.png' alt='' className=''/>
+							<div className='ml-8'>
+								<h3>Alexandra Zbarashchuk</h3>
+								<h3>Front-End Developer</h3>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -108,8 +112,11 @@ const Wrapper = styled.div`
 			max-width: 1024px;
 			position: relative;
 			margin: auto;
-			/* border: solid red 1px; */
 		}
+
+		/* .team img {
+			max-width: 45%
+		} */
 
 		.member {
 			font-family: Noah-Bold;

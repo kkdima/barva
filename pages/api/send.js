@@ -4,14 +4,13 @@ export default (req, res) => {
 	const { google } = require('googleapis');
 	const OAuth2 = google.auth.OAuth2;
 	const nodemailer = require('nodemailer');
-	const { name, email, message, company, phone } = req.body;
+	const { name, email, message, phone } = req.body;
 
 	const output = `
       <p>You have a new contact request from Barva</p>
       <h3>Contact Details</h3>
       <ul>  
         <li>Name: ${name}</li>
-        <li>Company: ${company}</li>
         <li>Email: ${email}</li>
         <li>Phone: ${phone}</li>
       </ul>
